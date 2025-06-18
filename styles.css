@@ -105,7 +105,7 @@ body {
 /* ------------------------- */
 #home-hero { 
     position: relative;
-    min-height: 60vh;
+    min-height: 65vh; /* Adjusted height */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -122,7 +122,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, rgba(10, 37, 64, 0.75), rgba(13, 44, 75, 0.65));
+    /* UPDATED OVERLAY: More subtle gradient for better visibility */
+    background: linear-gradient(45deg, rgba(10, 37, 64, 0.9), rgba(13, 44, 75, 0.8));
 }
 
 .hero-content {
@@ -137,9 +138,16 @@ body {
 }
 
 .profile-pic { 
-    width: 160px; 
-    height: 160px; 
-    margin-bottom: 2rem;
+    /* UPDATED PHOTO: Made bigger and positioned lower */
+    width: 240px; 
+    height: 240px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    object-position: center 75%; /* This shifts the image down */
+    border: 6px solid;
+    border-image: linear-gradient(45deg, var(--secondary-color), #87CEEB) 1; /* Beautiful gradient border */
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    margin-bottom: 1.5rem;
 }
 
 .hero-text h1 { 
@@ -147,23 +155,27 @@ body {
     font-weight: 700; 
     color: var(--light-text-color);
     margin-bottom: 0.5rem; 
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.2); /* Added text shadow for pop */
 }
 
 .hero-text .affiliation { 
     font-size: 1.3rem; 
     margin-bottom: 2rem; 
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.85);
     font-weight: 300;
 }
 
 .social-links a {
-    color: var(--light-text-color);
-    font-size: 1.8rem; /* was 1.5rem */
-    margin: 0 16px;     /* more spacing */
+    /* UPDATED ICONS: Made more visible */
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.7rem; /* Slightly larger */
+    margin: 0 15px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    transition: color 0.3s, transform 0.3s;
 }
 
 .social-links a:hover {
-    color: var(--secondary-color);
+    color: #fff; /* Brighter on hover */
     transform: translateY(-3px);
 }
 
@@ -172,29 +184,32 @@ body {
 /* ------------------------- */
 .content-wrapper { 
     background-color: #fff; 
-    padding: 60px 0;
-    margin-top: -80px; /* Pulls the content up to overlap the hero */
+    padding: 80px 0; /* More vertical padding */
+    margin-top: -100px; /* Increased overlap for a more dramatic effect */
     position: relative;
     z-index: 3;
-    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    border-radius: 12px 12px 0 0; /* Slightly larger radius */
     box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
 }
 
 .content-section {
-    margin-bottom: 60px;
+    margin-bottom: 80px; /* More space between sections */
     opacity: 0;
+    transform: translateY(40px);
     animation: slideUp 0.8s forwards;
+    animation-play-state: paused; /* Will be triggered by JS if needed, but for now just CSS */
+    animation-fill-mode: both;
 }
 
-@keyframes slideUp {
-    from { transform: translateY(40px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+/* Simple scroll-based animation trigger */
+body.scrolled .content-section {
+    animation-play-state: running;
 }
 
 .content-section h2 {
     text-align: left;
     padding-bottom: 15px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .card-container { 
@@ -209,17 +224,21 @@ body {
     border-radius: var(--border-radius); 
     padding: 30px; 
     box-shadow: var(--shadow); 
-    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .card:hover { 
     transform: translateY(-10px); 
     box-shadow: var(--shadow-hover); 
+    border-color: var(--secondary-color);
 }
 
 .card h3 {
     margin-top: 0;
     margin-bottom: 0.5rem;
+    color: var(--primary-color);
 }
 
 .card .institution { font-weight: 600; }
@@ -280,8 +299,14 @@ body {
     }
     .content-wrapper {
         margin-top: -60px;
+        padding: 60px 0;
     }
     h2 {
         font-size: 1.8rem;
+    }
+    .card .year {
+        float: none;
+        display: block;
+        margin-top: 5px;
     }
 }
