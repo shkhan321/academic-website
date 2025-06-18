@@ -132,8 +132,6 @@
 
         .profile-pic-container {
             flex-shrink: 0;
-            width: 210px; /* Account for border */
-            height: 210px; /* Account for border */
         }
 
         .profile-pic {
@@ -144,24 +142,6 @@
             border: 5px solid var(--primary-color);
             box-shadow: var(--shadow);
         }
-
-        /* --- CORRECTION: Added a dedicated placeholder style --- */
-        .profile-pic-placeholder {
-            display: none; /* Hidden by default */
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: #e0e0e0;
-            border: 5px solid var(--primary-color);
-            color: var(--text-color);
-            font-size: 1.1rem;
-            font-weight: 500;
-            /* Flex properties for centering text */
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-        /* --- END CORRECTION --- */
 
         .intro-text {
             max-width: 600px;
@@ -187,8 +167,6 @@
         .contact-info svg {
             margin-right: 10px;
             fill: var(--secondary-color);
-            width: 16px; /* Ensure consistent icon size */
-            flex-shrink: 0;
         }
 
         /* General Section Styling */
@@ -250,15 +228,15 @@
             gap: 40px;
         }
         
-        .research-grid ul, .student-supervision ul, #service ul {
+        .research-grid ul, .student-supervision ul {
             list-style-type: none;
             padding-left: 0;
         }
         
-        .research-grid li, .student-supervision li, #service li {
+        .research-grid li, .student-supervision li {
             background: var(--accent-color);
             margin-bottom: 10px;
-            padding: 12px 15px;
+            padding: 10px 15px;
             border-left: 4px solid var(--secondary-color);
             border-radius: 4px;
         }
@@ -272,18 +250,11 @@
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 30px;
-            flex-wrap: wrap;
-            gap: 15px;
         }
         
         .summary-item h3 {
             margin: 0 0 5px 0;
             color: var(--secondary-color);
-            font-size: 1.8rem;
-        }
-
-        .summary-item p {
-            margin: 0;
         }
         
         .publication-list {
@@ -293,7 +264,6 @@
         
         .publication-list li {
             margin-bottom: 15px;
-            padding-left: 5px;
         }
         
         #toggle-pubs {
@@ -331,7 +301,7 @@
         }
         
         .skill-category li {
-            padding: 8px 12px;
+            padding: 8px;
             margin-bottom: 8px;
             background-color: var(--accent-color);
             border-radius: 4px;
@@ -344,7 +314,6 @@
             color: var(--light-text-color);
             text-align: center;
             padding: 20px;
-            margin-top: 40px;
         }
         
         .footer p {
@@ -426,15 +395,8 @@
         <!-- Home Section -->
         <section id="home">
             <div class="profile-pic-container">
-                <!-- --- CORRECTION: The onerror event now shows a pre-existing placeholder div --- -->
                 <!-- IMPORTANT: Replace 'profile_photo.jpg' with the path to your actual photo file -->
-                <img src="profile_photo.jpg" alt="Dr. Sanan H Khan" class="profile-pic" onerror="this.style.display='none'; document.getElementById('photo-placeholder').style.display='flex';">
-                
-                <!-- This placeholder is hidden by default and will only appear if the image above fails to load -->
-                <div id="photo-placeholder" class="profile-pic-placeholder">
-                    Your Photo Here
-                </div>
-                <!-- --- END CORRECTION --- -->
+                <img src="profile_photo.jpg" alt="Dr. Sanan H Khan" class="profile-pic" onerror="this.style.display='none'; this.parentElement.innerHTML += '<div style=\'width:200px;height:200px;border-radius:50%;background:#ccc;display:flex;align-items:center;justify-content:center;text-align:center;color:#333;font-size:1.2rem;\'>Your Photo Here</div>'">
             </div>
             <div class="intro-text">
                 <h1>Sanan H Khan, PhD</h1>
@@ -442,10 +404,10 @@
                 Department of Mechanical and Aerospace Engineering<br>
                 United Arab Emirates University</p>
                 <div class="contact-info">
-                    <p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg> +971-0566496920</p>
-                    <p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112v64c0 26.5 21.5 48 48 48H464c26.5 0 48-21.5 48-48v-64c0-26.5-21.5-48-48-48H48zM0 288c0-26.5 21.5-48 48-48H464c26.5 0 48 21.5 48 48v64c0 26.5-21.5-48-48-48H48c-26.5 0-48 21.5-48 48v-64zM464 352H48c-26.5 0-48 21.5-48 48v64c0 26.5 21.5 48 48 48H464c26.5 0 48-21.5 48-48v-64c0-26.5-21.5-48-48-48z"/></svg> +971-37135196 (Office)</p>
-                    <p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112v288c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zM48 96h416c8.8 0 16 7.2 16 16v41.4c-21.9 18.5-53.2 44.1-154.6 125c-10.3 8.3-22.2 12.6-34.9 12.6s-24.6-4.3-34.9-12.6C137.2 197.5 105.9 171.9 84 153.4V112c0-8.8 7.2-16 16-16zM448 416H64c-8.8 0-16-7.2-16-16V195c22.8 18.7 58.8 47.6 130.7 104.7c15.8 12.8 34.7 19.3 53.3 19.3s37.5-6.5 53.3-19.3c71.9-57.1 107.9-86 130.7-104.7V400c0 8.8-7.2 16-16 16z"/></svg> <a href="mailto:shkhan@uaeu.ac.ae" style="color:var(--secondary-color);">shkhan@uaeu.ac.ae</a></p>
-                    <p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M496 256c0 137-111 248-248 248S0 393 0 256S111 8 248 8s248 111 248 248zM248 399.7c25.4 0 46-20.6 46-46s-20.6-46-46-46s-46 20.6-46 46s20.6 46 46 46zm12.8-124.2c-1.2 2.5-2.5 5-3.9 7.4c-11.8 19.9-32.9 31.8-54.2 31.8c-12.9 0-25.7-4.1-36.2-12.3c-13.3-10.4-21.6-25.9-21.6-42.5c0-25.1 17.5-47.2 41.6-54.1c11.8-3.4 21.6-1.9 29.6 4.3c5.8 4.5 9.2 11.1 9.2 18.1c0 10.9-8.8 19.7-19.7 19.7c-2.4 0-4.8-.4-7.1-1.2c-4.9-1.7-11.4-2.4-11.4 4.3c0 1.4 .4 2.8 .9 4.1c2.2 5.5 8.5 9.5 15.6 9.5c7.9 0 14.8-4.8 18.3-12.1c4.1-8.5 12.6-14.2 22.3-14.2c12.2 0 22.1 9.9 22.1 22.1c0 5.8-2.2 11.3-6.2 15.6z"/></svg> <a href="https://scholar.google.com/citations?user=your_scholar_id" target="_blank" style="color:var(--secondary-color);">Google Scholar Profile</a></p>
+                    <p><svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg> +971-0566496920</p>
+                    <p><svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112v64c0 26.5 21.5 48 48 48H464c26.5 0 48-21.5 48-48v-64c0-26.5-21.5-48-48-48H48zM0 288c0-26.5 21.5-48 48-48H464c26.5 0 48 21.5 48 48v64c0 26.5-21.5-48-48-48H48c-26.5 0-48 21.5-48 48v-64zM464 352H48c-26.5 0-48 21.5-48 48v64c0 26.5 21.5 48 48 48H464c26.5 0 48-21.5 48-48v-64c0-26.5-21.5-48-48-48z"/></svg> +971-37135196 (Office)</p>
+                    <p><svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112v288c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zM48 96h416c8.8 0 16 7.2 16 16v41.4c-21.9 18.5-53.2 44.1-154.6 125c-10.3 8.3-22.2 12.6-34.9 12.6s-24.6-4.3-34.9-12.6C137.2 197.5 105.9 171.9 84 153.4V112c0-8.8 7.2-16 16-16zM448 416H64c-8.8 0-16-7.2-16-16V195c22.8 18.7 58.8 47.6 130.7 104.7c15.8 12.8 34.7 19.3 53.3 19.3s37.5-6.5 53.3-19.3c71.9-57.1 107.9-86 130.7-104.7V400c0 8.8-7.2 16-16 16z"/></svg> <a href="mailto:shkhan@uaeu.ac.ae" style="color:var(--secondary-color);">shkhan@uaeu.ac.ae</a></p>
+                    <p><svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 496 512"><path d="M496 256c0 137-111 248-248 248S0 393 0 256S111 8 248 8s248 111 248 248zM248 399.7c25.4 0 46-20.6 46-46s-20.6-46-46-46s-46 20.6-46 46s20.6 46 46 46zm12.8-124.2c-1.2 2.5-2.5 5-3.9 7.4c-11.8 19.9-32.9 31.8-54.2 31.8c-12.9 0-25.7-4.1-36.2-12.3c-13.3-10.4-21.6-25.9-21.6-42.5c0-25.1 17.5-47.2 41.6-54.1c11.8-3.4 21.6-1.9 29.6 4.3c5.8 4.5 9.2 11.1 9.2 18.1c0 10.9-8.8 19.7-19.7 19.7c-2.4 0-4.8-.4-7.1-1.2c-4.9-1.7-11.4-2.4-11.4 4.3c0 1.4 .4 2.8 .9 4.1c2.2 5.5 8.5 9.5 15.6 9.5c7.9 0 14.8-4.8 18.3-12.1c4.1-8.5 12.6-14.2 22.3-14.2c12.2 0 22.1 9.9 22.1 22.1c0 5.8-2.2 11.3-6.2 15.6z"/></svg> <a href="https://scholar.google.com/citations?user=your_scholar_id" target="_blank" style="color:var(--secondary-color);">Google Scholar Profile</a></p>
                 </div>
             </div>
         </section>
@@ -659,9 +621,13 @@
         const morePubs = document.getElementById('more-pubs');
 
         toggleBtn.addEventListener('click', () => {
-            const isHidden = morePubs.style.display === 'none' || morePubs.style.display === '';
-            morePubs.style.display = isHidden ? 'block' : 'none';
-            toggleBtn.textContent = isHidden ? 'Show Less' : 'Show More';
+            if (morePubs.style.display === 'none' || morePubs.style.display === '') {
+                morePubs.style.display = 'block';
+                toggleBtn.textContent = 'Show Less';
+            } else {
+                morePubs.style.display = 'none';
+                toggleBtn.textContent = 'Show More';
+            }
         });
     </script>
 
