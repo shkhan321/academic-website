@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Sanan H Khan | Home</title>
+    <title>Dr. Sanan H Khan | Academic Profile</title>
     
     <!-- Link to the external CSS file -->
     <link rel="stylesheet" href="style.css">
     
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -36,19 +36,18 @@
     <main>
         <!-- HERO SECTION -->
         <section id="home-hero">
-            <div class="hero-content">
+            <div class="hero-overlay"></div>
+            <div class="hero-content container">
                 <div class="hero-image-container">
-                    <img src="Sanan11.jpg" alt="Dr. Sanan H Khan" class="profile-pic" onerror="this.style.display='none'; document.getElementById('photo-placeholder').style.display='flex';">
-                    <div id="photo-placeholder" class="profile-pic-placeholder" style="display: none;">Photo Not Found</div>
+                    <img src="Sanan11.jpg" alt="Dr. Sanan H Khan" class="profile-pic">
                 </div>
                 <div class="hero-text">
                     <h1>Sanan H Khan, PhD</h1>
                     <p class="affiliation">Assistant Professor | Mechanical & Aerospace Engineering</p>
                     <div class="social-links">
-                        <a href="mailto:shkhan@uaeu.ac.ae" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                        <a href="#" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" aria-label="ResearchGate"><i class="fab fa-researchgate"></i></a>
+                        <a href="mailto:shkhan@uaeu.ac.ae" aria-label="Email" title="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="#" aria-label="Google Scholar" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                        <a href="#" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>
@@ -57,14 +56,14 @@
         <!-- MAIN CONTENT AREA -->
         <div class="content-wrapper">
             <div class="container">
-                <section id="biography">
+                <section id="biography" class="content-section">
                     <h2>Brief Biography</h2>
                     <p>
                         Dr. Sanan H. Khan is an Assistant Professor in the Department of Mechanical and Aerospace Engineering at United Arab Emirates University. He received his Ph.D. in Solid Mechanics and Design from the Indian Institute of Technology Kanpur (IITK) in 2018. Prior to joining UAEU, he held a postdoctoral position at IIT Delhi and an Assistant Professor position at Aligarh Muslim University. Dr. Khan’s research focuses on computational and experimental mechanics, with a particular emphasis on impact dynamics, composite materials, and the application of finite element methods to structural analysis. He has a strong publication record in leading international journals and actively participates in conferences.
                     </p>
                 </section>
 
-                <section id="experience">
+                <section id="experience" class="content-section">
                     <h2>Professional Experience</h2>
                     <div class="card-container">
                         <div class="card">
@@ -78,7 +77,7 @@
                     </div>
                 </section>
 
-                <section id="education">
+                <section id="education" class="content-section">
                     <h2>Educational Qualifications</h2>
                     <div class="card-container">
                         <div class="card">
@@ -95,11 +94,10 @@
         <p>&copy; 2025 Sanan H Khan. All Rights Reserved.</p>
     </footer>
 
+    <!-- JavaScript for Mobile Menu -->
     <script>
-        // Simple mobile navigation toggle
         const navToggle = document.getElementById('nav-toggle-button');
         const navLinks = document.querySelector('.nav-links');
-
         navToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
