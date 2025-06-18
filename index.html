@@ -3,48 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Sanan H. Khan</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <title>Dr. Sanan H Khan | Home</title>
+    
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <header>
-        <div class="profile">
-            <img src="path/to/khan-photo.jpg" alt="Dr. Sanan H. Khan" class="profile-photo">
-            <h1>Dr. Sanan H. Khan</h1>
-            <p>Assistant Professor | Mechanical and Aerospace Engineering | UAE University</p>
-            <p>Phone: +971-0566496920 | Email: <a href="mailto:shkhan@uaeu.ac.ae">shkhan@uaeu.ac.ae</a> | 
-               <a href="https://scholar.google.com/citations?user=your-id" target="_blank">Google Scholar</a></p>
-        </div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="research.html">Research</a>
-            <a href="teaching.html">Teaching</a>
-            <a href="contact.html">Contact</a>
+
+    <header class="header">
+        <nav class="navbar container">
+            <a href="index.html" class="nav-brand">Dr. Sanan H Khan</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="teaching.html">Teaching</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="nav-toggle-button" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
         </nav>
     </header>
+
     <main>
-        <section id="biography">
-            <h2>Biography</h2>
-            <p>Dr. Sanan H. Khan is an Assistant Professor in the Department of Mechanical and Aerospace Engineering at United Arab Emirates University. He received his Ph.D. in Solid Mechanics and Design from the Indian Institute of Technology Kanpur (IITK) in 2018. Prior to joining UAEU, he held a postdoctoral position at IIT Delhi and served as an Assistant Professor at Aligarh Muslim University. Dr. Khan's research focuses on computational and experimental mechanics, with a particular emphasis on impact dynamics, composite materials, and the application of finite element methods to structural analysis. He has a strong publication record in leading international journals and actively participates in conferences. His work is highly relevant to aerospace, defense, and automotive engineering. Dr. Khan has secured and managed research projects exceeding 1.5 million AED, including recent grants from Al Ain Municipality and a joint research project with Abu Dhabi University.</p>
+        <!-- HERO SECTION -->
+        <section id="home-hero">
+            <div class="hero-content">
+                <div class="hero-image-container">
+                    <img src="Sanan11.jpg" alt="Dr. Sanan H Khan" class="profile-pic" onerror="this.style.display='none'; document.getElementById('photo-placeholder').style.display='flex';">
+                    <div id="photo-placeholder" class="profile-pic-placeholder" style="display: none;">Photo Not Found</div>
+                </div>
+                <div class="hero-text">
+                    <h1>Sanan H Khan, PhD</h1>
+                    <p class="affiliation">Assistant Professor | Mechanical & Aerospace Engineering</p>
+                    <div class="social-links">
+                        <a href="mailto:shkhan@uaeu.ac.ae" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="#" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="ResearchGate"><i class="fab fa-researchgate"></i></a>
+                    </div>
+                </div>
+            </div>
         </section>
-        <section id="education">
-            <h2>Education</h2>
-            <ul>
-                <li>Ph.D. in Solid Mechanics and Design, Indian Institute of Technology Kanpur (IITK), 2018</li>
-                <li>Sr. Project Scientist (Postdoctoral Fellowship), Indian Institute of Technology Delhi (IITD), Feb 2018 - July 2018</li>
-            </ul>
-        </section>
-        <section id="teaching-experience">
-            <h2>Teaching Experience</h2>
-            <ul>
-                <li>Assistant Professor, United Arab Emirates University, 2021 - Present</li>
-                <li>Assistant Professor, Aligarh Muslim University, India, Aug 2018 - July 2021</li>
-            </ul>
-        </section>
+
+        <!-- MAIN CONTENT AREA -->
+        <div class="content-wrapper">
+            <div class="container">
+                <section id="biography">
+                    <h2>Brief Biography</h2>
+                    <p>
+                        Dr. Sanan H. Khan is an Assistant Professor in the Department of Mechanical and Aerospace Engineering at United Arab Emirates University. He received his Ph.D. in Solid Mechanics and Design from the Indian Institute of Technology Kanpur (IITK) in 2018. Prior to joining UAEU, he held a postdoctoral position at IIT Delhi and an Assistant Professor position at Aligarh Muslim University. Dr. Khan’s research focuses on computational and experimental mechanics, with a particular emphasis on impact dynamics, composite materials, and the application of finite element methods to structural analysis. He has a strong publication record in leading international journals and actively participates in conferences.
+                    </p>
+                </section>
+
+                <section id="experience">
+                    <h2>Professional Experience</h2>
+                    <div class="card-container">
+                        <div class="card">
+                            <h3>Assistant Professor</h3>
+                            <p><span class="institution">United Arab Emirates University</span> <span class="year">2021-Present</span></p>
+                        </div>
+                        <div class="card">
+                            <h3>Assistant Professor</h3>
+                            <p><span class="institution">Aligarh Muslim University, India</span> <span class="year">2018 – 2021</span></p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="education">
+                    <h2>Educational Qualifications</h2>
+                    <div class="card-container">
+                        <div class="card">
+                            <h3>Ph.D. in Solid Mechanics and Design</h3>
+                            <p><span class="institution">Indian Institute of Technology Kanpur (IITK)</span> <span class="year">2018</span></p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
     </main>
-    <footer>
-        <p>© 2025 Dr. Sanan H. Khan | All rights reserved</p>
+
+    <footer class="footer">
+        <p>&copy; 2025 Sanan H Khan. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        // Simple mobile navigation toggle
+        const navToggle = document.getElementById('nav-toggle-button');
+        const navLinks = document.querySelector('.nav-links');
+
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+
 </body>
 </html>
