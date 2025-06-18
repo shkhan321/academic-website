@@ -1,128 +1,635 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dr. Sanan H. Khan – Academic Profile</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f8f9fa;
-      color: #333;
-    }
-    header {
-      background-color: #003366;
-      color: white;
-      padding: 2rem;
-      text-align: center;
-    }
-    nav {
-      background-color: #002244;
-      padding: 0.5rem;
-      text-align: center;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 1rem;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    section {
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
-    }
-    h2 {
-      border-bottom: 2px solid #003366;
-      padding-bottom: 0.3rem;
-    }
-    footer {
-      background-color: #003366;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Sanan H Khan | Academic Profile</title>
+    <style>
+        /* General Styling & Variables */
+        :root {
+            --primary-color: #003366; /* Deep Blue */
+            --secondary-color: #007BFF; /* Bright Blue */
+            --accent-color: #f4f4f4; /* Light Grey Background */
+            --text-color: #333;
+            --light-text-color: #fff;
+            --border-color: #ddd;
+            --shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        h2 {
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        
+        h3 {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        /* Header & Navigation */
+        .header {
+            background-color: var(--primary-color);
+            color: var(--light-text-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+
+        .nav-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--light-text-color);
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .nav-links li {
+            padding: 0 15px;
+        }
+
+        .nav-links a {
+            color: var(--light-text-color);
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #aaccff;
+            text-decoration: none;
+        }
+        
+        .nav-toggle {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Hero Section (Home) */
+        #home {
+            background-color: var(--accent-color);
+            padding: 60px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            text-align: left;
+        }
+
+        .profile-pic-container {
+            flex-shrink: 0;
+        }
+
+        .profile-pic {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary-color);
+            box-shadow: var(--shadow);
+        }
+
+        .intro-text {
+            max-width: 600px;
+        }
+        
+        .intro-text h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+
+        .intro-text .affiliation {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info p {
+            margin: 5px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info svg {
+            margin-right: 10px;
+            fill: var(--secondary-color);
+        }
+
+        /* General Section Styling */
+        section {
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        /* Biography Section */
+        #biography p {
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        /* Card-based layouts (Experience, Education) */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+        
+        .card .institution {
+            font-weight: bold;
+            color: var(--text-color);
+        }
+        
+        .card .year {
+            font-style: italic;
+            color: #666;
+            float: right;
+        }
+
+        /* Research Section */
+        .research-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .research-grid ul, .student-supervision ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .research-grid li, .student-supervision li {
+            background: var(--accent-color);
+            margin-bottom: 10px;
+            padding: 10px 15px;
+            border-left: 4px solid var(--secondary-color);
+            border-radius: 4px;
+        }
+
+        /* Publications Section */
+        .pub-summary {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            background: var(--accent-color);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .summary-item h3 {
+            margin: 0 0 5px 0;
+            color: var(--secondary-color);
+        }
+        
+        .publication-list {
+            list-style-type: decimal;
+            padding-left: 20px;
+        }
+        
+        .publication-list li {
+            margin-bottom: 15px;
+        }
+        
+        #toggle-pubs {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        
+        #toggle-pubs:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .skill-category {
+            width: 45%;
+            min-width: 280px;
+        }
+        
+        .skill-category ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .skill-category li {
+            padding: 8px;
+            margin-bottom: 8px;
+            background-color: var(--accent-color);
+            border-radius: 4px;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--primary-color);
+            color: var(--light-text-color);
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .footer p {
+            margin: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .research-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav-toggle {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links li {
+                padding: 10px 0;
+                text-align: center;
+                width: 100%;
+            }
+            #home {
+                flex-direction: column;
+                text-align: center;
+            }
+            .intro-text h1 {
+                font-size: 2.2rem;
+            }
+            .contact-info p {
+                justify-content: center;
+            }
+            .skills-container {
+                flex-direction: column;
+            }
+            .skill-category {
+                width: 100%;
+            }
+        }
+
+    </style>
 </head>
 <body>
 
-<header>
-  <h1>Dr. Sanan H. Khan</h1>
-  <p>Assistant Professor | Mechanical and Aerospace Engineering | UAE University</p>
-</header>
-  <!-- This is a line for adding image of Sanan -->
+    <!-- Header and Navigation -->
+    <header class="header">
+        <nav class="navbar container">
+            <a href="#home" class="nav-brand">Dr. Sanan H Khan</a>
+            <button class="nav-toggle" id="nav-toggle-button" aria-label="Menu">☰</button>
+            <ul class="nav-links" id="nav-links-list">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#biography">Biography</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#teaching">Teaching</a></li>
+                <li><a href="#service">Service</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<section id="bio">
-  <h2>Biography</h2>
-  <img src="Sanan11.jpg" alt="Dr. Sanan H. Khan" style="width:200px; border-radius:10px; float:right; margin:0 0 1em 1em;">
-  <p>
-    Dr. Sanan H. Khan is an Assistant Professor in the Department of Mechanical and Aerospace Engineering at UAE University.
-    He received his Ph.D. from IIT Kanpur in Solid Mechanics and Design...
-  </p>
-</section>
-    <!-- This is a line for adding image of Sanan -->
+    <main>
+        <!-- Home Section -->
+        <section id="home">
+            <div class="profile-pic-container">
+                <!-- IMPORTANT: Replace 'profile_photo.jpg' with the path to your actual photo file -->
+                <img src="profile_photo.jpg" alt="Dr. Sanan H Khan" class="profile-pic" onerror="this.style.display='none'; this.parentElement.innerHTML += '<div style=\'width:200px;height:200px;border-radius:50%;background:#ccc;display:flex;align-items:center;justify-content:center;text-align:center;color:#333;font-size:1.2rem;\'>Your Photo Here</div>'">
+            </div>
+            <div class="intro-text">
+                <h1>Sanan H Khan, PhD</h1>
+                <p class="affiliation">Assistant Professor<br>
+                Department of Mechanical and Aerospace Engineering<br>
+                United Arab Emirates University</p>
+                <div class="contact-info">
+                    <p><svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg> +971-0566496920</p>
+                    <p><svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112v64c0 26.5 21.5 48 48 48H464c26.5 0 48-21.5 48-48v-64c0-26.5-21.5-48-48-48H48zM0 288c0-26.5 21.5-48 48-48H464c26.5 0 48 21.5 48 48v64c0 26.5-21.5-48-48-48H48c-26.5 0-48 21.5-48 48v-64zM464 352H48c-26.5 0-48 21.5-48 48v64c0 26.5 21.5 48 48 48H464c26.5 0 48-21.5 48-48v-64c0-26.5-21.5-48-48-48z"/></svg> +971-37135196 (Office)</p>
+                    <p><svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112v288c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zM48 96h416c8.8 0 16 7.2 16 16v41.4c-21.9 18.5-53.2 44.1-154.6 125c-10.3 8.3-22.2 12.6-34.9 12.6s-24.6-4.3-34.9-12.6C137.2 197.5 105.9 171.9 84 153.4V112c0-8.8 7.2-16 16-16zM448 416H64c-8.8 0-16-7.2-16-16V195c22.8 18.7 58.8 47.6 130.7 104.7c15.8 12.8 34.7 19.3 53.3 19.3s37.5-6.5 53.3-19.3c71.9-57.1 107.9-86 130.7-104.7V400c0 8.8-7.2 16-16 16z"/></svg> <a href="mailto:shkhan@uaeu.ac.ae" style="color:var(--secondary-color);">shkhan@uaeu.ac.ae</a></p>
+                    <p><svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 496 512"><path d="M496 256c0 137-111 248-248 248S0 393 0 256S111 8 248 8s248 111 248 248zM248 399.7c25.4 0 46-20.6 46-46s-20.6-46-46-46s-46 20.6-46 46s20.6 46 46 46zm12.8-124.2c-1.2 2.5-2.5 5-3.9 7.4c-11.8 19.9-32.9 31.8-54.2 31.8c-12.9 0-25.7-4.1-36.2-12.3c-13.3-10.4-21.6-25.9-21.6-42.5c0-25.1 17.5-47.2 41.6-54.1c11.8-3.4 21.6-1.9 29.6 4.3c5.8 4.5 9.2 11.1 9.2 18.1c0 10.9-8.8 19.7-19.7 19.7c-2.4 0-4.8-.4-7.1-1.2c-4.9-1.7-11.4-2.4-11.4 4.3c0 1.4 .4 2.8 .9 4.1c2.2 5.5 8.5 9.5 15.6 9.5c7.9 0 14.8-4.8 18.3-12.1c4.1-8.5 12.6-14.2 22.3-14.2c12.2 0 22.1 9.9 22.1 22.1c0 5.8-2.2 11.3-6.2 15.6z"/></svg> <a href="https://scholar.google.com/citations?user=your_scholar_id" target="_blank" style="color:var(--secondary-color);">Google Scholar Profile</a></p>
+                </div>
+            </div>
+        </section>
 
+        <div class="container">
+            <!-- Biography Section -->
+            <section id="biography">
+                <h2>Brief Biography</h2>
+                <p>
+                    Dr. Sanan H. Khan is an Assistant Professor in the Department of Mechanical and Aerospace Engineering at United Arab Emirates University. He received his Ph.D. in Solid Mechanics and Design from the Indian Institute of Technology Kanpur (IITK) in 2018. Prior to joining UAEU, he held a postdoctoral position at IIT Delhi and an Assistant Professor position at Aligarh Muslim University. Dr. Khan’s research focuses on computational and experimental mechanics, with a particular emphasis on impact dynamics, composite materials, and the application of finite element methods to structural analysis. He has a strong publication record in leading international journals and actively participates in conferences. His work is highly relevant to aerospace, defense, and automotive engineering. Dr. Khan has secured and managed research projects exceeding 1.5 million AED, including recent grants from Al Ain Municipality and a joint research project with Abu Dhabi University. He actively collaborates with international researchers and is exploring partnerships with industry leaders like Dassault Systèmes Aviation.
+                </p>
+            </section>
 
-<nav>
-  <a href="#bio">Bio</a>
-  <a href="#research">Research</a>
-  <a href="#publications">Publications</a>
-  <a href="#teaching">Teaching</a>
-  <a href="#contact">Contact</a>
-</nav>
+            <!-- Education Section -->
+            <section id="education">
+                <h2>Educational Qualifications</h2>
+                <div class="card">
+                    <h3>Ph.D. / Solid Mechanics and Design</h3>
+                    <p><span class="institution">Indian Institute of Technology Kanpur (IITK), India</span> <span class="year">2018</span></p>
+                </div>
+            </section>
 
-<section id="bio">
-  <h2>Biography</h2>
-  <p>
-    Dr. Sanan H. Khan is an Assistant Professor in the Department of Mechanical and Aerospace Engineering at UAE University.
-    He received his Ph.D. from the Indian Institute of Technology Kanpur (IITK) in Solid Mechanics and Design.
-    His research interests include computational and experimental mechanics, failure in composites, and damage modeling.
-  </p>
-</section>
+            <!-- Experience Section -->
+            <section id="experience">
+                <h2>Professional Experience</h2>
+                <div class="card-container">
+                    <div class="card">
+                        <h3>Assistant Professor</h3>
+                        <p><span class="institution">United Arab Emirates University</span> <span class="year">2021-Present</span></p>
+                    </div>
+                    <div class="card">
+                        <h3>Assistant Professor</h3>
+                        <p><span class="institution">Aligarh Muslim University, India</span> <span class="year">Aug 2018 – July 2021</span></p>
+                    </div>
+                    <div class="card">
+                        <h3>Sr. Project Scientist (Postdoc)</h3>
+                        <p><span class="institution">Indian Institute of Technology Delhi (IITD)</span> <span class="year">Feb 2018 – July 2018</span></p>
+                    </div>
+                </div>
+            </section>
 
-<section id="research">
-  <h2>Research Interests</h2>
-  <ul>
-    <li>Failure analysis of fiber metal laminates</li>
-    <li>Computational mechanics of composite materials</li>
-    <li>Mesh-objective damage modeling</li>
-    <li>VUMAT implementation for progressive failure</li>
-  </ul>
-</section>
+            <!-- Research Section -->
+            <section id="research">
+                <h2>Research</h2>
+                
+                <h3>Research Grants and Projects</h3>
+                <ul>
+                    <li><strong>Principal Investigator:</strong> UAEU–Abu Dhabi Joint Research Grant (∼ 400,000 AED) - Ongoing.</li>
+                    <li><strong>Principal Investigator:</strong> External Research Grant from Al Ain Municipality (∼ 220,000 AED, March 2025) - Ongoing.</li>
+                    <li><strong>Principal Investigator:</strong> Successfully completed UAEU Research Startup Grant (2023–2025) worth ∼ 400,000 AED, establishing foundational laboratory infrastructure.</li>
+                </ul>
 
-<section id="publications">
-  <h2>Selected Publications</h2>
-  <p><strong>Khan, S. H.</strong>, et al. "Failure mechanisms in hybrid laminates under impact loading." *Composite Structures*, 2024.</p>
-  <p><strong>Khan, S. H.</strong>, et al. "Mesh-objective VUMAT implementation for composite damage." *Mechanics of Advanced Materials and Structures*, 2023.</p>
-  <!-- Add more here -->
-</section>
+                <div class="research-grid">
+                    <div>
+                        <h3>Area of Interest</h3>
+                        <ul>
+                            <li>Composite structures</li>
+                            <li>Impact mechanics</li>
+                            <li>Aircraft Structures</li>
+                            <li>Finite element method</li>
+                            <li>High strain rate loading</li>
+                            <li>Machine learning (ML)</li>
+                            <li>Digital Image Correlation</li>
+                            <li>Aircraft winglet design optimization</li>
+                            <li>Green composites</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Research Infrastructure Established</h3>
+                        <p>Established a well-equipped laboratory in the District 4.0 lab through startup grant, SURE Plus, and GP Funds, including:</p>
+                        <ul>
+                            <li>Digital Image Correlation (DIC) system (110,000 AED)</li>
+                            <li>Abaqus Software Perpetual Licenses (78,000 AED)</li>
+                            <li>Surface roughness tester (10,000 AED)</li>
+                            <li>Sandblasting setup (10,000 AED)</li>
+                            <li>Ultrasonic cleaner (10,000 AED)</li>
+                            <li>3D printer (7,500 AED)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Student Supervision</h3>
+                <div class="student-supervision">
+                     <ul>
+                        <li><strong>3rd Year PhD student:</strong> Completed experiments, proficient in FEM Abaqus simulations, passed comprehensive and prospectus exams. Published 2 conference papers and 2 Q1 journal papers; 3 additional Q1 papers under review.</li>
+                        <li><strong>2nd Year PhD student (Part-Time):</strong> Published first Q1 journal paper (Review); progressing towards comprehensive exam.</li>
+                        <li><strong>2nd Year Master’s student (Part-Time):</strong> Finalizing thesis; scheduled presentations at TII Abu Dhabi Conference 2025 and a US conference in 2025.</li>
+                        <li><strong>1st Year Master’s student (NSSTC sponsored):</strong> Working on a review paper in Spacecraft Materials.</li>
+                    </ul>
+                </div>
+                
+                <h3>Skills</h3>
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h4>Experimental Expertise</h4>
+                        <ul>
+                            <li>Split Hopkinson Tensile Bar (SHTB)</li>
+                            <li>High-velocity Impact, Drop weight impact</li>
+                            <li>High-speed Imaging (DIC)</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Computational Skills</h4>
+                        <ul>
+                            <li>FEM software packages (Abaqus, etc.) - Modeling</li>
+                            <li>VUMAT code(s) in FORTRAN</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
 
-<section id="teaching">
-  <h2>Teaching</h2>
-  <ul>
-    <li>MECH 305 – Mechanics of Materials</li>
-    <li>MECH 315 – Geometric Modeling</li>
-    <li>MECH 390 – Engineering Materials</li>
-    <li>MECH 660 – Graduate Seminar in Mechanical Engineering</li>
-    <!-- Add or modify as needed -->
-  </ul>
-</section>
+            <!-- Publications Section -->
+            <section id="publications">
+                <h2>Publications</h2>
+                <div class="pub-summary">
+                    <div class="summary-item">
+                        <h3>28</h3>
+                        <p>SCI Indexed Papers</p>
+                    </div>
+                    <div class="summary-item">
+                        <h3>14</h3>
+                        <p>Conference Proceedings</p>
+                    </div>
+                    <div class="summary-item">
+                        <h3>697</h3>
+                        <p>Citations</p>
+                    </div>
+                    <div class="summary-item">
+                        <h3>12</h3>
+                        <p>h-index</p>
+                    </div>
+                </div>
+                
+                <h3>Selected Recent Publications (2024-2025)</h3>
+                <ol class="publication-list">
+                    <li>Ahmed, E., Muaz, M., Arif, S., et al. & Sanan H Khan. ”Lightweight Aluminum Joint Design: Enhancement of Mechanical Properties through Novel Interlayer and Powder Additives in Friction Stir Welding”, <i>International Journal of Lightweight Materials and Manufacture</i>, 2025.</li>
+                    <li>Faheem, A., Hasan, F., Khan, A. A., et al. & Sanan H Khan. ”Post-machining characterization of novel Ni55. 65Ti-SMA via electric discharge machining route”, <i>Results in Engineering</i>, vol. 25, 2025.</li>
+                    <li>Sanan H Khan, Danish, M., Ayaz, M., et al. ”Aerodynamic analysis and ANN-based optimization of NACA airfoils for enhanced UAV performance”, <i>Scientific Reports</i>, vol. 15, no. 1, 2025.</li>
+                    <li>Saeed, S., Abdulla, S., Shaheen, S., et al. & Sanan H Khan. ”Optimizing NACA airfoils for sustainable medical delivery UAVs: Aerodynamic analysis”, <i>Progress in Engineering Science</i>, 2025.</li>
+                    <li>Mourad, A-H. I., Sajith, S., Shitole, S., et al. & Sanan H Khan. ”Fatigue life and crack growth prediction of metallic structures: A review”, <i>Structures</i>, vol. 76, 2025.</li>
+                    <div id="more-pubs" style="display:none;">
+                        <li>Athani, A., Ghazali, N. N. N., Badruddin, I. A., et al. & Sanan H Khan. ”Image-Based Hemodynamic and Rheological Study of Patient’s Diseased Arterial Vasculatures Using CFD and FSI Analysis: A review”, <i>Archives of Computational Methods in Engineering</i>, 2024.</li>
+                        <li>Ramachandrarao, M., Sanan H Khan, & Abdullah, K. ”Carbon Nanotubes and Nanofibers–reinforcement to Carbon Fiber Composites-Synthesis, Characterizations and Applications: A Review”, <i>Composites Part C: Open Access</i>, 2024.</li>
+                        <li>Kumar, Y., Sanan H Khan, & Mourad, A. H. I. ”Role of ABS and EPS foams in determining the performance of motorcyclist helmet during impact loading”, <i>International Journal of Crashworthiness</i>, vol. 29, no. 4, pp. 759-770, 2024.</li>
+                        <li>Husain, A., Danish, M., Sanan H Khan, & Mourad, A-H. I. ”Predicting projectile residual velocities using an advanced artificial neural network model”, <i>Heliyon</i>, vol. 10, no. 11, 2024.</li>
+                        <li>Azeem, M., Hamdan, H. Y., Alam, M. A., et al. & Sanan H Khan. ”Impact response of filament-wound structure with polymeric liner: Experimental and numerical investigation (Part-A)”, <i>Results in Engineering</i>, vol. 21, 2024.</li>
+                        <li>Azeem, M., Hamdan, H. Y., Alam, M. A., et al. & Sanan H Khan. ”Influence of winding angles on hoop stress in composite pressure vessels: Finite element analysis”, <i>Results in Engineering</i>, vol. 21, 2024.</li>
+                        <li>Husain, A., Sanan H Khan, Mourad, A. H. I, & Ansari, R. ”Ballistic Performance of Polycarbonate Plate Subjected to Truncated Cone Projectile”, <i>Diffusion Foundations and Materials Applications</i>, vol. 36, pp. 67-73, 2024.</li>
+                        <li>Alqawas, O., Sadique, M. R., Mohammad, Z., & Sanan H Khan. ”Experimental and Numerical Study of Soil Strata for Underground Transportation System: A Case Study”, <i>Civil Engineering Journal</i>, vol. 10, no. 1, pp. 41-61, 2024.</li>
+                    </div>
+                </ol>
+                <button id="toggle-pubs">Show More</button>
+            </section>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Email: <a href="mailto:sanan.khan@uaeu.ac.ae">sanan.khan@uaeu.ac.ae</a></p>
-  <p>Department of Mechanical and Aerospace Engineering, UAE University, Al Ain, UAE</p>
-</section>
+            <!-- Teaching Section -->
+            <section id="teaching">
+                <h2>Teaching</h2>
+                <div class="card-container">
+                    <div class="card"><h3>Mechanics of Material</h3></div>
+                    <div class="card"><h3>Geometric modeling</h3></div>
+                    <div class="card"><h3>Advanced Engineering Mathematics</h3></div>
+                    <div class="card"><h3>Aircraft structures</h3></div>
+                    <div class="card"><h3>Engineering materials</h3></div>
+                    <div class="card"><h3>Finite element analysis</h3></div>
+                </div>
+            </section>
+            
+            <!-- Professional Service Section -->
+            <section id="service">
+                <h2>Professional Activities and Service</h2>
+                <ul>
+                    <li><strong>MSc Program Coordinator, UAEU (Present):</strong> Led initiatives improving student enrollment, optimized course scheduling, facilitated RA opportunities, enhanced MECH 660 seminar, developed updated program brochure, prepared Self-Study Report (SSR) for Master’s program review (2025), and proposed non-thesis option and online core courses.</li>
+                    <li><strong>Event Organizer:</strong> Aerospace Symposium, UAEU (January 2024), attracting over 100 attendees including industry representatives.</li>
+                    <li><strong>College of Engineering Representative:</strong> Najah Dubai Recruitment Fair (October 2023).</li>
+                    <li><strong>Reviewer:</strong> Emirates Journal for Engineering Research (3 papers).</li>
+                    <li><strong>GSRC 2024 Conference:</strong> Presented research, reviewed submissions, evaluated posters, and served as a presentation session reviewer.</li>
+                    <li><strong>Departmental Support:</strong> Assisted in faculty recruitment, supported Aerospace program coordinator, recorded meeting minutes, participated in new student orientation, volunteered for "Jahez - CV and Mock Interview Clinic," and presented on "Leadership Principles."</li>
+                </ul>
+            </section>
 
-<footer>
-  &copy; 2025 Dr. Sanan H. Khan | All rights reserved
-</footer>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Sanan H Khan. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for mobile navigation toggle
+        const navToggle = document.getElementById('nav-toggle-button');
+        const navLinks = document.getElementById('nav-links-list');
+
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // JavaScript for "Show More/Show Less" publications
+        const toggleBtn = document.getElementById('toggle-pubs');
+        const morePubs = document.getElementById('more-pubs');
+
+        toggleBtn.addEventListener('click', () => {
+            if (morePubs.style.display === 'none' || morePubs.style.display === '') {
+                morePubs.style.display = 'block';
+                toggleBtn.textContent = 'Show Less';
+            } else {
+                morePubs.style.display = 'none';
+                toggleBtn.textContent = 'Show More';
+            }
+        });
+    </script>
 
 </body>
 </html>
