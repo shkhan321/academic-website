@@ -1,32 +1,102 @@
-/* Previous styles from index.html response remain unchanged. Append the following: */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Sanan H Khan | Research</title>
+    
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Google Fonts: Poppins for body, Lora for headings -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar container">
+            <a href="index.html" class="nav-brand">Dr. Sanan H Khan</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="research.html" class="active">Research</a></li>
+                <li><a href="teaching.html">Teaching</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="nav-toggle-button" aria-label="Toggle Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
 
-/* Status Colors for Student Supervision */
-.status-ongoing {
-    color: #28a745; /* Green for ongoing */
-    font-weight: 500;
-}
+    <main>
+        <div class="content-wrapper">
+            <div class="container">
+                <section id="supervision" class="content-section">
+                    <h2>Student Supervision</h2>
+                    <div class="card-container">
+                        <div class="card">
+                            <h3>Afsar Husain</h3>
+                            <p><span class="institution">PhD</span> <span class="year status-ongoing">Ongoing</span></p>
+                        </div>
+                        <div class="card">
+                            <h3>Mani Rao</h3>
+                            <p><span class="institution">PhD</span> <span class="year status-ongoing">Ongoing</span></p>
+                        </div>
+                        <div class="card">
+                            <h3>Shaima Alhosani</h3>
+                            <p><span class="institution">MSc</span> <span class="year status-completed">Completed</span></p>
+                        </div>
+                        <div class="card">
+                            <h3>Yusuf Alqattain</h3>
+                            <p><span class="institution">MSc</span> <span class="year status-ongoing">Ongoing</span></p>
+                        </div>
+                    </div>
+                </section>
 
-.status-completed {
-    color: #6c757d; /* Gray for completed */
-    font-weight: 500;
-}
+                <section id="publications" class="content-section">
+                    <h2>Publications Summary</h2>
+                    <div class="card-container">
+                        <div class="card summary-item">
+                            <h3>28</h3>
+                            <p>SCI Papers</p>
+                        </div>
+                        <div class="card summary-item">
+                            <h3>14</h3>
+                            <p>Proceedings</p>
+                        </div>
+                        <div class="card summary-item">
+                            <h3>706</h3>
+                            <p>Citations</p>
+                        </div>
+                        <div class="card summary-item">
+                            <h3>12</h3>
+                            <p>h-index</p>
+                        </div>
+                    </div>
+                    <p class="google-scholar-link">
+                        For a full and up-to-date list of publications, please visit my 
+                        <a href="https://scholar.google.com/citations?user=shZtM0QAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar Profile</a>.
+                    </p>
+                </section>
+            </div>
+        </div>
+    </main>
 
-/* Google Scholar Link */
-.google-scholar-link {
-    text-align: center;
-    font-size: 1.1rem;
-    margin-top: 2rem;
-    color: var(--text-color);
-}
+    <footer class="footer">
+        <p>© 2025 Sanan H Khan. All Rights Reserved.</p>
+    </footer>
 
-.google-scholar-link a {
-    color: var(--secondary-color);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.google-scholar-link a:hover {
-    color: var(--primary-color);
-    text-decoration: underline;
-}
+    <!-- JavaScript for Mobile Menu -->
+    <script>
+        const navToggle = document.getElementById('nav-toggle-button');
+        const navLinks = document.querySelector('.nav-links');
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
