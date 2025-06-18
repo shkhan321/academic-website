@@ -70,6 +70,55 @@
             100% { background-position: 30px 30px, 30px 45px, 45px 15px, 15px 30px; }
         }
 
+        /* Animated Gradient Orbs */
+        .gradient-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.3;
+            animation: float-orb 20s infinite ease-in-out;
+            z-index: -1;
+        }
+
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--gradient-1);
+            top: -200px;
+            left: -200px;
+        }
+
+        .orb-2 {
+            width: 300px;
+            height: 300px;
+            background: var(--gradient-2);
+            bottom: -150px;
+            right: -150px;
+            animation-delay: 7s;
+        }
+
+        .orb-3 {
+            width: 350px;
+            height: 350px;
+            background: var(--gradient-3);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: 14s;
+        }
+
+        @keyframes float-orb {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(100px, -100px) scale(1.1);
+            }
+            66% {
+                transform: translate(-100px, 100px) scale(0.9);
+            }
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -196,19 +245,57 @@
             50% { transform: translateY(-20px); }
         }
 
+        /* Enhanced Profile Picture Styling */
+        .profile-pic-wrapper {
+            position: relative;
+            width: 280px;
+            height: 280px;
+        }
+
         .profile-pic {
             width: 250px;
             height: 250px;
             border-radius: 50%;
             object-fit: cover;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.3),
                         0 0 0 16px rgba(99, 102, 241, 0.1),
                         0 20px 40px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease;
+            z-index: 2;
         }
 
         .profile-pic:hover {
-            transform: scale(1.05);
+            transform: translate(-50%, -50%) scale(1.05);
+        }
+
+        /* Rotating Border Animation */
+        .profile-border {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: var(--gradient-1);
+            animation: rotate 8s linear infinite;
+        }
+
+        .profile-border::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            background: var(--light-bg);
+            border-radius: 50%;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         .hero-text h1 {
@@ -347,11 +434,6 @@
             animation: rotate 30s linear infinite;
         }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
         #biography p {
             font-size: 1.1rem;
             line-height: 1.8;
@@ -375,9 +457,25 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
 
         .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        .card::after {
             content: '';
             position: absolute;
             top: 0;
@@ -395,7 +493,7 @@
             box-shadow: var(--shadow-xl);
         }
 
-        .card:hover::before {
+        .card:hover::after {
             opacity: 0.05;
         }
 
@@ -488,6 +586,11 @@
                 font-size: 2.5rem;
             }
 
+            .profile-pic-wrapper {
+                width: 230px;
+                height: 230px;
+            }
+
             .profile-pic {
                 width: 200px;
                 height: 200px;
@@ -531,17 +634,34 @@
             background: var(--gradient-1);
             border-radius: 5px;
         }
+
+        /* Page Load Animations */
+        .fade-in-element {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-in-element.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
+    <!-- Animated Gradient Orbs -->
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+
     <header class="header">
         <nav class="navbar container">
-            <a href="#" class="nav-brand">Dr. Sanan H Khan</a>
+            <a href="index.html" class="nav-brand">Dr. Sanan H Khan</a>
             <ul class="nav-links">
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">Research</a></li>
-                <li><a href="#">Teaching</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="teaching.html">Teaching</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
             <button class="nav-toggle" id="nav-toggle-button" aria-label="Toggle Menu">
                 <i class="fas fa-bars"></i>
@@ -554,7 +674,10 @@
         <section id="home-hero">
             <div class="hero-content container">
                 <div class="hero-image-container">
-                    <img src="https://via.placeholder.com/250" alt="Dr. Sanan H Khan" class="profile-pic">
+                    <div class="profile-pic-wrapper">
+                        <div class="profile-border"></div>
+                        <img src="Sanan11.jpg" alt="Dr. Sanan H Khan" class="profile-pic">
+                    </div>
                 </div>
                 <div class="hero-text">
                     <h1>Sanan H Khan, PhD</h1>
@@ -569,6 +692,9 @@
                         <a href="#" aria-label="LinkedIn" title="LinkedIn">
                             <i class="fab fa-linkedin"></i>
                         </a>
+                        <a href="#" aria-label="ResearchGate" title="ResearchGate">
+                            <i class="fab fa-researchgate"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -577,7 +703,7 @@
         <!-- MAIN CONTENT AREA -->
         <div class="content-wrapper">
             <div class="container">
-                <section id="biography" class="content-section">
+                <section id="biography" class="content-section fade-in-element">
                     <h2>Brief Biography</h2>
                     <p>
                         Dr. Sanan H. Khan is an Assistant Professor in the Department of Mechanical and Aerospace Engineering at United Arab Emirates University. He earned his Ph.D. in Solid Mechanics and Design from the Indian Institute of Technology Kanpur (IITK) in 2018. Prior to joining UAEU, he served as a postdoctoral researcher at IIT Delhi and as an Assistant Professor at Aligarh Muslim University. Dr. Khan's research interests include computational and experimental mechanics, focusing on impact dynamics, composite materials, and finite element methods for structural analysis. He has published extensively in high-impact international journals and is an active participant in global academic conferences.
@@ -587,21 +713,21 @@
                 <section id="experience" class="content-section">
                     <h2>Professional Experience</h2>
                     <div class="card-container">
-                        <div class="card">
+                        <div class="card fade-in-element">
                             <h3>Assistant Professor</h3>
                             <p>
                                 <span class="institution">United Arab Emirates University</span>
                                 <span class="year">2021 — Present</span>
                             </p>
                         </div>
-                        <div class="card">
+                        <div class="card fade-in-element">
                             <h3>Assistant Professor</h3>
                             <p>
                                 <span class="institution">Aligarh Muslim University, India</span>
                                 <span class="year">2018 — 2021</span>
                             </p>
                         </div>
-                        <div class="card">
+                        <div class="card fade-in-element">
                             <h3>Senior Project Scientist (Postdoctoral Fellow)</h3>
                             <p>
                                 <span class="institution">Indian Institute of Technology Delhi (IITD)</span>
@@ -614,7 +740,7 @@
                 <section id="education" class="content-section">
                     <h2>Educational Qualifications</h2>
                     <div class="card-container">
-                        <div class="card">
+                        <div class="card fade-in-element">
                             <h3>Ph.D. in Solid Mechanics and Design</h3>
                             <p>
                                 <span class="institution">Indian Institute of Technology Kanpur (IITK)</span>
@@ -673,25 +799,49 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('visible');
                 }
             });
         }, observerOptions);
 
-        // Observe all cards
-        document.querySelectorAll('.card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'all 0.6s ease-out';
-            observer.observe(card);
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in-element').forEach(element => {
+            observer.observe(element);
         });
 
         // Add parallax effect to hero section
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const hero = document.querySelector('#home-hero');
+            const orbs = document.querySelectorAll('.gradient-orb');
+            
             hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+            
+            orbs.forEach((orb, index) => {
+                const speed = 0.5 + (index * 0.2);
+                orb.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Add hover tilt effect to cards
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
         });
     </script>
 </body>
