@@ -8,34 +8,163 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root { --primary-color: #003366; --secondary-color: #007BFF; --accent-color: #f8f9fa; --text-color: #333; --light-text-color: #fff; --border-color: #e0e0e0; --shadow: 0 4px 12px rgba(0,0,0,0.08); --shadow-hover: 0 8px 20px rgba(0,0,0,0.12); }
+        :root { 
+            --primary-color: #003366; 
+            --secondary-color: #007BFF; 
+            --accent-color: #f8f9fa; 
+            --text-color: #333; 
+            --light-text-color: #fff; 
+            --border-color: #e0e0e0; 
+            --shadow: 0 4px 12px rgba(0,0,0,0.08); 
+            --shadow-hover: 0 8px 20px rgba(0,0,0,0.12); 
+        }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Poppins', sans-serif; line-height: 1.7; color: var(--text-color); background-color: var(--accent-color); margin: 0; padding: 0; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        h1, h2, h3 { color: var(--primary-color); font-weight: 600; }
-        h2 { font-size: 2.2rem; border-bottom: 3px solid var(--secondary-color); padding-bottom: 10px; margin-top: 40px; margin-bottom: 30px; }
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            line-height: 1.7; 
+            color: var(--text-color); 
+            background-color: var(--accent-color); 
+            margin: 0; 
+            padding: 0; 
+        }
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 20px; 
+        }
+        h1, h2, h3 { 
+            color: var(--primary-color); 
+            font-weight: 600; 
+        }
+        h2 { 
+            font-size: 2.2rem; 
+            border-bottom: 3px solid var(--secondary-color); 
+            padding-bottom: 10px; 
+            margin-top: 40px; 
+            margin-bottom: 30px; 
+        }
         h3 { color: var(--secondary-color); }
-        .header { background-color: var(--primary-color); padding: 1rem 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 0 20px; max-width: 1200px; margin: 0 auto; }
-        .nav-brand { font-size: 1.5rem; font-weight: 700; color: var(--light-text-color); text-decoration: none; }
-        .nav-links { list-style: none; margin: 0; padding: 0; display: flex; }
+        .header { 
+            background-color: var(--primary-color); 
+            padding: 1rem 0; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
+        }
+        .navbar { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 0 20px; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
+        .nav-brand { 
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            color: var(--light-text-color); 
+            text-decoration: none; 
+        }
+        .nav-links { 
+            list-style: none; 
+            margin: 0; 
+            padding: 0; 
+            display: flex; 
+        }
         .nav-links li { padding: 0 15px; }
-        .nav-links a { color: var(--light-text-color); text-decoration: none; font-weight: 400; padding: 5px 0; transition: color 0.3s; }
+        .nav-links a { 
+            color: var(--light-text-color); 
+            text-decoration: none; 
+            font-weight: 400; 
+            padding: 5px 0; 
+            transition: color 0.3s; 
+        }
         .nav-links a.active, .nav-links a:hover { color: #aaccff; }
-        #home-section { background-color: #fff; padding: 60px 20px; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 40px; }
-        .profile-pic-container { flex-shrink: 0; width: 220px; height: 220px; }
-        .profile-pic { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 7px solid var(--primary-color); box-shadow: var(--shadow-hover); }
-        .profile-pic-placeholder { display: none; width: 100%; height: 100%; border-radius: 50%; background-color: #e0e0e0; border: 7px solid var(--primary-color); color: var(--text-color); font-size: 1.1rem; font-weight: 600; display: flex; align-items: center; justify-content: center; text-align: center; }
+        #home-section { 
+            background-color: #fff; 
+            padding: 60px 20px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            flex-wrap: wrap; 
+            gap: 40px; 
+        }
+        .profile-pic-container { 
+            flex-shrink: 0; 
+            width: 220px; 
+            height: 220px; 
+        }
+        .profile-pic { 
+            width: 100%; 
+            height: 100%; 
+            border-radius: 50%; 
+            object-fit: cover; 
+            /* --- PHOTO ADJUSTMENT --- */
+            object-position: center 80%; /* This shifts the image down in the frame */
+            /* --- END ADJUSTMENT --- */
+            border: 7px solid var(--primary-color); 
+            box-shadow: var(--shadow-hover); 
+        }
+        .profile-pic-placeholder { 
+            display: none; 
+            width: 100%; 
+            height: 100%; 
+            border-radius: 50%; 
+            background-color: #e0e0e0; 
+            border: 7px solid var(--primary-color); 
+            color: var(--text-color); 
+            font-size: 1.1rem; 
+            font-weight: 600; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+        }
         .intro-text { max-width: 600px; }
-        .intro-text h1 { font-size: 3rem; font-weight: 700; margin-bottom: 10px; }
-        .intro-text .affiliation { font-size: 1.2rem; margin-bottom: 20px; color: #555; }
-        .content-wrapper { background-color: #fff; box-shadow: 0 -5px 15px rgba(0,0,0,0.05); }
-        .card-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .card { background: #fff; border: 1px solid var(--border-color); border-radius: 10px; padding: 25px; box-shadow: var(--shadow); transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); }
+        .intro-text h1 { 
+            font-size: 3rem; 
+            font-weight: 700; 
+            margin-bottom: 10px; 
+        }
+        .intro-text .affiliation { 
+            font-size: 1.2rem; 
+            margin-bottom: 20px; 
+            color: #555; 
+        }
+        .content-wrapper { 
+            background-color: #fff; 
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.05); 
+        }
+        .card-container { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 25px; 
+        }
+        .card { 
+            background: #fff; 
+            border: 1px solid var(--border-color); 
+            border-radius: 10px; 
+            padding: 25px; 
+            box-shadow: var(--shadow); 
+            transition: transform 0.3s ease, box-shadow 0.3s ease; 
+        }
+        .card:hover { 
+            transform: translateY(-8px); 
+            box-shadow: var(--shadow-hover); 
+        }
         .card .institution { font-weight: 600; }
-        .card .year { font-weight: 600; color: #555; float: right; }
-        .footer { background-color: #222; color: #aaa; text-align: center; padding: 20px; }
+        .card .year { 
+            font-weight: 600; 
+            color: #555; 
+            float: right; 
+        }
+        .footer { 
+            background-color: #222; 
+            color: #aaa; 
+            text-align: center; 
+            padding: 20px; 
+        }
     </style>
 </head>
 <body>
@@ -75,8 +204,9 @@
                     </p>
                 </section>
 
-                <section id="education">
-                    <h2>Educational Qualifications</h2>
+                <!-- NEW PROFESSIONAL EXPERIENCE SECTION -->
+                <section id="experience">
+                    <h2>Professional Experience</h2>
                     <div class="card-container">
                         <div class="card">
                             <h3>Assistant Professor</h3>
@@ -86,6 +216,13 @@
                             <h3>Assistant Professor</h3>
                             <p><span class="institution">Aligarh Muslim University, India</span> <span class="year">2018 – 2021</span></p>
                         </div>
+                    </div>
+                </section>
+
+                <!-- CORRECTED EDUCATIONAL QUALIFICATIONS SECTION -->
+                <section id="education">
+                    <h2>Educational Qualifications</h2>
+                    <div class="card-container">
                         <div class="card">
                             <h3>Ph.D. in Solid Mechanics and Design</h3>
                             <p><span class="institution">Indian Institute of Technology Kanpur (IITK)</span> <span class="year">2018</span></p>
