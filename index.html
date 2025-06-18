@@ -3,450 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Sanan H Khan | Academic Profile</title>
+    <title>Dr. Sanan H Khan | Home</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* General Styling & Variables */
-        :root {
-            --primary-color: #003366; /* Deep Blue */
-            --secondary-color: #007BFF; /* Bright Blue */
-            --accent-color: #f8f9fa; /* Lighter Grey Background */
-            --text-color: #333;
-            --light-text-color: #fff;
-            --border-color: #e0e0e0;
-            --shadow: 0 4px 12px rgba(0,0,0,0.08);
-            --shadow-hover: 0 8px 20px rgba(0,0,0,0.12);
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.7;
-            color: var(--text-color);
-            background-color: var(--accent-color);
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        h1, h2, h3, h4 {
-            color: var(--primary-color);
-            font-weight: 600;
-        }
-
-        h2 {
-            font-size: 2.2rem;
-            border-bottom: 3px solid var(--secondary-color);
-            padding-bottom: 10px;
-            margin-top: 40px;
-            margin-bottom: 30px;
-        }
-        
-        h3 {
-            color: var(--secondary-color);
-            font-weight: 600;
-        }
-
-        a {
-            color: var(--secondary-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Fade-in animation for sections */
-        section {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-        }
-
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Header & Navigation */
-        .header {
-            background-color: var(--primary-color);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            padding: 0 20px;
-        }
-
-        .nav-brand {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--light-text-color);
-        }
-
-        .nav-links {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-
-        .nav-links li {
-            padding: 0 15px;
-        }
-
-        .nav-links a {
-            color: var(--light-text-color);
-            font-size: 1rem;
-            font-weight: 400;
-            position: relative;
-            padding-bottom: 5px;
-        }
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #aaccff;
-            transition: width 0.3s ease;
-        }
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
-        .nav-toggle {
-            display: none;
-            font-size: 24px;
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-        }
-
-        /* Hero Section (Home) */
-        #home {
-            background-color: #fff;
-            padding: 60px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 40px;
-            text-align: left;
-            opacity: 1;
-            transform: none;
-        }
-
-        .profile-pic-container {
-            flex-shrink: 0;
-        }
-
-        .profile-pic {
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 7px solid var(--primary-color);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .intro-text {
-            max-width: 600px;
-        }
-        
-        .intro-text h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .intro-text .affiliation {
-            font-size: 1.2rem;
-            font-weight: 400;
-            margin-bottom: 20px;
-            color: #555;
-        }
-        
-        .contact-info p {
-            margin: 8px 0;
-            display: flex;
-            align-items: center;
-            font-size: 1.1rem;
-        }
-        
-        .contact-info svg {
-            margin-right: 12px;
-            fill: var(--secondary-color);
-            width: 18px;
-            height: 18px;
-        }
-
-        /* Main Content Wrapper */
-        .content-wrapper {
-            background-color: #fff;
-            box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
-            position: relative;
-            z-index: 2;
-        }
-        
-        /* Card-based layouts */
-        .card-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-        
-        .card {
-            background: #fff;
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .card h3 {
-            margin-top: 0;
-        }
-        
-        .card .institution {
-            font-weight: 600;
-            color: var(--text-color);
-        }
-        
-        .card .year {
-            font-style: normal;
-            font-weight: 600;
-            color: #555;
-            float: right;
-        }
-
-        /* Student Supervision Table */
-        .student-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            box-shadow: var(--shadow);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        .student-table th, .student-table td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .student-table thead {
-            background-color: var(--primary-color);
-            color: var(--light-text-color);
-            font-weight: 600;
-        }
-        .student-table tbody tr:nth-child(even) {
-            background-color: var(--accent-color);
-        }
-        .student-table tbody tr:hover {
-            background-color: #e9ecef;
-        }
-        .status-ongoing {
-            color: #28a745;
-            font-weight: 600;
-        }
-        .status-completed {
-            color: #6c757d;
-            font-weight: 600;
-        }
-
-        /* Publications Section */
-        .pub-summary {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .summary-item {
-            background: linear-gradient(145deg, var(--accent-color), #ffffff);
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-        }
-        .summary-item h3 {
-            margin: 0 0 5px 0;
-            color: var(--secondary-color);
-            font-size: 2.5rem;
-        }
-        .summary-item p {
-            margin: 0;
-            font-weight: 600;
-        }
-        
-        /* Contact Me Section */
-        #contact {
-            background-color: var(--primary-color);
-            color: var(--light-text-color);
-        }
-        #contact h2 {
-            color: var(--light-text-color);
-            border-bottom-color: var(--secondary-color);
-        }
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 20px;
-        }
-        .contact-item {
-            text-align: center;
-        }
-        .contact-item svg {
-            width: 40px;
-            height: 40px;
-            fill: var(--light-text-color);
-            margin-bottom: 15px;
-        }
-        .contact-item p {
-            margin: 0;
-            font-size: 1.1rem;
-        }
-        .contact-item a {
-            color: var(--light-text-color);
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border-bottom 0.3s;
-        }
-        .contact-item a:hover {
-            border-bottom-color: var(--secondary-color);
-        }
-
-        /* Footer */
-        .footer {
-            background-color: #222;
-            color: #aaa;
-            text-align: center;
-            padding: 20px;
-        }
-        
-        /* Back to Top Button */
-        #back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: var(--secondary-color);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            font-size: 24px;
-            cursor: pointer;
-            box-shadow: var(--shadow);
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
-            z-index: 1000;
-        }
-        #back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        #back-to-top:hover {
-            background-color: var(--primary-color);
-            transform: scale(1.1);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-toggle {
-                display: block;
-            }
-            .nav-links {
-                display: none;
-                width: 100%;
-                flex-direction: column;
-                background-color: var(--primary-color);
-                padding: 10px 0;
-            }
-            .nav-links.active {
-                display: flex;
-            }
-            #home {
-                flex-direction: column;
-                text-align: center;
-            }
-            .contact-info p {
-                justify-content: center;
-            }
-        }
+        :root { --primary-color: #003366; --secondary-color: #007BFF; --accent-color: #f8f9fa; --text-color: #333; --light-text-color: #fff; --border-color: #e0e0e0; --shadow: 0 4px 12px rgba(0,0,0,0.08); --shadow-hover: 0 8px 20px rgba(0,0,0,0.12); }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; line-height: 1.7; color: var(--text-color); background-color: var(--accent-color); margin: 0; padding: 0; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        h1, h2, h3 { color: var(--primary-color); font-weight: 600; }
+        h2 { font-size: 2.2rem; border-bottom: 3px solid var(--secondary-color); padding-bottom: 10px; margin-top: 40px; margin-bottom: 30px; }
+        h3 { color: var(--secondary-color); }
+        .header { background-color: var(--primary-color); padding: 1rem 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 0 20px; max-width: 1200px; margin: 0 auto; }
+        .nav-brand { font-size: 1.5rem; font-weight: 700; color: var(--light-text-color); text-decoration: none; }
+        .nav-links { list-style: none; margin: 0; padding: 0; display: flex; }
+        .nav-links li { padding: 0 15px; }
+        .nav-links a { color: var(--light-text-color); text-decoration: none; font-weight: 400; padding: 5px 0; transition: color 0.3s; }
+        .nav-links a.active, .nav-links a:hover { color: #aaccff; }
+        #home-section { background-color: #fff; padding: 60px 20px; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 40px; }
+        .profile-pic-container { flex-shrink: 0; width: 220px; height: 220px; }
+        .profile-pic { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 7px solid var(--primary-color); box-shadow: var(--shadow-hover); }
+        .profile-pic-placeholder { display: none; width: 100%; height: 100%; border-radius: 50%; background-color: #e0e0e0; border: 7px solid var(--primary-color); color: var(--text-color); font-size: 1.1rem; font-weight: 600; display: flex; align-items: center; justify-content: center; text-align: center; }
+        .intro-text { max-width: 600px; }
+        .intro-text h1 { font-size: 3rem; font-weight: 700; margin-bottom: 10px; }
+        .intro-text .affiliation { font-size: 1.2rem; margin-bottom: 20px; color: #555; }
+        .content-wrapper { background-color: #fff; box-shadow: 0 -5px 15px rgba(0,0,0,0.05); }
+        .card-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .card { background: #fff; border: 1px solid var(--border-color); border-radius: 10px; padding: 25px; box-shadow: var(--shadow); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); }
+        .card .institution { font-weight: 600; }
+        .card .year { font-weight: 600; color: #555; float: right; }
+        .footer { background-color: #222; color: #aaa; text-align: center; padding: 20px; }
     </style>
 </head>
 <body>
 
-    <!-- Header and Navigation -->
-    <header class="header" id="main-header">
-        <nav class="navbar container">
-            <a href="#home" class="nav-brand">Dr. Sanan H Khan</a>
-            <button class="nav-toggle" id="nav-toggle-button" aria-label="Menu">☰</button>
-            <ul class="nav-links" id="nav-links-list">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#biography">Biography</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#supervision">Supervision</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#teaching">Teaching</a></li>
-                <li><a href="#contact">Contact</a></li>
+    <header class="header">
+        <nav class="navbar">
+            <a href="index.html" class="nav-brand">Dr. Sanan H Khan</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="teaching.html">Teaching</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <!-- Home Section -->
-        <section id="home">
+        <section id="home-section">
             <div class="profile-pic-container">
-                <!-- PHOTO UPDATED -->
-                <img src="Sanan11.jpg" alt="Dr. Sanan H Khan" class="profile-pic" onerror="this.style.display='none'; this.parentElement.innerHTML = '<div class=\'profile-pic-placeholder\' style=\'display:flex;\'>Photo Not Found</div>'">
+                <img src="Sanan11.jpg" alt="Dr. Sanan H Khan" class="profile-pic" onerror="this.style.display='none'; document.getElementById('photo-placeholder').style.display='flex';">
+                <div id="photo-placeholder" class="profile-pic-placeholder" style="display: none;">Photo Not Found</div>
             </div>
             <div class="intro-text">
                 <h1>Sanan H Khan, PhD</h1>
                 <p class="affiliation">Assistant Professor<br>
                 Department of Mechanical and Aerospace Engineering<br>
                 United Arab Emirates University</p>
-                <div class="contact-info">
-                    <p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg> +971-0566496920</p>
-                    <p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112v64c0 26.5 21.5 48 48 48H464c26.5 0 48-21.5 48-48v-64c0-26.5-21.5-48-48-48H48zM0 288c0-26.5 21.5-48 48-48H464c26.5 0 48 21.5 48 48v64c0 26.5-21.5-48-48-48H48c-26.5 0-48 21.5-48 48v-64zM464 352H48c-26.5 0-48 21.5-48 48v64c0 26.5 21.5 48 48 48H464c26.5 0 48-21.5 48-48v-64c0-26.5-21.5-48-48-48z"/></svg> +971-37135196 (Office)</p>
-                    <p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112v288c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zM48 96h416c8.8 0 16 7.2 16 16v41.4c-21.9 18.5-53.2 44.1-154.6 125c-10.3 8.3-22.2 12.6-34.9 12.6s-24.6-4.3-34.9-12.6C137.2 197.5 105.9 171.9 84 153.4V112c0-8.8 7.2-16 16-16zM448 416H64c-8.8 0-16-7.2-16-16V195c22.8 18.7 58.8 47.6 130.7 104.7c15.8 12.8 34.7 19.3 53.3 19.3s37.5-6.5 53.3-19.3c71.9-57.1 107.9-86 130.7-104.7V400c0 8.8-7.2 16-16 16z"/></svg> <a href="mailto:shkhan@uaeu.ac.ae">shkhan@uaeu.ac.ae</a></p>
-                    <p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M496 256c0 137-111 248-248 248S0 393 0 256S111 8 248 8s248 111 248 248zM248 399.7c25.4 0 46-20.6 46-46s-20.6-46-46-46s-46 20.6-46 46s20.6 46 46 46zm12.8-124.2c-1.2 2.5-2.5 5-3.9 7.4c-11.8 19.9-32.9 31.8-54.2 31.8c-12.9 0-25.7-4.1-36.2-12.3c-13.3-10.4-21.6-25.9-21.6-42.5c0-25.1 17.5-47.2 41.6-54.1c11.8-3.4 21.6-1.9 29.6 4.3c5.8 4.5 9.2 11.1 9.2 18.1c0 10.9-8.8 19.7-19.7 19.7c-2.4 0-4.8-.4-7.1-1.2c-4.9-1.7-11.4-2.4-11.4 4.3c0 1.4 .4 2.8 .9 4.1c2.2 5.5 8.5 9.5 15.6 9.5c7.9 0 14.8-4.8 18.3-12.1c4.1-8.5 12.6-14.2 22.3-14.2c12.2 0 22.1 9.9 22.1 22.1c0 5.8-2.2 11.3-6.2 15.6z"/></svg> <a href="https://scholar.google.com/citations?user=your_scholar_id" target="_blank">Google Scholar Profile</a></p>
-                </div>
             </div>
         </section>
 
         <div class="content-wrapper">
             <div class="container">
-                <!-- Biography Section -->
                 <section id="biography">
                     <h2>Brief Biography</h2>
                     <p>
@@ -454,7 +75,6 @@
                     </p>
                 </section>
 
-                <!-- Education Section -->
                 <section id="education">
                     <h2>Educational Qualifications</h2>
                     <div class="card-container">
@@ -472,160 +92,13 @@
                         </div>
                     </div>
                 </section>
-
-                <!-- STUDENT SUPERVISION SECTION UPDATED -->
-                <section id="supervision">
-                    <h2>Student Supervision</h2>
-                    <table class="student-table">
-                        <thead>
-                            <tr>
-                                <th>Student Name</th>
-                                <th>Degree</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Afsar Husain</td>
-                                <td>PhD</td>
-                                <td class="status-ongoing">Ongoing</td>
-                            </tr>
-                            <tr>
-                                <td>Mani Rao</td>
-                                <td>PhD</td>
-                                <td class="status-ongoing">Ongoing</td>
-                            </tr>
-                            <tr>
-                                <td>Shaima Alhosani</td>
-                                <td>MSc</td>
-                                <td class="status-completed">Completed</td>
-                            </tr>
-                            <tr>
-                                <td>Yusuf Alqattain</td>
-                                <td>MSc</td>
-                                <td class="status-ongoing">Ongoing</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </section>
-
-                <!-- Publications Section -->
-                <section id="publications">
-                    <h2>Publications</h2>
-                    <div class="pub-summary">
-                        <div class="summary-item">
-                            <h3>28</h3>
-                            <p>SCI Papers</p>
-                        </div>
-                        <div class="summary-item">
-                            <h3>14</h3>
-                            <p>Proceedings</p>
-                        </div>
-                        <div class="summary-item">
-                            <!-- CITATIONS UPDATED -->
-                            <h3>706</h3>
-                            <p>Citations</p>
-                        </div>
-                        <div class="summary-item">
-                            <h3>12</h3>
-                            <p>h-index</p>
-                        </div>
-                    </div>
-                    <!-- Full publication list can be added here -->
-                </section>
-
-                <!-- TEACHING SECTION UPDATED -->
-                <section id="teaching">
-                    <h2>Teaching Subjects</h2>
-                    <div class="card-container">
-                        <div class="card"><h3>Mechanics of Material</h3></div>
-                        <div class="card"><h3>Geometric modeling</h3></div>
-                        <div class="card"><h3>Advanced Engineering Mathematics</h3></div>
-                        <div class="card"><h3>Aircraft structures</h3></div>
-                        <div class="card"><h3>Engineering materials</h3></div>
-                        <div class="card"><h3>Finite element analysis</h3></div>
-                    </div>
-                </section>
-                
-                <!-- NEW CONTACT ME SECTION -->
-                <section id="contact">
-                    <h2>Contact Me</h2>
-                    <div class="contact-grid">
-                        <div class="contact-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
-                            <p><strong>Phone</strong></p>
-                            <p><a href="tel:+9710566496920">+971-0566496920</a></p>
-                        </div>
-                        <div class="contact-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112v288c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zM48 96h416c8.8 0 16 7.2 16 16v41.4c-21.9 18.5-53.2 44.1-154.6 125c-10.3 8.3-22.2 12.6-34.9 12.6s-24.6-4.3-34.9-12.6C137.2 197.5 105.9 171.9 84 153.4V112c0-8.8 7.2-16 16-16zM448 416H64c-8.8 0-16-7.2-16-16V195c22.8 18.7 58.8 47.6 130.7 104.7c15.8 12.8 34.7 19.3 53.3 19.3s37.5-6.5 53.3-19.3c71.9-57.1 107.9-86 130.7-104.7V400c0 8.8-7.2 16-16 16z"/></svg>
-                            <p><strong>Email</strong></p>
-                            <p><a href="mailto:shkhan@uaeu.ac.ae">shkhan@uaeu.ac.ae</a></p>
-                        </div>
-                        <div class="contact-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
-                            <p><strong>Address</strong></p>
-                            <p>Dept. of Mechanical & Aerospace Eng.<br>United Arab Emirates University, Al-Ain</p>
-                        </div>
-                    </div>
-                </section>
             </div>
         </div>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Sanan H Khan. All Rights Reserved.</p>
-        </div>
+        <p>&copy; 2025 Sanan H Khan. All Rights Reserved.</p>
     </footer>
-
-    <!-- Back to Top Button -->
-    <button id="back-to-top" title="Go to top">↑</button>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Mobile navigation toggle
-            const navToggle = document.getElementById('nav-toggle-button');
-            const navLinks = document.getElementById('nav-links-list');
-            navToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-            });
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', () => {
-                    if (navLinks.classList.contains('active')) {
-                        navLinks.classList.remove('active');
-                    }
-                });
-            });
-
-            // Back to Top button
-            const backToTopButton = document.getElementById('back-to-top');
-            window.addEventListener('scroll', () => {
-                backToTopButton.classList.toggle('visible', window.scrollY > 300);
-            });
-            backToTopButton.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-
-            // Intersection Observer for fade-in sections
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                rootMargin: '0px',
-                threshold: 0.1
-            });
-
-            // Observe all sections
-            document.querySelectorAll('section').forEach(section => {
-                observer.observe(section);
-            });
-        });
-    </script>
 
 </body>
 </html>
