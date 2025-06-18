@@ -1,16 +1,17 @@
 /* ------------------------- */
-/* --- GLOBAL STYLES & VARIABLES --- */
+/* --- MODERN & DYNAMIC THEME --- */
 /* ------------------------- */
 :root { 
-    --primary-color: #0a2540; /* A deeper, more corporate blue */
-    --secondary-color: #007bff; 
-    --accent-color: #f6f9fc; /* A very light, clean blue-grey */
+    --primary-color: #1a2b43; /* Deep navy blue */
+    --secondary-color: #3e68ff; /* Vibrant blue */
+    --accent-gradient: linear-gradient(45deg, #3e68ff, #a33eff);
+    --bg-color: #f7f8fc;
     --text-color: #333; 
     --light-text-color: #fff; 
-    --border-color: #e6ebf1;
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
-    --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.1);
-    --border-radius: 8px;
+    --border-color: #e1e4e8;
+    --shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 10px 20px rgba(0, 0, 0, 0.1);
+    --border-radius: 12px;
 }
 
 /* Basic Reset */
@@ -26,7 +27,7 @@ body {
     font-family: 'Poppins', sans-serif; 
     line-height: 1.7; 
     color: var(--text-color); 
-    background-color: var(--accent-color); 
+    background-color: var(--bg-color); 
 }
 
 .container { 
@@ -39,14 +40,22 @@ body {
 /* --- HEADER & NAVIGATION --- */
 /* ------------------------- */
 .header { 
-    background-color: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px);
     padding: 1rem 0; 
     position: sticky; 
     top: 0; 
     z-index: 1000; 
     width: 100%;
+    /* INTERACTIVE: Animated gradient background */
+    background: linear-gradient(90deg, #ffffff, #f7f8fc, #ffffff);
+    background-size: 200% 200%;
+    animation: gradient-animation 10s ease infinite;
     border-bottom: 1px solid var(--border-color);
+}
+
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .navbar { 
@@ -78,14 +87,15 @@ body {
     position: relative;
 }
 
+/* INTERACTIVE: Gradient underline effect */
 .nav-links a::after {
     content: '';
     position: absolute;
     width: 0;
-    height: 2px;
-    bottom: 0;
+    height: 3px;
+    bottom: -2px;
     left: 0;
-    background-color: var(--secondary-color);
+    background-image: var(--accent-gradient);
     transition: width 0.3s ease-in-out;
 }
 
@@ -94,122 +104,110 @@ body {
     width: 100%;
 }
 
-.nav-links a:hover, .nav-links a.active {
-    color: var(--secondary-color);
-}
-
 .nav-toggle { display: none; }
 
 /* ------------------------- */
 /* --- HERO SECTION --- */
 /* ------------------------- */
 #home-hero { 
-    position: relative;
-    min-height: 65vh; /* Adjusted height */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
-    background-color: var(--primary-color);
-    color: var(--light-text-color);
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* UPDATED OVERLAY: More subtle gradient for better visibility */
-    background: linear-gradient(45deg, rgba(10, 37, 64, 0.9), rgba(13, 44, 75, 0.8));
+    background-color: #fff;
+    padding: 80px 0;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .hero-content {
-    position: relative;
-    z-index: 2;
-    animation: fadeInUp 1s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap-reverse; /* Puts image on right on mobile */
+    gap: 40px;
 }
 
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.profile-pic { 
-    /* UPDATED PHOTO: Made bigger and positioned lower */
-    width: 240px; 
-    height: 240px; 
-    border-radius: 50%; 
-    object-fit: cover; 
-    object-position: center 75%; /* This shifts the image down */
-    border: 6px solid;
-    border-image: linear-gradient(45deg, var(--secondary-color), #87CEEB) 1; /* Beautiful gradient border */
-    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-    margin-bottom: 1.5rem;
+.hero-text {
+    flex: 1;
+    min-width: 300px;
 }
 
 .hero-text h1 { 
-    font-size: 3.5rem; 
+    font-size: 3.8rem; 
     font-weight: 700; 
-    color: var(--light-text-color);
-    margin-bottom: 0.5rem; 
-    text-shadow: 1px 1px 5px rgba(0,0,0,0.2); /* Added text shadow for pop */
+    color: var(--primary-color);
+    line-height: 1.2;
+    margin-bottom: 1rem; 
 }
 
 .hero-text .affiliation { 
     font-size: 1.3rem; 
     margin-bottom: 2rem; 
-    color: rgba(255, 255, 255, 0.85);
-    font-weight: 300;
+    color: #555;
+    font-weight: 400;
 }
 
 .social-links a {
-    /* UPDATED ICONS: Made more visible */
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1.7rem; /* Slightly larger */
-    margin: 0 15px;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-    transition: color 0.3s, transform 0.3s;
+    color: var(--primary-color);
+    background-color: #eef2ff;
+    font-size: 1.2rem;
+    margin-right: 10px;
+    height: 45px;
+    width: 45px;
+    line-height: 45px;
+    text-align: center;
+    border-radius: 50%;
+    display: inline-block;
+    transition: all 0.3s;
 }
 
 .social-links a:hover {
-    color: #fff; /* Brighter on hover */
-    transform: translateY(-3px);
+    background-image: var(--accent-gradient);
+    color: var(--light-text-color);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(62, 104, 255, 0.3);
+}
+
+.hero-image-container {
+    flex-shrink: 0;
+}
+
+.profile-pic { 
+    width: 280px; 
+    height: 280px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    object-position: center 75%;
+    border: 8px solid #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    /* INTERACTIVE: Live photo effect */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.profile-pic:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 35px rgba(62, 104, 255, 0.2);
 }
 
 /* ------------------------- */
 /* --- MAIN CONTENT & CARDS --- */
 /* ------------------------- */
 .content-wrapper { 
-    background-color: #fff; 
-    padding: 80px 0; /* More vertical padding */
-    margin-top: -100px; /* Increased overlap for a more dramatic effect */
-    position: relative;
-    z-index: 3;
-    border-radius: 12px 12px 0 0; /* Slightly larger radius */
-    box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
+    padding: 80px 0;
 }
 
-.content-section {
-    margin-bottom: 80px; /* More space between sections */
+/* INTERACTIVE: Scroll animation classes */
+.hidden {
     opacity: 0;
-    transform: translateY(40px);
-    animation: slideUp 0.8s forwards;
-    animation-play-state: paused; /* Will be triggered by JS if needed, but for now just CSS */
-    animation-fill-mode: both;
+    transform: translateY(50px);
+    transition: all 1s ease-out;
 }
-
-/* Simple scroll-based animation trigger */
-body.scrolled .content-section {
-    animation-play-state: running;
+.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .content-section h2 {
-    text-align: left;
+    text-align: center;
     padding-bottom: 15px;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 
 .card-container { 
@@ -224,15 +222,32 @@ body.scrolled .content-section {
     border-radius: var(--border-radius); 
     padding: 30px; 
     box-shadow: var(--shadow); 
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
-    overflow: hidden;
+    overflow: hidden; /* Important for the animated border */
+}
+
+/* INTERACTIVE: Animated border on hover */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-image: var(--accent-gradient);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease-in-out;
 }
 
 .card:hover { 
     transform: translateY(-10px); 
     box-shadow: var(--shadow-hover); 
-    border-color: var(--secondary-color);
+}
+
+.card:hover::before {
+    transform: scaleX(1);
 }
 
 .card h3 {
@@ -291,15 +306,21 @@ body.scrolled .content-section {
         font-size: 1.5rem;
         cursor: pointer;
     }
+    .hero-content {
+        text-align: center;
+    }
+    .hero-text {
+        order: 2; /* Text appears below image on mobile */
+    }
+    .hero-image-container {
+        order: 1;
+    }
     .hero-text h1 {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
     }
-    .hero-text .affiliation {
-        font-size: 1.1rem;
-    }
-    .content-wrapper {
-        margin-top: -60px;
-        padding: 60px 0;
+    .profile-pic {
+        width: 220px;
+        height: 220px;
     }
     h2 {
         font-size: 1.8rem;
