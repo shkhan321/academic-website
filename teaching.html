@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Sanan H Khan | Teaching</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary-color: #003366; --secondary-color: #007BFF; --accent-color: #f8f9fa; --text-color: #333; --light-text-color: #fff; --border-color: #e0e0e0; --shadow: 0 4px 12px rgba(0,0,0,0.08); --shadow-hover: 0 8px 20px rgba(0,0,0,0.12); }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; line-height: 1.7; color: var(--text-color); background-color: #fff; margin: 0; padding: 0; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        h2, h3 { color: var(--primary-color); font-weight: 600; }
+        h2 { font-size: 2.2rem; border-bottom: 3px solid var(--secondary-color); padding-bottom: 10px; margin-top: 40px; margin-bottom: 30px; }
+        h3 { color: var(--secondary-color); font-size: 1.2rem; }
+        .header { background-color: var(--primary-color); padding: 1rem 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 0 20px; max-width: 1200px; margin: 0 auto; }
+        .nav-brand { font-size: 1.5rem; font-weight: 700; color: var(--light-text-color); text-decoration: none; }
+        .nav-links { list-style: none; margin: 0; padding: 0; display: flex; }
+        .nav-links li { padding: 0 15px; }
+        .nav-links a { color: var(--light-text-color); text-decoration: none; font-weight: 400; padding: 5px 0; transition: color 0.3s; }
+        .nav-links a.active, .nav-links a:hover { color: #aaccff; }
+        .card-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .card { background: #fff; border: 1px solid var(--border-color); border-radius: 10px; padding: 25px; box-shadow: var(--shadow); transition: transform 0.3s ease, box-shadow 0.3s ease; text-align: center; }
+        .card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); }
+        .footer { background-color: #222; color: #aaa; text-align: center; padding: 20px; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <nav class="navbar">
+            <a href="index.html" class="nav-brand">Dr. Sanan H Khan</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="teaching.html" class="active">Teaching</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section id="teaching">
+            <h2>Teaching Subjects</h2>
+            <div class="card-container">
+                <div class="card"><h3>Mechanics of Material</h3></div>
+                <div class="card"><h3>Geometric modeling</h3></div>
+                <div class="card"><h3>Advanced Engineering Mathematics</h3></div>
+                <div class="card"><h3>Aircraft structures</h3></div>
+                <div class="card"><h3>Engineering materials</h3></div>
+                <div class="card"><h3>Finite element analysis</h3></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Sanan H Khan. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
