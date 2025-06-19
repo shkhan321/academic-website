@@ -278,7 +278,7 @@
             font-size: 3rem;
             font-weight: 700;
             color: var(--text-primary);
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             text-align: center;
             position: relative;
             display: inline-block;
@@ -355,6 +355,53 @@
             padding: 1rem;
             font-weight: 600;
             font-size: 1.1rem;
+        }
+        
+        /* Latest Publications Styles */
+        .publications-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .publication-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-md);
+            border-left: 5px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        .publication-item:hover {
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: var(--shadow-lg);
+        }
+        .pub-authors {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+        .pub-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        .pub-title a {
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: color 0.3s ease;
+        }
+        .pub-title a:hover {
+            color: var(--primary-color);
+        }
+        .pub-details {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+        .pub-details em {
+            font-weight: 600;
+            color: var(--text-primary);
         }
 
         /* Supervision Cards */
@@ -672,10 +719,10 @@
         <nav class="navbar container">
             <a href="#" class="nav-brand">Dr. Sanan H Khan</a>
             <ul class="nav-links">
-                <li><a href="/academic-website/">Home</a></li>
-                <li><a href="#" class="active">Research</a></li>
-                <li><a href="#">Teaching</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="research.html" class="active">Research</a></li>
+                <li><a href="teaching.html">Teaching</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
             <button class="nav-toggle" id="nav-toggle-button" aria-label="Toggle Menu">
                 <i class="fas fa-bars"></i>
@@ -701,50 +748,106 @@
                 <section id="current-research" class="content-section">
                     <h2>Current Research</h2>
                     <p class="section-description">
-                     My current research focuses on fiber metal laminates (FMLs) for aerospace structures, with a particular emphasis on impact resistance, fatigue behavior, and progressive damage modeling using fracture energy-based methods. I combine finite element simulations with experimental techniques to investigate the dynamic response of these advanced hybrid materials. In addition, my work explores the machining characteristics of shape memory alloys, fatigue life prediction in composite structures, and aerodynamic optimization of airfoils using AI-based approaches. This interdisciplinary research aims to advance the design of lightweight, durable, and high-performance materials for modern aerospace and mechanical engineering applications.                    </p>
+                        My current research focuses on fiber metal laminates (FMLs) for aerospace structures, with a particular emphasis on impact resistance, fatigue behavior, and progressive damage modeling using fracture energy-based methods. I combine finite element simulations with experimental techniques to investigate the dynamic response of these advanced hybrid materials. In addition, my work explores the machining characteristics of shape memory alloys, fatigue life prediction in composite structures, and aerodynamic optimization of airfoils using AI-based approaches. This interdisciplinary research aims to advance the design of lightweight, durable, and high-performance materials for modern aerospace and mechanical engineering applications.
+                    </p>
                     
                     <div class="slideshow-container">
-                        <!-- Slides will be populated here. Add your images and captions. -->
                         <div class="slide active">
-                            <img src="image1.jpg" alt="Research Image 1" class="lightbox-trigger">
-                            <div class="slide-caption">Update Caption for Image 1</div>
+                            <img src="image1.png" alt="Finite Element Model of Impact Simulation" class="lightbox-trigger">
+                            <div class="slide-caption">Finite Element Model of a High-Velocity Impact Simulation</div>
                         </div>
                         <div class="slide">
-                            <img src="image2.jpg" alt="Research Image 2" class="lightbox-trigger">
-                            <div class="slide-caption">Update Caption for Image 2</div>
+                            <img src="image2.png" alt="Progressive Failure Analysis" class="lightbox-trigger">
+                            <div class="slide-caption">Progressive Failure Analysis showing Mises Stress Distribution</div>
                         </div>
                         <div class="slide">
-                            <img src="image3.jpg" alt="Research Image 3" class="lightbox-trigger">
-                            <div class="slide-caption">Update Caption for Image 3</div>
+                            <img src="image3.png" alt="Dishing and Plug Ejection Simulation" class="lightbox-trigger">
+                            <div class="slide-caption">Simulation of Dishing and Plug Ejection Mechanisms during Impact</div>
                         </div>
                         <div class="slide">
-                            <img src="image4.jpg" alt="Research Image 4" class="lightbox-trigger">
-                            <div class="slide-caption">Update Caption for Image 4</div>
+                            <img src="image4.png" alt="Deformation Profile Comparison" class="lightbox-trigger">
+                            <div class="slide-caption">Comparison of Deformation Profiles for Specimens in Bending Tests</div>
                         </div>
                         <div class="slide">
-                            <img src="image5.jpg" alt="Research Image 5" class="lightbox-trigger">
-                            <div class="slide-caption">Update Caption for Image 5</div>
+                            <img src="image5.png" alt="Damage Progression in Composites" class="lightbox-trigger">
+                            <div class="slide-caption">Predicted Damage Progression in Various Composite Layups</div>
                         </div>
                         <div class="slide">
-                            <img src="image6.jpg" alt="Research Image 6" class="lightbox-trigger">
-                            <div class="slide-caption">Update Caption for Image 6</div>
+                            <img src="image6.png" alt="Manufacturing Process of Composites" class="lightbox-trigger">
+                            <div class="slide-caption">Manufacturing Process of Carbon Fiber Composite Samples</div>
                         </div>
                         <div class="slide">
-                            <img src="image7.png" alt="Research Image 7" class="lightbox-trigger">
-                            <div class="slide-caption">Update Caption for Image 7</div>
+                            <img src="image7.png" alt="Three-Point Bending Test Setup" class="lightbox-trigger">
+                            <div class="slide-caption">Experimental Setup for Three-Point Bending Test on Laminates</div>
                         </div>
                         <div class="slide">
-                            <img src="image8.png" alt="Research Image 8" class="lightbox-trigger">
-                            <div class="slide-caption">Update Caption for Image 8</div>
+                            <img src="image8.png" alt="Finite Element Model of Bending Test" class="lightbox-trigger">
+                            <div class="slide-caption">Finite Element Model of the Three-Point Bending Test</div>
                         </div>
                         <div class="slide">
-                            <img src="image9.png" alt="Research Image 9" class="lightbox-trigger">
-                            <div class="slide-caption">Update Caption for Image 9</div>
+                            <img src="image9.png" alt="Failure Mode Analysis" class="lightbox-trigger">
+                            <div class="slide-caption">Microscopic Analysis of Failure Modes in Composite Specimens</div>
                         </div>
                         <div class="slide">
                             <img src="image10.png" alt="Research Image 10" class="lightbox-trigger">
                             <div class="slide-caption">Update Caption for Image 10</div>
                         </div>
+                    </div>
+                </section>
+
+                <!-- LATEST PUBLICATIONS SECTION -->
+                <section id="latest-publications" class="content-section">
+                    <h2>Latest Publications</h2>
+                    <div class="publications-list">
+                        
+                        <div class="publication-item animate-on-load">
+                            <p class="pub-authors">Faheem, A., Hasan, F., Khan, A. A., Shamim, F. A., Alam, M. A., Raja, S., Arif, S., Husain, A., & Khan, S. H.</p>
+                            <h3 class="pub-title">
+                                <a href="https://scholar.google.com/scholar?q=Post-machining+characterization+of+novel+Ni55.+65Ti-SMA+via+electric+discharge+machining+route" target="_blank" rel="noopener noreferrer">Post-machining characterization of novel Ni55. 65Ti-SMA via electric discharge machining route</a>
+                            </h3>
+                            <p class="pub-details"><em>Results in Engineering</em>, Volume 25, 2025.</p>
+                        </div>
+
+                        <div class="publication-item animate-on-load">
+                            <p class="pub-authors">Ahmed, E., Muaz, M., Arif, S., Kant, R., Hamza, S. M., Alim, M. K., Khan, M. A., Qudeiri, J. A., & Khan, S. H.</p>
+                            <h3 class="pub-title">
+                                <a href="https://scholar.google.com/scholar?q=Lightweight+Aluminum+Joint+Design:+Enhancement+of+Mechanical+Properties+through+Novel+Inter-layer+and+Powder+Additives+in+Friction+Stir+Welding" target="_blank" rel="noopener noreferrer">Lightweight Aluminum Joint Design: Enhancement of Mechanical Properties through Novel Inter-layer and Powder Additives in Friction Stir Welding</a>
+                            </h3>
+                            <p class="pub-details"><em>International Journal of Lightweight Materials and Manufacture</em>, 2025.</p>
+                        </div>
+
+                        <div class="publication-item animate-on-load">
+                            <p class="pub-authors">Khan, S. H., Danish, M., Ayaz, M., Husain, A., Saeed, S., Abdulla, S., Shaheen, S., Saeed, A., & Thaher, A.</p>
+                            <h3 class="pub-title">
+                                <a href="https://scholar.google.com/scholar?q=Aerodynamic+analysis+and+ANN-based+optimization+of+NACA+airfoils+for+enhanced+UAV+performance" target="_blank" rel="noopener noreferrer">Aerodynamic analysis and ANN-based optimization of NACA airfoils for enhanced UAV performance</a>
+                            </h3>
+                            <p class="pub-details"><em>Scientific Reports</em>, Volume 15(1), 2025.</p>
+                        </div>
+
+                        <div class="publication-item animate-on-load">
+                            <p class="pub-authors">Saeed, S., Abdulla, S., Shaheen, S., Saeed, A., Thaher, A., & Khan, S. H.</p>
+                            <h3 class="pub-title">
+                                <a href="https://scholar.google.com/scholar?q=Optimizing+NACA+airfoils+for+sustainable+medical+delivery+UAVs:+Aerodynamic+analysis" target="_blank" rel="noopener noreferrer">Optimizing NACA airfoils for sustainable medical delivery UAVs: Aerodynamic analysis</a>
+                            </h3>
+                            <p class="pub-details"><em>Progress in Engineering Science</em>, Volume 2(2), 2025.</p>
+                        </div>
+
+                        <div class="publication-item animate-on-load">
+                            <p class="pub-authors">Mourad, A. I., Sajith, S., Shitole, S., Almomani, A., Khan, S. H., Elsheikh, A., & Alzo'ubi, A. K.</p>
+                            <h3 class="pub-title">
+                                <a href="https://scholar.google.com/scholar?q=Fatigue+life+and+crack+growth+prediction+of+metallic+structures:+A+review" target="_blank" rel="noopener noreferrer">Fatigue life and crack growth prediction of metallic structures: A review</a>
+                            </h3>
+                            <p class="pub-details"><em>Structures</em>, Volume 76, 2025.</p>
+                        </div>
+
+                        <div class="publication-item animate-on-load">
+                            <p class="pub-authors">Sabry, I., Mourad, A. I., Naseri, M., Ibrahim, A. M. M., Khan, S. H., & ElWakil, M.</p>
+                            <h3 class="pub-title">
+                                <a href="https://scholar.google.com/scholar?q=Evaluating+the+Mechanical+Properties+and+Process+Capability+Analysis+of+Acrylonitrile+Butadiene+Styrene+Components+Produced+by+Fused+Deposition+Modeling+Technology" target="_blank" rel="noopener noreferrer">Evaluating the Mechanical Properties and Process Capability Analysis of Acrylonitrile Butadiene Styrene Components Produced by Fused Deposition Modeling Technology</a>
+                            </h3>
+                            <p class="pub-details"><em>Journal of Materials Engineering and Performance</em>, 2025.</p>
+                        </div>
+
                     </div>
                 </section>
 
@@ -946,8 +1049,8 @@
                     slides[currentSlideIndex].classList.add('active');
                 };
 
-                // Set an interval to call showNextSlide every 3 seconds (3000 milliseconds)
-                setInterval(showNextSlide, 3000);
+                // Set an interval to call showNextSlide every 5 seconds (5000 milliseconds)
+                setInterval(showNextSlide, 5000);
             }
         });
     </script>
