@@ -327,6 +327,16 @@
             margin-bottom: 2rem;
             animation: fadeInUp 0.8s ease-out 0.2s both;
         }
+        
+        .affiliation a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .affiliation a:hover {
+            text-decoration: underline;
+        }
 
         .social-links {
             display: flex;
@@ -519,6 +529,15 @@
             font-weight: 600;
             font-size: 1.1rem;
         }
+        
+        .institution a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        .institution a:hover {
+            text-decoration: underline;
+        }
 
         .year {
             color: var(--text-secondary);
@@ -681,7 +700,10 @@
                 </div>
                 <div class="hero-text">
                     <h1>Sanan H Khan, PhD</h1>
-                    <p class="affiliation">Assistant Professor | Department of Mechanical & Aerospace Engineering</p>
+                    <p class="affiliation">
+                        Assistant Professor | Department of Mechanical & Aerospace Engineering<br>
+                        <a href="https://www.uaeu.ac.ae/en/" target="_blank" rel="noopener noreferrer">United Arab Emirates University</a>
+                    </p>
                     <div class="social-links">
                         <a href="mailto:shkhan@uaeu.ac.ae" aria-label="Email" title="Email">
                             <i class="fas fa-envelope"></i>
@@ -689,10 +711,10 @@
                         <a href="https://scholar.google.com/citations?user=shZtM0QAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar" title="Google Scholar">
                             <i class="fas fa-graduation-cap"></i>
                         </a>
-                        <a href="#" aria-label="LinkedIn" title="LinkedIn">
+                        <a href="https://www.linkedin.com/in/sanan-h-khan-9a40411a1" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
                             <i class="fab fa-linkedin"></i>
                         </a>
-                        <a href="#" aria-label="ResearchGate" title="ResearchGate">
+                        <a href="https://www.researchgate.net/profile/Sanan-Khan?ev=hdr_xprf" target="_blank" rel="noopener noreferrer" aria-label="ResearchGate" title="ResearchGate">
                             <i class="fab fa-researchgate"></i>
                         </a>
                     </div>
@@ -716,22 +738,24 @@
                         <div class="card fade-in-element">
                             <h3>Assistant Professor</h3>
                             <p>
-                                <span class="institution">United Arab Emirates University</span>
-                                <span class="year">2021 — Present</span>
+                                <span class="institution">
+                                    <a href="https://www.uaeu.ac.ae/en/" target="_blank" rel="noopener noreferrer">United Arab Emirates University</a>
+                                </span>
+                                <span class="year">2021 -- Present</span>
                             </p>
                         </div>
                         <div class="card fade-in-element">
                             <h3>Assistant Professor</h3>
                             <p>
                                 <span class="institution">Aligarh Muslim University, India</span>
-                                <span class="year">2018 — 2021</span>
+                                <span class="year">2018 -- 2021</span>
                             </p>
                         </div>
                         <div class="card fade-in-element">
                             <h3>Senior Project Scientist (Postdoctoral Fellow)</h3>
                             <p>
                                 <span class="institution">Indian Institute of Technology Delhi (IITD)</span>
-                                <span class="year">Feb 2018 — Jul 2018</span>
+                                <span class="year">Feb 2018 -- Jul 2018</span>
                             </p>
                         </div>
                     </div>
@@ -815,7 +839,7 @@
             const hero = document.querySelector('#home-hero');
             const orbs = document.querySelectorAll('.gradient-orb');
             
-            hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+            // hero.style.transform = `translateY(${scrolled * 0.3}px)`;
             
             orbs.forEach((orb, index) => {
                 const speed = 0.5 + (index * 0.2);
