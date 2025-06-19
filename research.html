@@ -278,7 +278,7 @@
             font-size: 3rem;
             font-weight: 700;
             color: var(--text-primary);
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             text-align: center;
             position: relative;
             display: inline-block;
@@ -306,90 +306,55 @@
             line-height: 1.8;
         }
 
-        /* Tab Styles */
-        .tab-nav {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 3rem;
-            border-bottom: 2px solid #e2e8f0;
-        }
-        .tab-btn {
-            padding: 1rem 1.5rem;
-            border: none;
-            background: transparent;
-            cursor: pointer;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text-secondary);
+        /* Slideshow Styles */
+        .slideshow-container {
             position: relative;
-            transition: color 0.3s ease;
-        }
-        .tab-btn::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 3px;
-            background: var(--primary-color);
-            border-radius: 2px;
-            transition: width 0.3s ease;
-        }
-        .tab-btn.active {
-            color: var(--primary-color);
-        }
-        .tab-btn.active::after {
-            width: 100%;
-        }
-        .tab-content {
-            display: none;
-        }
-        .tab-content.active {
-            display: block;
-            animation: fadeIn 0.6s;
-        }
-
-        /* Research Gallery */
-        .research-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
-        .gallery-item {
-            background: var(--white);
-            border-radius: 20px;
-            box-shadow: var(--shadow-md);
+            max-width: 900px;
+            margin: auto;
             overflow: hidden;
-            transition: all 0.3s ease;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            aspect-ratio: 16 / 9;
+            background-color: #e2e8f0;
         }
 
-        .gallery-item:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .gallery-item img {
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: auto;
+            height: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             display: block;
             cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        
-        .gallery-item:hover img {
-            transform: scale(1.05);
         }
 
-        .caption {
-            padding: 1.5rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            font-size: 1.1rem;
+        .slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            color: var(--white);
             text-align: center;
+            padding: 1rem;
+            font-weight: 600;
+            font-size: 1.1rem;
         }
 
         /* Supervision Cards */
@@ -408,34 +373,6 @@
             position: relative;
             overflow: hidden;
             cursor: pointer;
-        }
-
-        #supervision .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: left 0.8s ease;
-        }
-
-        #supervision .card:hover::before {
-            left: 100%;
-        }
-
-        #supervision .card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-1);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: -1;
         }
 
         #supervision .card:hover {
@@ -514,24 +451,7 @@
             cursor: pointer;
             transition: all 0.4s ease;
         }
-
-        .summary-item::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: var(--gradient-1);
-            opacity: 0.1;
-            transform: rotate(45deg);
-            transition: all 0.6s ease;
-        }
-
-        .summary-item:hover::before {
-            transform: rotate(45deg) translate(50%, 50%);
-        }
-
+        
         .summary-item:hover {
             transform: translateY(-15px) scale(1.05);
             box-shadow: var(--shadow-xl);
@@ -565,22 +485,6 @@
             box-shadow: var(--shadow-md);
             position: relative;
             overflow: hidden;
-        }
-
-        .google-scholar-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent 30%, rgba(99, 102, 241, 0.1) 50%, transparent 70%);
-            animation: shimmer 3s infinite;
-        }
-
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
         }
 
         .google-scholar-link a {
@@ -711,10 +615,6 @@
             .summary-item h3 {
                 font-size: 2.5rem;
             }
-            
-            .research-gallery {
-                grid-template-columns: 1fr;
-            }
         }
 
         /* Custom Selection */
@@ -797,85 +697,54 @@
         <div class="content-wrapper">
             <div class="container">
 
-                <!-- CURRENT RESEARCH SECTION WITH TABS -->
+                <!-- CURRENT RESEARCH SECTION WITH SLIDESHOW -->
                 <section id="current-research" class="content-section">
                     <h2>Current Research</h2>
+                    <p class="section-description">
+                        My current research focuses on computational solid mechanics, with an emphasis on the impact dynamics of composite materials. We utilize advanced finite element methods (FEM) to simulate and analyze material behavior under high-velocity impact scenarios. The goal is to understand failure mechanisms, such as delamination and plug formation, to design more resilient and lightweight structures for aerospace and defense applications.
+                    </p>
                     
-                    <!-- Tab Navigation -->
-                    <div class="tab-nav">
-                        <button class="tab-btn active" data-tab="tab1">Impact Dynamics</button>
-                        <button class="tab-btn" data-tab="tab2">Research Area 2</button>
-                        <button class="tab-btn" data-tab="tab3">Research Area 3</button>
-                    </div>
-
-                    <!-- Tab Content Container -->
-                    <div class="tab-content-container">
-                        
-                        <!-- Tab 1: Impact Dynamics -->
-                        <div id="tab1" class="tab-content active">
-                            <p class="section-description">
-                                My current research focuses on computational solid mechanics, with an emphasis on the impact dynamics of composite materials. We utilize advanced finite element methods (FEM) to simulate and analyze material behavior under high-velocity impact scenarios. The goal is to understand failure mechanisms, such as delamination and plug formation, to design more resilient and lightweight structures for aerospace and defense applications.
-                            </p>
-                            <div class="research-gallery">
-                                <div class="gallery-item animate-on-load">
-                                    <img src="image.png" alt="Finite Element Model of Impact Simulation" class="lightbox-trigger">
-                                    <div class="caption">Finite Element Model Setup</div>
-                                </div>
-                                <div class="gallery-item animate-on-load">
-                                    <img src="image_1.png" alt="Stress analysis of composite material" class="lightbox-trigger">
-                                    <div class="caption">Progressive Failure and Stress Analysis</div>
-                                </div>
-                                <div class="gallery-item animate-on-load">
-                                    <img src="image_2.png" alt="Plug formation in composite material after impact" class="lightbox-trigger">
-                                    <div class="caption">Analysis of Dishing and Plug Formation</div>
-                                </div>
-                            </div>
+                    <div class="slideshow-container">
+                        <!-- Slides will be populated here. Add your images and captions. -->
+                        <div class="slide active">
+                            <img src="image1.png" alt="Research Image 1" class="lightbox-trigger">
+                            <div class="slide-caption">Update Caption for Image 1</div>
                         </div>
-
-                        <!-- Tab 2: Placeholder Content -->
-                        <div id="tab2" class="tab-content">
-                            <p class="section-description">
-                                <!-- TODO: Update this description for your second research area. -->
-                                This section describes the second major area of my research. Please update this text with relevant details, methodologies, and objectives related to this specific field of study.
-                            </p>
-                            <div class="research-gallery">
-                                <!-- TODO: Replace these placeholders with your images and captions. -->
-                                <div class="gallery-item animate-on-load">
-                                    <img src="https://via.placeholder.com/800x600/dee2e6/6c757d.png?text=Image+1" alt="Placeholder Image 1" class="lightbox-trigger">
-                                    <div class="caption">Update Caption 1</div>
-                                </div>
-                                <div class="gallery-item animate-on-load">
-                                    <img src="https://via.placeholder.com/800x600/dee2e6/6c757d.png?text=Image+2" alt="Placeholder Image 2" class="lightbox-trigger">
-                                    <div class="caption">Update Caption 2</div>
-                                </div>
-                                <div class="gallery-item animate-on-load">
-                                    <img src="https://via.placeholder.com/800x600/dee2e6/6c757d.png?text=Image+3" alt="Placeholder Image 3" class="lightbox-trigger">
-                                    <div class="caption">Update Caption 3</div>
-                                </div>
-                            </div>
+                        <div class="slide">
+                            <img src="image2.png" alt="Research Image 2" class="lightbox-trigger">
+                            <div class="slide-caption">Update Caption for Image 2</div>
                         </div>
-
-                        <!-- Tab 3: Placeholder Content -->
-                        <div id="tab3" class="tab-content">
-                            <p class="section-description">
-                                <!-- TODO: Update this description for your third research area. -->
-                                This section describes the third major area of my research. Please update this text with relevant details, methodologies, and objectives related to this specific field of study.
-                            </p>
-                            <div class="research-gallery">
-                                <!-- TODO: Replace these placeholders with your images and captions. -->
-                                <div class="gallery-item animate-on-load">
-                                    <img src="https://via.placeholder.com/800x600/ced4da/495057.png?text=Image+A" alt="Placeholder Image A" class="lightbox-trigger">
-                                    <div class="caption">Update Caption A</div>
-                                </div>
-                                <div class="gallery-item animate-on-load">
-                                    <img src="https://via.placeholder.com/800x600/ced4da/495057.png?text=Image+B" alt="Placeholder Image B" class="lightbox-trigger">
-                                    <div class="caption">Update Caption B</div>
-                                </div>
-                                <div class="gallery-item animate-on-load">
-                                    <img src="https://via.placeholder.com/800x600/ced4da/495057.png?text=Image+C" alt="Placeholder Image C" class="lightbox-trigger">
-                                    <div class="caption">Update Caption C</div>
-                                </div>
-                            </div>
+                        <div class="slide">
+                            <img src="image3.png" alt="Research Image 3" class="lightbox-trigger">
+                            <div class="slide-caption">Update Caption for Image 3</div>
+                        </div>
+                        <div class="slide">
+                            <img src="image4.png" alt="Research Image 4" class="lightbox-trigger">
+                            <div class="slide-caption">Update Caption for Image 4</div>
+                        </div>
+                        <div class="slide">
+                            <img src="image5.png" alt="Research Image 5" class="lightbox-trigger">
+                            <div class="slide-caption">Update Caption for Image 5</div>
+                        </div>
+                        <div class="slide">
+                            <img src="image6.png" alt="Research Image 6" class="lightbox-trigger">
+                            <div class="slide-caption">Update Caption for Image 6</div>
+                        </div>
+                        <div class="slide">
+                            <img src="image7.png" alt="Research Image 7" class="lightbox-trigger">
+                            <div class="slide-caption">Update Caption for Image 7</div>
+                        </div>
+                        <div class="slide">
+                            <img src="image8.png" alt="Research Image 8" class="lightbox-trigger">
+                            <div class="slide-caption">Update Caption for Image 8</div>
+                        </div>
+                        <div class="slide">
+                            <img src="image9.png" alt="Research Image 9" class="lightbox-trigger">
+                            <div class="slide-caption">Update Caption for Image 9</div>
+                        </div>
+                        <div class="slide">
+                            <img src="image10.png" alt="Research Image 10" class="lightbox-trigger">
+                            <div class="slide-caption">Update Caption for Image 10</div>
                         </div>
                     </div>
                 </section>
@@ -988,7 +857,7 @@
                 
                 const duration = 2000;
                 let start = 0;
-                const stepTime = 16; // approx 60fps
+                const stepTime = 16;
                 const totalSteps = duration / stepTime;
                 const increment = target / totalSteps;
                 
@@ -1062,34 +931,25 @@
                 }
             });
 
-            // Tab functionality
-            const tabBtns = document.querySelectorAll('.tab-btn');
-            const tabContents = document.querySelectorAll('.tab-content');
+            // Automatic Slideshow Functionality
+            const slides = document.querySelectorAll('#current-research .slide');
+            if (slides.length > 0) {
+                let currentSlideIndex = 0;
 
-            tabBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    // Deactivate all buttons and content
-                    tabBtns.forEach(b => b.classList.remove('active'));
-                    tabContents.forEach(c => c.classList.remove('active'));
+                const showNextSlide = () => {
+                    // Hide the current slide
+                    slides[currentSlideIndex].classList.remove('active');
+                    
+                    // Determine the index of the next slide
+                    currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+                    
+                    // Show the next slide
+                    slides[currentSlideIndex].classList.add('active');
+                };
 
-                    // Activate the clicked button and corresponding content
-                    btn.classList.add('active');
-                    const targetTab = document.getElementById(btn.dataset.tab);
-                    if (targetTab) {
-                        targetTab.classList.add('active');
-
-                        // Re-trigger animations for items in the new active tab
-                        const animatedItems = targetTab.querySelectorAll('.animate-on-load');
-                        animatedItems.forEach(item => {
-                            item.classList.remove('visible');
-                            // Use a timeout to allow the class removal to register before re-adding it
-                            setTimeout(() => {
-                                item.classList.add('visible');
-                            }, 50);
-                        });
-                    }
-                });
-            });
+                // Set an interval to call showNextSlide every 3 seconds (3000 milliseconds)
+                setInterval(showNextSlide, 3000);
+            }
         });
     </script>
 </body>
