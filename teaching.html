@@ -300,7 +300,8 @@
             overflow: hidden;
             box-shadow: var(--shadow-md);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
+            display: flex;
+            flex-direction: column;
             position: relative;
         }
 
@@ -343,12 +344,6 @@
             margin-bottom: 1rem;
             font-size: 1.5rem;
             color: var(--white);
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
         }
 
         .course-title {
@@ -366,40 +361,15 @@
 
         .course-body {
             padding: 2rem;
+            flex-grow: 1;
         }
 
-        .course-details {
-            list-style: none;
-            padding: 0;
-        }
-
-        .course-details li {
-            padding: 0.8rem 0;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .course-details li:last-child {
-            border-bottom: none;
-        }
-
-        .detail-icon {
-            color: var(--accent-color);
-            width: 20px;
-        }
-
-        .detail-label {
-            font-weight: 600;
-            color: var(--text-primary);
-            min-width: 80px;
-        }
-
-        .detail-value {
+        .course-description {
             color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
         }
-
+        
         /* Teaching Stats */
         .stats-container {
             display: grid;
@@ -457,6 +427,7 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-size: 0.9rem;
         }
 
         /* Awards Section */
@@ -658,205 +629,97 @@
                 <!-- Teaching Philosophy -->
                 <section class="philosophy-section animate-on-scroll">
                     <p class="philosophy-text">
-                        "Education is not just about transferring knowledge; it's about igniting curiosity, fostering critical thinking, and empowering students to become innovative problem-solvers who will shape the future of engineering."
+                        "For me, teaching is about more than just the curriculum; it’s about helping students build their skills and confidence. I focus on creating a supportive environment where they can learn to take charge of their own education."
                     </p>
                 </section>
 
                 <!-- Teaching Stats -->
                 <section class="stats-container">
                     <div class="stat-card animate-on-scroll">
-                        <div class="stat-number" data-target="500">0</div>
-                        <div class="stat-label">Students Taught</div>
+                        <div class="stat-number" data-target="7">0</div>
+                        <div class="stat-label">Years of Experience</div>
                     </div>
                     <div class="stat-card animate-on-scroll">
-                        <div class="stat-number" data-target="6">0</div>
-                        <div class="stat-label">Courses Offered</div>
+                        <div class="stat-number" data-target="28">0</div>
+                        <div class="stat-label">Unique Courses Taught</div>
                     </div>
                     <div class="stat-card animate-on-scroll">
-                        <div class="stat-number" data-target="95">0</div>
-                        <div class="stat-label">% Satisfaction Rate</div>
+                        <div class="stat-number" data-target="79">0%</div>
+                        <div class="stat-label">Courses Rated High (≥4.0/5)</div>
                     </div>
                     <div class="stat-card animate-on-scroll">
-                        <div class="stat-number" data-target="12">0</div>
-                        <div class="stat-label">Years Experience</div>
+                        <div class="stat-number" data-target="9">0</div>
+                        <div class="stat-label">Courses Rated "Excellent"</div>
                     </div>
                 </section>
 
                 <!-- Courses Section -->
                 <section id="courses">
-                    <h2 class="section-title">Current Courses</h2>
+                    <h2 class="section-title">Featured Courses Taught at UAEU</h2>
                     <div class="courses-grid">
                         <div class="course-card animate-on-scroll">
                             <div class="course-header">
-                                <div class="course-icon">
-                                    <i class="fas fa-cogs"></i>
-                                </div>
-                                <h3 class="course-title">Mechanics of Materials</h3>
-                                <p class="course-code">MECH 301</p>
-                            </div>
-                            <div class="course-body">
-                                <ul class="course-details">
-                                    <li>
-                                        <i class="fas fa-clock detail-icon"></i>
-                                        <span class="detail-label">Schedule:</span>
-                                        <span class="detail-value">Mon/Wed 10:00-11:30</span>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-users detail-icon"></i>
-                                        <span class="detail-label">Students:</span>
-                                        <span class="detail-value">45</span>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-book detail-icon"></i>
-                                        <span class="detail-label">Credits:</span>
-                                        <span class="detail-value">3</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="course-card animate-on-scroll">
-                            <div class="course-header">
-                                <div class="course-icon">
-                                    <i class="fas fa-cubes"></i>
-                                </div>
-                                <h3 class="course-title">Geometric Modeling</h3>
-                                <p class="course-code">MECH 425</p>
-                            </div>
-                            <div class="course-body">
-                                <ul class="course-details">
-                                    <li>
-                                        <i class="fas fa-clock detail-icon"></i>
-                                        <span class="detail-label">Schedule:</span>
-                                        <span class="detail-value">Tue/Thu 14:00-15:30</span>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-users detail-icon"></i>
-                                        <span class="detail-label">Students:</span>
-                                        <span class="detail-value">30</span>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-book detail-icon"></i>
-                                        <span class="detail-label">Credits:</span>
-                                        <span class="detail-value">3</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="course-card animate-on-scroll">
-                            <div class="course-header">
-                                <div class="course-icon">
-                                    <i class="fas fa-calculator"></i>
-                                </div>
-                                <h3 class="course-title">Advanced Engineering Mathematics</h3>
-                                <p class="course-code">MATH 405</p>
-                            </div>
-                            <div class="course-body">
-                                <ul class="course-details">
-                                    <li>
-                                        <i class="fas fa-clock detail-icon"></i>
-                                        <span class="detail-label">Schedule:</span>
-                                        <span class="detail-value">Mon/Wed 13:00-14:30</span>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-users detail-icon"></i>
-                                        <span class="detail-label">Students:</span>
-                                        <span class="detail-value">60</span>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-book detail-icon"></i>
-                                        <span class="detail-label">Credits:</span>
-                                        <span class="detail-value">4</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="course-card animate-on-scroll">
-                            <div class="course-header">
-                                <div class="course-icon">
-                                    <i class="fas fa-plane"></i>
-                                </div>
-                                <h3 class="course-title">Aircraft Structures</h3>
-                                <p class="course-code">AERO 415</p>
-                            </div>
-                            <div class="course-body">
-                                <ul class="course-details">
-                                    <li>
-                                        <i class="fas fa-clock detail-icon"></i>
-                                        <span class="detail-label">Schedule:</span>
-                                        <span class="detail-value">Tue/Thu 10:00-11:30</span>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-users detail-icon"></i>
-                                        <span class="detail-label">Students:</span>
-                                        <span class="detail-value">35</span>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-book detail-icon"></i>
-                                        <span class="detail-label">Credits:</span>
-                                        <span class="detail-value">3</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="course-card animate-on-scroll">
-                            <div class="course-header">
-                                <div class="course-icon">
-                                    <i class="fas fa-atom"></i>
-                                </div>
+                                <div class="course-icon"><i class="fas fa-atom"></i></div>
                                 <h3 class="course-title">Engineering Materials</h3>
-                                <p class="course-code">MECH 205</p>
+                                <p class="course-code">MECH 390</p>
                             </div>
                             <div class="course-body">
-                                <ul class="course-details">
-                                    <li>
-                                        <i class="fas fa-clock detail-icon"></i>
-                                        <span class="detail-label">Schedule:</span>
-                                        <span class="detail-value">Wed/Fri 09:00-10:30</span>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-users detail-icon"></i>
-                                        <span class="detail-label">Students:</span>
-                                        <span class="detail-value">55</span>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-book detail-icon"></i>
-                                        <span class="detail-label">Credits:</span>
-                                        <span class="detail-value">3</span>
-                                    </li>
-                                </ul>
+                                <p class="course-description">Students apply material theory in practical case studies and labs, bridging fundamental principles with real-world engineering challenges.</p>
                             </div>
                         </div>
 
                         <div class="course-card animate-on-scroll">
                             <div class="course-header">
-                                <div class="course-icon">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
-                                <h3 class="course-title">Finite Element Analysis</h3>
-                                <p class="course-code">MECH 520</p>
+                                <div class="course-icon"><i class="fas fa-plane-departure"></i></div>
+                                <h3 class="course-title">Aircraft Structures 1</h3>
+                                <p class="course-code">AERO 310</p>
                             </div>
                             <div class="course-body">
-                                <ul class="course-details">
-                                    <li>
-                                        <i class="fas fa-clock detail-icon"></i>
-                                        <span class="detail-label">Schedule:</span>
-                                        <span class="detail-value">Mon 16:00-19:00</span>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-users detail-icon"></i>
-                                        <span class="detail-label">Students:</span>
-                                        <span class="detail-value">25</span>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-book detail-icon"></i>
-                                        <span class="detail-label">Credits:</span>
-                                        <span class="detail-value">3</span>
-                                    </li>
-                                </ul>
+                                <p class="course-description">This course features hands-on projects focusing on structural mechanics and fatigue analysis, leading to strong student attainment of learning outcomes.</p>
+                            </div>
+                        </div>
+
+                        <div class="course-card animate-on-scroll">
+                            <div class="course-header">
+                                <div class="course-icon"><i class="fas fa-cubes"></i></div>
+                                <h3 class="course-title">Geometric Modeling</h3>
+                                <p class="course-code">MECH 315</p>
+                            </div>
+                            <div class="course-body">
+                                <p class="course-description">Emphasizes practical skills by using industry-standard CATIA software for modeling and 3D printing for rapid prototyping.</p>
+                            </div>
+                        </div>
+
+                        <div class="course-card animate-on-scroll">
+                            <div class="course-header">
+                                <div class="course-icon"><i class="fas fa-cogs"></i></div>
+                                <h3 class="course-title">Mechanics Of Materials</h3>
+                                <p class="course-code">MECH 305</p>
+                            </div>
+                            <div class="course-body">
+                                <p class="course-description">The curriculum for this core course was revamped with new, student-friendly slides and materials to enhance comprehension of complex topics.</p>
+                            </div>
+                        </div>
+
+                        <div class="course-card animate-on-scroll">
+                            <div class="course-header">
+                                <div class="course-icon"><i class="fas fa-chart-line"></i></div>
+                                <h3 class="course-title">Finite Element Methods</h3>
+                                <p class="course-code">MECH 633 (Graduate)</p>
+                            </div>
+                            <div class="course-body">
+                                <p class="course-description">A graduate-level course featuring tablet-based lectures and real-world projects using Abaqus for advanced FEM simulations.</p>
+                            </div>
+                        </div>
+
+                        <div class="course-card animate-on-scroll">
+                            <div class="course-header">
+                                <div class="course-icon"><i class="fas fa-robot"></i></div>
+                                <h3 class="course-title">Selected Topics in Mechatronics</h3>
+                                <p class="course-code">MECH 530 (BioMEMS)</p>
+                            </div>
+                            <div class="course-body">
+                                <p class="course-description">Developed entirely new course material for this special topics graduate course, focusing on the emerging field of BioMEMS.</p>
                             </div>
                         </div>
                     </div>
@@ -864,33 +727,27 @@
 
                 <!-- Awards Section -->
                 <section class="awards-section animate-on-scroll">
-                    <h2 class="section-title">Teaching Recognition</h2>
+                    <h2 class="section-title">Teaching Recognition & Innovation</h2>
                     <div class="awards-grid">
                         <div class="award-item">
-                            <div class="award-icon">
-                                <i class="fas fa-trophy"></i>
-                            </div>
+                            <div class="award-icon"><i class="fas fa-trophy"></i></div>
                             <div class="award-text">
-                                <h4>Excellence in Teaching Award</h4>
-                                <p>UAEU, 2023</p>
+                                <h4>Excellent Performance Rating</h4>
+                                <p>Received "Excellent" in Teaching, Research & Service for the 2023-2025 cycle.</p>
                             </div>
                         </div>
                         <div class="award-item">
-                            <div class="award-icon">
-                                <i class="fas fa-star"></i>
-                            </div>
+                            <div class="award-icon"><i class="fas fa-lightbulb"></i></div>
                             <div class="award-text">
-                                <h4>Best Course Innovation</h4>
-                                <p>Engineering Department, 2022</p>
+                                <h4>SURE Plus Grant Recipient</h4>
+                                <p>Awarded multiple grants (2022, 2023, 2025) to lead student research projects.</p>
                             </div>
                         </div>
                         <div class="award-item">
-                            <div class="award-icon">
-                                <i class="fas fa-medal"></i>
-                            </div>
+                            <div class="award-icon"><i class="fas fa-sitemap"></i></div>
                             <div class="award-text">
-                                <h4>Student Choice Award</h4>
-                                <p>Three consecutive years</p>
+                                <h4>Graduate Program Development</h4>
+                                <p>Led the establishment of the Non-Thesis MSc track and enhanced academic pathways.</p>
                             </div>
                         </div>
                     </div>
@@ -915,12 +772,12 @@
 
         // Generate floating icons
         const floatingIconsContainer = document.getElementById('floating-icons');
-        const icons = ['fa-book', 'fa-graduation-cap', 'fa-pencil', 'fa-lightbulb', 'fa-flask', 'fa-ruler'];
+        const icons = ['fa-book', 'fa-graduation-cap', 'fa-pencil-ruler', 'fa-lightbulb', 'fa-flask', 'fa-calculator', 'fa-atom', 'fa-cogs'];
         
         for (let i = 0; i < 15; i++) {
             const icon = document.createElement('i');
             icon.className = `fas ${icons[Math.floor(Math.random() * icons.length)]} floating-icon`;
-            icon.style.left = Math.random() * 100 + '%';
+            icon.style.left = Math.random() * 100 + 'vw';
             icon.style.animationDelay = Math.random() * 20 + 's';
             icon.style.animationDuration = (20 + Math.random() * 10) + 's';
             floatingIconsContainer.appendChild(icon);
@@ -929,20 +786,22 @@
         // Animated Counter
         function animateCounter(element) {
             const target = parseInt(element.getAttribute('data-target'));
-            const duration = 2000;
-            const increment = target / (duration / 16);
+            const duration = 2000; // 2 seconds
+            let start = 0;
+            const stepTime = 16; // roughly 60fps
+            const totalSteps = duration / stepTime;
+            const increment = target / totalSteps;
             let current = 0;
 
             const updateCounter = () => {
                 current += increment;
                 if (current < target) {
-                    element.textContent = Math.floor(current);
+                    element.textContent = Math.ceil(current);
                     requestAnimationFrame(updateCounter);
                 } else {
-                    element.textContent = target + (element.parentElement.textContent.includes('%') ? '%' : '');
+                    element.textContent = target;
                 }
             };
-
             updateCounter();
         }
 
@@ -952,16 +811,32 @@
             rootMargin: '0px 0px -100px 0px'
         };
 
+        let statsAnimated = false; // Flag to ensure stats animate only once
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                     
-                    // Trigger counter animation
-                    const counter = entry.target.querySelector('[data-target]');
-                    if (counter && counter.textContent === '0') {
-                        animateCounter(counter);
+                    // Trigger counter animation for all stats at once when the container is visible
+                    if (entry.target.classList.contains('stats-container') && !statsAnimated) {
+                        document.querySelectorAll('.stat-number').forEach(counter => {
+                           if (counter.textContent === '0' || counter.textContent === '0%') {
+                                const originalText = counter.textContent;
+                                // Temporarily set to 0 to start animation
+                                counter.textContent = '0'; 
+                                animateCounter(counter);
+                                // Add back the % sign after animation if needed
+                                if(originalText.includes('%')){
+                                    setTimeout(() => {
+                                        counter.textContent += '%';
+                                    }, 2000);
+                                }
+                           }
+                        });
+                        statsAnimated = true; // Set flag to true
                     }
+                    // No need to unobserve, just let it stay visible
                 }
             });
         }, observerOptions);
@@ -970,31 +845,12 @@
         document.querySelectorAll('.animate-on-scroll').forEach(el => {
             observer.observe(el);
         });
-
-        document.querySelectorAll('.stat-card').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Course card hover effect
-        document.querySelectorAll('.course-card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                
-                const rotateX = (y - centerY) / 15;
-                const rotateY = (centerX - x) / 15;
-                
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = '';
-            });
-        });
+        
+        // Observe the stats container as a whole
+        const statsContainer = document.querySelector('.stats-container');
+        if (statsContainer) {
+            observer.observe(statsContainer);
+        }
 
         // Header scroll effect
         window.addEventListener('scroll', () => {
