@@ -4,34 +4,631 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Sanan H Khan | Teaching</title>
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
-        :root { --primary-color: #003366; --secondary-color: #007BFF; --accent-color: #f8f9fa; --text-color: #333; --light-text-color: #fff; --border-color: #e0e0e0; --shadow: 0 4px 12px rgba(0,0,0,0.08); --shadow-hover: 0 8px 20px rgba(0,0,0,0.12); }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Poppins', sans-serif; line-height: 1.7; color: var(--text-color); background-color: #fff; margin: 0; padding: 0; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        h2, h3 { color: var(--primary-color); font-weight: 600; }
-        h2 { font-size: 2.2rem; border-bottom: 3px solid var(--secondary-color); padding-bottom: 10px; margin-top: 40px; margin-bottom: 30px; }
-        h3 { color: var(--secondary-color); font-size: 1.2rem; }
-        .header { background-color: var(--primary-color); padding: 1rem 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 0 20px; max-width: 1200px; margin: 0 auto; }
-        .nav-brand { font-size: 1.5rem; font-weight: 700; color: var(--light-text-color); text-decoration: none; }
-        .nav-links { list-style: none; margin: 0; padding: 0; display: flex; }
-        .nav-links li { padding: 0 15px; }
-        .nav-links a { color: var(--light-text-color); text-decoration: none; font-weight: 400; padding: 5px 0; transition: color 0.3s; }
-        .nav-links a.active, .nav-links a:hover { color: #aaccff; }
-        .card-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .card { background: #fff; border: 1px solid var(--border-color); border-radius: 10px; padding: 25px; box-shadow: var(--shadow); transition: transform 0.3s ease, box-shadow 0.3s ease; text-align: center; }
-        .card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); }
-        .footer { background-color: #222; color: #aaa; text-align: center; padding: 20px; margin-top: 40px; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #7c3aed;
+            --accent-color: #06b6d4;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --dark-bg: #0f172a;
+            --light-bg: #f8fafc;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --white: #ffffff;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --gradient-teaching: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 20px rgba(0,0,0,0.15);
+            --shadow-xl: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--light-bg);
+            overflow-x: hidden;
+        }
+
+        /* Animated Background Pattern */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            opacity: 0.03;
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(99, 102, 241, 0.1) 35px, rgba(99, 102, 241, 0.1) 70px),
+                repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(168, 85, 247, 0.1) 35px, rgba(168, 85, 247, 0.1) 70px);
+            animation: backgroundShift 60s linear infinite;
+        }
+
+        @keyframes backgroundShift {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(70px, 70px); }
+        }
+
+        /* Floating Icons */
+        .floating-icons {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .floating-icon {
+            position: absolute;
+            font-size: 2rem;
+            color: rgba(99, 102, 241, 0.1);
+            animation: float-icon 20s infinite linear;
+        }
+
+        @keyframes float-icon {
+            from {
+                transform: translateY(110vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            to {
+                transform: translateY(-10vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+
+        .nav-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-brand:hover {
+            transform: translateY(-2px);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-1);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            cursor: pointer;
+        }
+
+        /* Teaching Hero Section */
+        .teaching-hero {
+            margin-top: 80px;
+            padding: 6rem 0 4rem;
+            background: linear-gradient(135deg, rgba(250, 112, 154, 0.1) 0%, rgba(254, 225, 64, 0.1) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .teaching-hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(250, 112, 154, 0.2) 0%, transparent 70%);
+            top: -300px;
+            right: -300px;
+            animation: pulse 10s ease-in-out infinite;
+        }
+
+        .hero-title {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 900;
+            background: var(--gradient-teaching);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            animation: fadeIn 0.8s ease-out 0.3s both;
+        }
+
+        /* Teaching Philosophy Section */
+        .philosophy-section {
+            background: var(--white);
+            padding: 4rem 3rem;
+            border-radius: 30px;
+            box-shadow: var(--shadow-lg);
+            margin: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .philosophy-section::before {
+            content: '❝';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 8rem;
+            color: rgba(250, 112, 154, 0.1);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .philosophy-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            text-align: center;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Main Content */
+        .content-wrapper {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 5px;
+            background: var(--gradient-teaching);
+            border-radius: 3px;
+        }
+
+        /* Course Cards Grid */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .course-card {
+            background: var(--white);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gradient-teaching);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .course-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .course-header {
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(250, 112, 154, 0.05) 0%, rgba(254, 225, 64, 0.05) 100%);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .course-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-teaching);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            color: var(--white);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .course-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .course-code {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .course-body {
+            padding: 2rem;
+        }
+
+        .course-details {
+            list-style: none;
+            padding: 0;
+        }
+
+        .course-details li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .course-details li:last-child {
+            border-bottom: none;
+        }
+
+        .detail-icon {
+            color: var(--accent-color);
+            width: 20px;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: var(--text-primary);
+            min-width: 80px;
+        }
+
+        .detail-value {
+            color: var(--text-secondary);
+        }
+
+        /* Teaching Stats */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: var(--gradient-teaching);
+            opacity: 0.05;
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-card:hover::after {
+            top: -100%;
+            right: -100%;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient-teaching);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Awards Section */
+        .awards-section {
+            background: linear-gradient(135deg, rgba(250, 112, 154, 0.05) 0%, rgba(254, 225, 64, 0.05) 100%);
+            padding: 3rem;
+            border-radius: 30px;
+            margin: 4rem 0;
+        }
+
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .award-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: var(--white);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .award-item:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .award-icon {
+            font-size: 2rem;
+            color: #fbbf24;
+        }
+
+        .award-text h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .award-text p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-bg);
+            color: var(--white);
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient-teaching);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                box-shadow: var(--shadow-lg);
+                transition: transform 0.3s ease;
+                transform: translateY(0);
+            }
+
+            .nav-links.active {
+                transform: translateY(-100%);
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .hero-title h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .philosophy-section {
+                padding: 2rem;
+            }
+        }
+
+        /* Custom Selection */
+        ::selection {
+            background: rgba(250, 112, 154, 0.3);
+            color: var(--text-primary);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--light-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-teaching);
+            border-radius: 5px;
+        }
+
+        /* Animations */
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.1); opacity: 0.1; }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+    
+    <!-- Floating Icons -->
+    <div class="floating-icons" id="floating-icons"></div>
 
     <header class="header">
-        <nav class="navbar">
+        <nav class="navbar container">
             <a href="index.html" class="nav-brand">Dr. Sanan H Khan</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -39,26 +636,375 @@
                 <li><a href="teaching.html" class="active">Teaching</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
+            <button class="nav-toggle" id="nav-toggle-button" aria-label="Toggle Menu">
+                <i class="fas fa-bars"></i>
+            </button>
         </nav>
     </header>
 
-    <main class="container">
-        <section id="teaching">
-            <h2>Teaching Subjects</h2>
-            <div class="card-container">
-                <div class="card"><h3>Mechanics of Material</h3></div>
-                <div class="card"><h3>Geometric modeling</h3></div>
-                <div class="card"><h3>Advanced Engineering Mathematics</h3></div>
-                <div class="card"><h3>Aircraft structures</h3></div>
-                <div class="card"><h3>Engineering materials</h3></div>
-                <div class="card"><h3>Finite element analysis</h3></div>
+    <main>
+        <!-- Teaching Hero -->
+        <section class="teaching-hero">
+            <div class="container">
+                <div class="hero-title">
+                    <h1>Teaching Excellence</h1>
+                    <p class="hero-subtitle">Inspiring the Next Generation of Engineers</p>
+                </div>
             </div>
         </section>
+
+        <div class="content-wrapper">
+            <div class="container">
+                <!-- Teaching Philosophy -->
+                <section class="philosophy-section animate-on-scroll">
+                    <p class="philosophy-text">
+                        "Education is not just about transferring knowledge; it's about igniting curiosity, fostering critical thinking, and empowering students to become innovative problem-solvers who will shape the future of engineering."
+                    </p>
+                </section>
+
+                <!-- Teaching Stats -->
+                <section class="stats-container">
+                    <div class="stat-card animate-on-scroll">
+                        <div class="stat-number" data-target="500">0</div>
+                        <div class="stat-label">Students Taught</div>
+                    </div>
+                    <div class="stat-card animate-on-scroll">
+                        <div class="stat-number" data-target="6">0</div>
+                        <div class="stat-label">Courses Offered</div>
+                    </div>
+                    <div class="stat-card animate-on-scroll">
+                        <div class="stat-number" data-target="95">0</div>
+                        <div class="stat-label">% Satisfaction Rate</div>
+                    </div>
+                    <div class="stat-card animate-on-scroll">
+                        <div class="stat-number" data-target="12">0</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                </section>
+
+                <!-- Courses Section -->
+                <section id="courses">
+                    <h2 class="section-title">Current Courses</h2>
+                    <div class="courses-grid">
+                        <div class="course-card animate-on-scroll">
+                            <div class="course-header">
+                                <div class="course-icon">
+                                    <i class="fas fa-cogs"></i>
+                                </div>
+                                <h3 class="course-title">Mechanics of Materials</h3>
+                                <p class="course-code">MECH 301</p>
+                            </div>
+                            <div class="course-body">
+                                <ul class="course-details">
+                                    <li>
+                                        <i class="fas fa-clock detail-icon"></i>
+                                        <span class="detail-label">Schedule:</span>
+                                        <span class="detail-value">Mon/Wed 10:00-11:30</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-users detail-icon"></i>
+                                        <span class="detail-label">Students:</span>
+                                        <span class="detail-value">45</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-book detail-icon"></i>
+                                        <span class="detail-label">Credits:</span>
+                                        <span class="detail-value">3</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="course-card animate-on-scroll">
+                            <div class="course-header">
+                                <div class="course-icon">
+                                    <i class="fas fa-cubes"></i>
+                                </div>
+                                <h3 class="course-title">Geometric Modeling</h3>
+                                <p class="course-code">MECH 425</p>
+                            </div>
+                            <div class="course-body">
+                                <ul class="course-details">
+                                    <li>
+                                        <i class="fas fa-clock detail-icon"></i>
+                                        <span class="detail-label">Schedule:</span>
+                                        <span class="detail-value">Tue/Thu 14:00-15:30</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-users detail-icon"></i>
+                                        <span class="detail-label">Students:</span>
+                                        <span class="detail-value">30</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-book detail-icon"></i>
+                                        <span class="detail-label">Credits:</span>
+                                        <span class="detail-value">3</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="course-card animate-on-scroll">
+                            <div class="course-header">
+                                <div class="course-icon">
+                                    <i class="fas fa-calculator"></i>
+                                </div>
+                                <h3 class="course-title">Advanced Engineering Mathematics</h3>
+                                <p class="course-code">MATH 405</p>
+                            </div>
+                            <div class="course-body">
+                                <ul class="course-details">
+                                    <li>
+                                        <i class="fas fa-clock detail-icon"></i>
+                                        <span class="detail-label">Schedule:</span>
+                                        <span class="detail-value">Mon/Wed 13:00-14:30</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-users detail-icon"></i>
+                                        <span class="detail-label">Students:</span>
+                                        <span class="detail-value">60</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-book detail-icon"></i>
+                                        <span class="detail-label">Credits:</span>
+                                        <span class="detail-value">4</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="course-card animate-on-scroll">
+                            <div class="course-header">
+                                <div class="course-icon">
+                                    <i class="fas fa-plane"></i>
+                                </div>
+                                <h3 class="course-title">Aircraft Structures</h3>
+                                <p class="course-code">AERO 415</p>
+                            </div>
+                            <div class="course-body">
+                                <ul class="course-details">
+                                    <li>
+                                        <i class="fas fa-clock detail-icon"></i>
+                                        <span class="detail-label">Schedule:</span>
+                                        <span class="detail-value">Tue/Thu 10:00-11:30</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-users detail-icon"></i>
+                                        <span class="detail-label">Students:</span>
+                                        <span class="detail-value">35</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-book detail-icon"></i>
+                                        <span class="detail-label">Credits:</span>
+                                        <span class="detail-value">3</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="course-card animate-on-scroll">
+                            <div class="course-header">
+                                <div class="course-icon">
+                                    <i class="fas fa-atom"></i>
+                                </div>
+                                <h3 class="course-title">Engineering Materials</h3>
+                                <p class="course-code">MECH 205</p>
+                            </div>
+                            <div class="course-body">
+                                <ul class="course-details">
+                                    <li>
+                                        <i class="fas fa-clock detail-icon"></i>
+                                        <span class="detail-label">Schedule:</span>
+                                        <span class="detail-value">Wed/Fri 09:00-10:30</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-users detail-icon"></i>
+                                        <span class="detail-label">Students:</span>
+                                        <span class="detail-value">55</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-book detail-icon"></i>
+                                        <span class="detail-label">Credits:</span>
+                                        <span class="detail-value">3</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="course-card animate-on-scroll">
+                            <div class="course-header">
+                                <div class="course-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <h3 class="course-title">Finite Element Analysis</h3>
+                                <p class="course-code">MECH 520</p>
+                            </div>
+                            <div class="course-body">
+                                <ul class="course-details">
+                                    <li>
+                                        <i class="fas fa-clock detail-icon"></i>
+                                        <span class="detail-label">Schedule:</span>
+                                        <span class="detail-value">Mon 16:00-19:00</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-users detail-icon"></i>
+                                        <span class="detail-label">Students:</span>
+                                        <span class="detail-value">25</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-book detail-icon"></i>
+                                        <span class="detail-label">Credits:</span>
+                                        <span class="detail-value">3</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Awards Section -->
+                <section class="awards-section animate-on-scroll">
+                    <h2 class="section-title">Teaching Recognition</h2>
+                    <div class="awards-grid">
+                        <div class="award-item">
+                            <div class="award-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="award-text">
+                                <h4>Excellence in Teaching Award</h4>
+                                <p>UAEU, 2023</p>
+                            </div>
+                        </div>
+                        <div class="award-item">
+                            <div class="award-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="award-text">
+                                <h4>Best Course Innovation</h4>
+                                <p>Engineering Department, 2022</p>
+                            </div>
+                        </div>
+                        <div class="award-item">
+                            <div class="award-icon">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <div class="award-text">
+                                <h4>Student Choice Award</h4>
+                                <p>Three consecutive years</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
     </main>
 
     <footer class="footer">
-        <p>&copy; 2025 Sanan H Khan. All Rights Reserved.</p>
+        <p>© 2025 Sanan H Khan. All Rights Reserved.</p>
     </footer>
 
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const navToggle = document.getElementById('nav-toggle-button');
+        const navLinks = document.querySelector('.nav-links');
+        
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Generate floating icons
+        const floatingIconsContainer = document.getElementById('floating-icons');
+        const icons = ['fa-book', 'fa-graduation-cap', 'fa-pencil', 'fa-lightbulb', 'fa-flask', 'fa-ruler'];
+        
+        for (let i = 0; i < 15; i++) {
+            const icon = document.createElement('i');
+            icon.className = `fas ${icons[Math.floor(Math.random() * icons.length)]} floating-icon`;
+            icon.style.left = Math.random() * 100 + '%';
+            icon.style.animationDelay = Math.random() * 20 + 's';
+            icon.style.animationDuration = (20 + Math.random() * 10) + 's';
+            floatingIconsContainer.appendChild(icon);
+        }
+
+        // Animated Counter
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-target'));
+            const duration = 2000;
+            const increment = target / (duration / 16);
+            let current = 0;
+
+            const updateCounter = () => {
+                current += increment;
+                if (current < target) {
+                    element.textContent = Math.floor(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target + (element.parentElement.textContent.includes('%') ? '%' : '');
+                }
+            };
+
+            updateCounter();
+        }
+
+        // Intersection Observer
+        const observerOptions = {
+            threshold: 0.3,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Trigger counter animation
+                    const counter = entry.target.querySelector('[data-target]');
+                    if (counter && counter.textContent === '0') {
+                        animateCounter(counter);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        document.querySelectorAll('.stat-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Course card hover effect
+        document.querySelectorAll('.course-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 15;
+                const rotateY = (centerX - x) / 15;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.pageYOffset > 50) {
+                header.style.boxShadow = '0 2px 30px rgba(0,0,0,0.15)';
+            } else {
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
 </body>
 </html>
