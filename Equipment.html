@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Sanan H Khan | Laboratory Equipments</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #7c3aed;
+            --accent-color: #06b6d4;
+            --dark-bg: #0f172a;
+            --light-bg: #f8fafc;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --white: #ffffff;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--light-bg);
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.03) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.03) 0%, transparent 40%);
+            z-index: -2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+
+        .nav-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-1);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            cursor: pointer;
+        }
+
+        /* Page Hero Section */
+        .page-hero {
+            margin-top: 80px;
+            padding: 6rem 0 4rem;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-title {
+            text-align: center;
+        }
+
+        .page-title h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 900;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .page-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+        }
+
+        /* Content Sections */
+        .content-wrapper {
+            padding: 4rem 0;
+        }
+        
+        /* Equipment Grid */
+        .equipments-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        .equipment-card {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        @media (min-width: 768px) {
+            .equipment-card {
+                flex-direction: row;
+            }
+            .equipment-card:nth-child(even) {
+                flex-direction: row-reverse;
+            }
+        }
+
+        .equipment-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .equipment-image-placeholder {
+            flex: 1;
+            min-width: 300px;
+            min-height: 250px;
+            background-color: #f1f4f8;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border: 2px dashed #cbd5e1;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+        
+        .equipment-image-placeholder .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .equipment-image-placeholder p {
+            font-weight: 500;
+        }
+
+        .equipment-content {
+            flex: 2;
+        }
+
+        .equipment-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .equipment-content p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-bg);
+            color: var(--white);
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 4rem;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient-1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                box-shadow: var(--shadow-lg);
+                transition: transform 0.3s ease;
+                transform: translateY(0);
+            }
+
+            .nav-links.active {
+                transform: translateY(-100%);
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .page-title h1 {
+                font-size: 2.5rem;
+            }
+            .equipment-content h3 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* Animation */
+        .animate-on-load {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .animate-on-load.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar container">
+            <a href="index.html" class="nav-brand">Dr. Sanan H Khan</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="equipments.html" class="active">Laboratory</a></li>
+                <li><a href="teaching.html">Teaching</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="nav-toggle-button" aria-label="Toggle Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-title">
+                    <h1>Laboratory Equipments</h1>
+                    <p class="page-subtitle">Tools for Advanced Materials Research and Fabrication</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="content-wrapper">
+            <div class="container">
+                <div class="equipments-grid">
+
+                    <!-- Finite Element Analysis -->
+                    <div class="equipment-card animate-on-load">
+                        <div class="equipment-image-placeholder">
+                            <i class="fas fa-desktop icon"></i>
+                            <p>Add image of the workstation here.</p>
+                        </div>
+                        <div class="equipment-content">
+                            <h3>Finite Element Analysis: Workstation with Abaqus 2025</h3>
+                            <p>For finite element analysis, our lab is equipped with a powerful workstation featuring a 13th Gen Intel® Core™ i9-13900KF processor running at 3.00 GHz, 64 GB of RAM, and a 24 GB graphics card. This high-performance setup, combined with an Abaqus CAE 2025 license, enables efficient and detailed simulation of complex composite and fiber metal laminate structures with enhanced speed and accuracy.</p>
+                        </div>
+                    </div>
+
+                    <!-- DIC Setup -->
+                    <div class="equipment-card animate-on-load">
+                        <div class="equipment-image-placeholder">
+                             <i class="fas fa-camera-retro icon"></i>
+                            <p>Add image of the DIC setup here.</p>
+                        </div>
+                        <div class="equipment-content">
+                            <h3>DIC Setup</h3>
+                            <p>Our lab is equipped with a Dantec 2D Digital Image Correlation (DIC) setup, which is used for precise, full-field strain measurement during mechanical testing. This non-contact optical system enables accurate tracking of deformation patterns on the specimen surface. The DIC system is integrated with a Universal Testing Machine (UTM) manufactured by MTS, with a load capacity of 100 kN, allowing for high-precision mechanical characterization of composite and fiber metal laminate specimens under various loading conditions.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Hand Lay-up method -->
+                    <div class="equipment-card animate-on-load">
+                        <div class="equipment-image-placeholder">
+                            <i class="fas fa-hand-paper icon"></i>
+                            <p>Add image of the hand lay-up process.</p>
+                        </div>
+                        <div class="equipment-content">
+                            <h3>Hand Lay-up Method</h3>
+                            <p>In our lab, the fabrication of FRP composites and Fiber Metal Laminates (FMLs) is primarily carried out using the hand layup method. This versatile and cost-effective technique allows for precise control over fiber orientation and stacking sequence. A variety of fabrication tools are available to support the process, including rollers, brushes, and cutting instruments. Additionally, a hot press is available for the controlled curing of composite materials, ensuring uniform temperature and pressure conditions for improved mechanical performance and structural integrity.</p>
+                        </div>
+                    </div>
+
+                    <!-- Sandblasting Equipment -->
+                    <div class="equipment-card animate-on-load">
+                        <div class="equipment-image-placeholder">
+                            <i class="fas fa-wind icon"></i>
+                            <p>Add image of the sandblasting setup.</p>
+                        </div>
+                        <div class="equipment-content">
+                            <h3>Sandblasting Equipment</h3>
+                            <p>In our laboratory, sandblasting equipment is used to create mechanical surface roughness on metal plates for the fabrication of Fiber Metal Laminates (FMLs). The setup includes an assembly of a Black & Decker pressure cylinder, a sandblasting chamber manufactured by Switzer, and a sandblasting gun. The system allows for precise control of surface texture through adjustable parameters such as nozzle size, pressure, and the distance between the gun and the target surface. This flexibility makes it suitable for achieving various levels of surface roughness tailored to specific fabrication requirements.</p>
+                        </div>
+                    </div>
+
+                    <!-- Electrochemical Surface Etching -->
+                    <div class="equipment-card animate-on-load">
+                        <div class="equipment-image-placeholder">
+                            <i class="fas fa-flask icon"></i>
+                            <p>Add image of the etching setup here.</p>
+                        </div>
+                        <div class="equipment-content">
+                            <h3>Electrochemical Surface Etching</h3>
+                            <p>A small setup is designed in our lab for creating electrochemical surface etching on metal plates to develop controlled surface roughness. The setup consists of an AC to DC converter supplying up to 12 volts, chemical handling beakers and trays for safe electrolyte use, and a temperature-controlled magnetic stirrer to ensure uniform agitation during the etching process. This system enables the creation of various electrochemical surface roughness levels by adjusting voltage, temperature, and chemical composition.</p>
+                        </div>
+                    </div>
+
+                    <!-- Mitutoyo Surface Roughness Tester -->
+                    <div class="equipment-card animate-on-load">
+                        <div class="equipment-image-placeholder">
+                            <i class="fas fa-ruler-horizontal icon"></i>
+                            <p>Add image of the Mitutoyo tester.</p>
+                        </div>
+                        <div class="equipment-content">
+                            <h3>Mitutoyo Surface Roughness Tester</h3>
+                            <p>Our lab is equipped with the Mitutoyo Surface Roughness Tester SJ-210, a portable and highly precise instrument for measuring surface texture. It allows for accurate evaluation of surface roughness parameters such as Ra, Rz, and others, making it essential for quality control in surface preparation processes. With its easy-to-use interface, LCD display, and data storage capabilities, the SJ-210 is used to assess both mechanically and chemically treated metal surfaces, ensuring consistency and reliability in the fabrication of Fiber Metal Laminates and composite materials.</p>
+                        </div>
+                    </div>
+
+                    <!-- Ultrasonic Cleaner -->
+                    <div class="equipment-card animate-on-load">
+                        <div class="equipment-image-placeholder">
+                            <i class="fas fa-water icon"></i>
+                            <p>Add image of the ultrasonic cleaner.</p>
+                        </div>
+                        <div class="equipment-content">
+                            <h3>Ultrasonic Cleaner</h3>
+                            <p>Surface cleaning at various stages is a crucial step in the preparation process, and for this purpose, our lab is equipped with an ultrasonic cleaner. A key advantage of this equipment is its ability to handle and thoroughly clean large specimens up to 200 × 200 mm in size, making it highly suitable for cleaning metal plates used in the fabrication of Fiber Metal Laminates (FMLs). The ultrasonic action ensures the effective removal of contaminants from the surface without causing damage.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Bambu X1 3D Printer -->
+                    <div class="equipment-card animate-on-load">
+                        <div class="equipment-image-placeholder">
+                            <i class="fas fa-cube icon"></i>
+                            <p>Add image of the Bambu 3D printer.</p>
+                        </div>
+                        <div class="equipment-content">
+                            <h3>Bambu X1 3D Printer</h3>
+                            <p>Our lab is equipped with the Bambu Lab X1 Carbon 3D printer, which combines industrial-level performance with user-friendly operation. This advanced printer is ideal for rapid prototyping, functional engineering components, and high-quality multi-material prints. Its speed, precision, and versatility make it suitable for both experienced users and beginners seeking reliable and professional results.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Elegoo Laser Engraver -->
+                    <div class="equipment-card animate-on-load">
+                        <div class="equipment-image-placeholder">
+                            <i class="fas fa-laser-burst icon"></i>
+                            <p>Add image of the Elegoo laser engraver.</p>
+                        </div>
+                        <div class="equipment-content">
+                            <h3>Elegoo Laser Engraver</h3>
+                            <p>Our lab is equipped with the Elegoo 10 W laser engraver, a precise and versatile tool ideal for engraving and light cutting applications. With a spacious 400 × 400 mm working area and support for a wide range of materials including wood, leather, and acrylic, it enables high-speed, high-resolution fabrication. Its advanced safety features, user-friendly interface, and compatibility with LightBurn software make it a valuable asset for prototyping, labeling, and custom fabrication tasks in our research and development activities.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 Sanan H Khan. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
+            const navToggle = document.getElementById('nav-toggle-button');
+            const navLinks = document.querySelector('.nav-links');
+            
+            navToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.animate-on-load').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
