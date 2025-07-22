@@ -200,6 +200,28 @@
             box-shadow: var(--shadow-lg);
         }
 
+        /* Updated Image Styles */
+        .equipment-image {
+            flex: 1;
+            min-width: 300px;
+            overflow: hidden;
+            border-radius: 15px;
+            background-color: #f1f4f8;
+        }
+
+        .equipment-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 250px;
+            transition: transform 0.3s ease;
+        }
+
+        .equipment-card:hover .equipment-image img {
+            transform: scale(1.05);
+        }
+
+        /* Fallback for missing images */
         .equipment-image-placeholder {
             flex: 1;
             min-width: 300px;
@@ -294,6 +316,10 @@
             .equipment-content h3 {
                 font-size: 1.5rem;
             }
+
+            .equipment-image {
+                min-width: 100%;
+            }
         }
         
         /* Animation */
@@ -343,9 +369,8 @@
 
                     <!-- Finite Element Analysis -->
                     <div class="equipment-card animate-on-load">
-                        <div class="equipment-image-placeholder">
-                            <i class="fas fa-desktop icon"></i>
-                            <p>abaqus-2025.jpg.</p>
+                        <div class="equipment-image">
+                            <img src="abaqus-2025.jpg" alt="Finite Element Analysis Workstation with Abaqus 2025" loading="lazy">
                         </div>
                         <div class="equipment-content">
                             <h3>Finite Element Analysis: Workstation with Abaqus 2025</h3>
@@ -355,9 +380,8 @@
 
                     <!-- DIC Setup -->
                     <div class="equipment-card animate-on-load">
-                        <div class="equipment-image-placeholder">
-                             <i class="fas fa-camera-retro icon"></i>
-                            <p>DIC.jpg.</p>
+                        <div class="equipment-image">
+                            <img src="DIC.jpg" alt="Digital Image Correlation Setup" loading="lazy">
                         </div>
                         <div class="equipment-content">
                             <h3>DIC Setup</h3>
@@ -367,9 +391,8 @@
                     
                     <!-- Hand Lay-up method -->
                     <div class="equipment-card animate-on-load">
-                        <div class="equipment-image-placeholder">
-                            <i class="fas fa-hand-paper icon"></i>
-                            <p>handlayup.jpg.</p>
+                        <div class="equipment-image">
+                            <img src="handlayup.jpg" alt="Hand Lay-up Method Equipment" loading="lazy">
                         </div>
                         <div class="equipment-content">
                             <h3>Hand Lay-up Method</h3>
@@ -379,9 +402,8 @@
 
                     <!-- Sandblasting Equipment -->
                     <div class="equipment-card animate-on-load">
-                        <div class="equipment-image-placeholder">
-                            <i class="fas fa-wind icon"></i>
-                            <p>sandblasting.jpg.</p>
+                        <div class="equipment-image">
+                            <img src="sandblasting.jpg" alt="Sandblasting Equipment" loading="lazy">
                         </div>
                         <div class="equipment-content">
                             <h3>Sandblasting Equipment</h3>
@@ -391,9 +413,8 @@
 
                     <!-- Electrochemical Surface Etching -->
                     <div class="equipment-card animate-on-load">
-                        <div class="equipment-image-placeholder">
-                            <i class="fas fa-flask icon"></i>
-                            <p>surface itching.jpg.</p>
+                        <div class="equipment-image">
+                            <img src="surface-etching.jpg" alt="Electrochemical Surface Etching Setup" loading="lazy">
                         </div>
                         <div class="equipment-content">
                             <h3>Electrochemical Surface Etching</h3>
@@ -403,9 +424,8 @@
 
                     <!-- Mitutoyo Surface Roughness Tester -->
                     <div class="equipment-card animate-on-load">
-                        <div class="equipment-image-placeholder">
-                            <i class="fas fa-ruler-horizontal icon"></i>
-                            <p>surface roughness.jpg.</p>
+                        <div class="equipment-image">
+                            <img src="surface-roughness.jpg" alt="Mitutoyo Surface Roughness Tester" loading="lazy">
                         </div>
                         <div class="equipment-content">
                             <h3>Mitutoyo Surface Roughness Tester</h3>
@@ -415,9 +435,8 @@
 
                     <!-- Ultrasonic Cleaner -->
                     <div class="equipment-card animate-on-load">
-                        <div class="equipment-image-placeholder">
-                            <i class="fas fa-water icon"></i>
-                            <p>ultrasonic.jpg.</p>
+                        <div class="equipment-image">
+                            <img src="ultrasonic.jpg" alt="Ultrasonic Cleaner" loading="lazy">
                         </div>
                         <div class="equipment-content">
                             <h3>Ultrasonic Cleaner</h3>
@@ -427,9 +446,8 @@
                     
                     <!-- Bambu X1 3D Printer -->
                     <div class="equipment-card animate-on-load">
-                        <div class="equipment-image-placeholder">
-                            <i class="fas fa-cube icon"></i>
-                            <p>3D printer.jpg.</p>
+                        <div class="equipment-image">
+                            <img src="3d-printer.jpg" alt="Bambu X1 3D Printer" loading="lazy">
                         </div>
                         <div class="equipment-content">
                             <h3>Bambu X1 3D Printer</h3>
@@ -439,9 +457,8 @@
                     
                     <!-- Elegoo Laser Engraver -->
                     <div class="equipment-card animate-on-load">
-                        <div class="equipment-image-placeholder">
-                            <i class="fas fa-laser-burst icon"></i>
-                            <p>laserengraver.jpg.</p>
+                        <div class="equipment-image">
+                            <img src="laserengraver.jpg" alt="Elegoo Laser Engraver" loading="lazy">
                         </div>
                         <div class="equipment-content">
                             <h3>Elegoo Laser Engraver</h3>
@@ -486,6 +503,21 @@
 
             document.querySelectorAll('.animate-on-load').forEach(el => {
                 observer.observe(el);
+            });
+
+            // Handle broken images with fallback
+            document.querySelectorAll('.equipment-image img').forEach(img => {
+                img.onerror = function() {
+                    const card = this.closest('.equipment-card');
+                    const altText = this.alt;
+                    const fallbackHTML = `
+                        <div class="equipment-image-placeholder">
+                            <i class="fas fa-image icon"></i>
+                            <p>Image not found: ${this.src.split('/').pop()}</p>
+                        </div>
+                    `;
+                    this.parentElement.outerHTML = fallbackHTML;
+                };
             });
         });
     </script>
