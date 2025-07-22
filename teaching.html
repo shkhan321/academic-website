@@ -35,10 +35,14 @@
             --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
             --gradient-teaching: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            --gradient-success: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+            --gradient-warning: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
             --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
             --shadow-lg: 0 10px 20px rgba(0,0,0,0.15);
             --shadow-xl: 0 20px 40px rgba(0,0,0,0.2);
+            --shadow-2xl: 0 25px 50px rgba(0,0,0,0.25);
+            --shadow-inner: inset 0 2px 4px 0 rgba(0,0,0,0.06);
         }
 
         body {
@@ -49,27 +53,50 @@
             overflow-x: hidden;
         }
 
-        /* Animated Background Pattern */
+        /* Enhanced Animated Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(250, 112, 154, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(254, 225, 64, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(99, 102, 241, 0.03) 0%, transparent 50%);
+            z-index: -2;
+            animation: backgroundShift 20s ease-in-out infinite;
+        }
+
+        @keyframes backgroundShift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(-10px, -10px) scale(1.01); }
+            50% { transform: translate(10px, -10px) scale(1.02); }
+            75% { transform: translate(-10px, 10px) scale(1.01); }
+        }
+
+        /* Enhanced Animated Pattern */
         .animated-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -2;
-            opacity: 0.03;
+            z-index: -3;
+            opacity: 0.02;
             background-image: 
-                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(99, 102, 241, 0.1) 35px, rgba(99, 102, 241, 0.1) 70px),
-                repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(168, 85, 247, 0.1) 35px, rgba(168, 85, 247, 0.1) 70px);
-            animation: backgroundShift 60s linear infinite;
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(250, 112, 154, 0.1) 35px, rgba(250, 112, 154, 0.1) 70px),
+                repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(254, 225, 64, 0.1) 35px, rgba(254, 225, 64, 0.1) 70px);
+            animation: patternShift 60s linear infinite;
         }
 
-        @keyframes backgroundShift {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(70px, 70px); }
+        @keyframes patternShift {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(70px, 70px) rotate(1deg); }
         }
 
-        /* Floating Icons */
+        /* Enhanced Floating Icons */
         .floating-icons {
             position: fixed;
             width: 100%;
@@ -81,23 +108,35 @@
         .floating-icon {
             position: absolute;
             font-size: 2rem;
-            color: rgba(99, 102, 241, 0.1);
-            animation: float-icon 20s infinite linear;
+            color: rgba(250, 112, 154, 0.15);
+            animation: float-icon 25s infinite cubic-bezier(0.4, 0, 0.2, 1);
+            filter: blur(0.5px);
+        }
+
+        .floating-icon:nth-child(even) {
+            color: rgba(254, 225, 64, 0.15);
+            animation-duration: 30s;
+            animation-direction: reverse;
+        }
+
+        .floating-icon:nth-child(3n) {
+            color: rgba(99, 102, 241, 0.15);
+            animation-duration: 35s;
         }
 
         @keyframes float-icon {
             from {
-                transform: translateY(110vh) rotate(0deg);
+                transform: translateY(110vh) translateX(0) rotate(0deg) scale(0.8);
                 opacity: 0;
             }
             10% {
-                opacity: 0.3;
+                opacity: 0.4;
             }
             90% {
-                opacity: 0.3;
+                opacity: 0.4;
             }
             to {
-                transform: translateY(-10vh) rotate(360deg);
+                transform: translateY(-10vh) translateX(50px) rotate(360deg) scale(1.2);
                 opacity: 0;
             }
         }
@@ -108,17 +147,22 @@
             padding: 0 20px;
         }
 
-        /* Header Styles */
+        /* Enhanced Header Styles */
         .header {
             background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
             box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.15);
         }
 
         .navbar {
@@ -136,11 +180,13 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             text-decoration: none;
-            transition: transform 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
         }
 
         .nav-brand:hover {
-            transform: translateY(-2px);
+            transform: translateY(-2px) scale(1.05);
+            filter: drop-shadow(0 4px 20px rgba(99, 102, 241, 0.3));
         }
 
         .nav-links {
@@ -155,24 +201,31 @@
             color: var(--text-primary);
             font-weight: 500;
             position: relative;
-            transition: color 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             padding: 0.5rem 0;
         }
 
-        .nav-links a::after {
+        .nav-links a::before {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
+            bottom: -5px;
+            left: 50%;
             width: 0;
-            height: 2px;
-            background: var(--gradient-1);
-            transition: width 0.3s ease;
+            height: 3px;
+            background: var(--gradient-teaching);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(-50%);
+            border-radius: 2px;
         }
 
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
+        .nav-links a:hover::before,
+        .nav-links a.active::before {
             width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+            transform: translateY(-2px);
         }
 
         .nav-toggle {
@@ -182,26 +235,57 @@
             font-size: 1.5rem;
             color: var(--text-primary);
             cursor: pointer;
+            transition: transform 0.3s ease;
         }
 
-        /* Teaching Hero Section */
+        .nav-toggle:hover {
+            transform: rotate(90deg);
+        }
+
+        /* Enhanced Teaching Hero Section */
         .teaching-hero {
             margin-top: 80px;
             padding: 6rem 0 4rem;
-            background: linear-gradient(135deg, rgba(250, 112, 154, 0.1) 0%, rgba(254, 225, 64, 0.1) 100%);
+            background: linear-gradient(135deg, rgba(250, 112, 154, 0.08) 0%, rgba(254, 225, 64, 0.08) 100%);
             position: relative;
             overflow: hidden;
         }
 
-        .teaching-hero::before {
+        .teaching-hero::before,
+        .teaching-hero::after {
             content: '';
             position: absolute;
+            border-radius: 50%;
+            animation: pulse 10s ease-in-out infinite;
+            filter: blur(40px);
+        }
+
+        .teaching-hero::before {
             width: 600px;
             height: 600px;
             background: radial-gradient(circle, rgba(250, 112, 154, 0.2) 0%, transparent 70%);
             top: -300px;
             right: -300px;
-            animation: pulse 10s ease-in-out infinite;
+        }
+
+        .teaching-hero::after {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(254, 225, 64, 0.2) 0%, transparent 70%);
+            bottom: -200px;
+            left: -200px;
+            animation-delay: 5s;
+        }
+
+        @keyframes pulse {
+            0%, 100% { 
+                transform: scale(0.8) rotate(0deg); 
+                opacity: 0.2; 
+            }
+            50% { 
+                transform: scale(1.2) rotate(180deg); 
+                opacity: 0.1; 
+            }
         }
 
         .hero-title {
@@ -219,24 +303,54 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 1rem;
-            animation: slideInDown 0.8s ease-out;
+            animation: slideInDown 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            filter: drop-shadow(0 4px 20px rgba(250, 112, 154, 0.2));
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
 
         .hero-subtitle {
             font-size: 1.3rem;
             color: var(--text-secondary);
-            animation: fadeIn 0.8s ease-out 0.3s both;
+            animation: fadeInUp 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.3s both;
         }
 
-        /* Teaching Philosophy Section */
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0);
+            }
+        }
+
+        /* Enhanced Teaching Philosophy Section */
         .philosophy-section {
             background: var(--white);
             padding: 4rem 3rem;
             border-radius: 30px;
-            box-shadow: var(--shadow-lg);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
             margin: 3rem 0;
             position: relative;
             overflow: hidden;
+            transform-style: preserve-3d;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .philosophy-section:hover {
+            transform: translateY(-5px) rotateX(2deg);
+            box-shadow: 0 20px 50px rgba(250, 112, 154, 0.15);
         }
 
         .philosophy-section::before {
@@ -245,8 +359,35 @@
             top: -20px;
             left: 20px;
             font-size: 8rem;
-            color: rgba(250, 112, 154, 0.1);
+            background: var(--gradient-teaching);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             font-family: 'Playfair Display', serif;
+            opacity: 0.3;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+        }
+
+        .philosophy-section::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: var(--gradient-teaching);
+            opacity: 0.03;
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+        }
+
+        .philosophy-section:hover::after {
+            transform: rotate(50deg) scale(1.1);
         }
 
         .philosophy-text {
@@ -257,6 +398,12 @@
             font-style: italic;
             position: relative;
             z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .philosophy-section:hover .philosophy-text {
+            color: var(--text-primary);
+            transform: scale(1.02);
         }
 
         /* Main Content */
@@ -272,6 +419,18 @@
             text-align: center;
             margin-bottom: 3rem;
             position: relative;
+            animation: fadeInScale 0.8s ease-out;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .section-title::after {
@@ -284,9 +443,15 @@
             height: 5px;
             background: var(--gradient-teaching);
             border-radius: 3px;
+            animation: expandWidth 0.8s ease-out 0.3s both;
         }
 
-        /* Course Cards Grid */
+        @keyframes expandWidth {
+            from { width: 0; }
+            to { width: 80px; }
+        }
+
+        /* Enhanced Course Cards Grid */
         .courses-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -298,11 +463,13 @@
             background: var(--white);
             border-radius: 25px;
             overflow: hidden;
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
             flex-direction: column;
             position: relative;
+            transform-style: preserve-3d;
+            cursor: pointer;
         }
 
         .course-card::before {
@@ -315,22 +482,41 @@
             background: var(--gradient-teaching);
             transform: scaleX(0);
             transform-origin: left;
-            transition: transform 0.4s ease;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .course-card:hover::before {
             transform: scaleX(1);
         }
 
+        .course-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(250, 112, 154, 0.05), rgba(254, 225, 64, 0.05));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .course-card:hover::after {
+            opacity: 1;
+        }
+
         .course-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-xl);
+            transform: translateY(-15px) rotateX(5deg) scale(1.02);
+            box-shadow: 0 20px 50px rgba(250, 112, 154, 0.2);
         }
 
         .course-header {
             padding: 2rem;
             background: linear-gradient(135deg, rgba(250, 112, 154, 0.05) 0%, rgba(254, 225, 64, 0.05) 100%);
             border-bottom: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
         }
 
         .course-icon {
@@ -344,6 +530,35 @@
             margin-bottom: 1rem;
             font-size: 1.5rem;
             color: var(--white);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+        }
+
+        .course-card:hover .course-icon {
+            transform: rotate(15deg) scale(1.1);
+            box-shadow: 0 10px 30px rgba(250, 112, 154, 0.3);
+        }
+
+        .course-card:hover .course-icon::before {
+            animation: shimmer 0.5s ease;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
         }
 
         .course-title {
@@ -351,12 +566,26 @@
             font-weight: 700;
             color: var(--text-primary);
             margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .course-card:hover .course-title {
+            background: var(--gradient-teaching);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .course-code {
             color: var(--text-secondary);
             font-size: 0.9rem;
             font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .course-card:hover .course-code {
+            color: var(--primary-color);
+            letter-spacing: 1px;
         }
 
         .course-body {
@@ -368,9 +597,14 @@
             color: var(--text-secondary);
             font-size: 1rem;
             line-height: 1.7;
+            transition: all 0.3s ease;
+        }
+
+        .course-card:hover .course-description {
+            color: var(--text-primary);
         }
         
-        /* Teaching Stats */
+        /* Enhanced Teaching Stats */
         .stats-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -383,13 +617,15 @@
             padding: 2.5rem;
             border-radius: 20px;
             text-align: center;
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
             position: relative;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            transform-style: preserve-3d;
         }
 
-        .stat-card::after {
+        .stat-card::before {
             content: '';
             position: absolute;
             top: -50%;
@@ -399,17 +635,17 @@
             background: var(--gradient-teaching);
             opacity: 0.05;
             transform: rotate(45deg);
-            transition: all 0.5s ease;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-10px) rotateX(5deg) scale(1.05);
+            box-shadow: 0 20px 50px rgba(250, 112, 154, 0.2);
         }
 
-        .stat-card:hover::after {
-            top: -100%;
-            right: -100%;
+        .stat-card:hover::before {
+            transform: rotate(45deg) scale(1.5);
+            opacity: 0.1;
         }
 
         .stat-number {
@@ -420,6 +656,13 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 2px 10px rgba(250, 112, 154, 0.2));
+        }
+
+        .stat-card:hover .stat-number {
+            transform: scale(1.1);
+            filter: drop-shadow(0 4px 20px rgba(250, 112, 154, 0.4));
         }
 
         .stat-label {
@@ -428,20 +671,47 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             font-size: 0.9rem;
+            transition: all 0.3s ease;
         }
 
-        /* Awards Section */
+        .stat-card:hover .stat-label {
+            color: var(--primary-color);
+            letter-spacing: 2px;
+        }
+
+        /* Enhanced Awards Section */
         .awards-section {
             background: linear-gradient(135deg, rgba(250, 112, 154, 0.05) 0%, rgba(254, 225, 64, 0.05) 100%);
             padding: 3rem;
             border-radius: 30px;
             margin: 4rem 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .awards-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-radial-gradient(circle at center, transparent 0, transparent 20px, rgba(250, 112, 154, 0.03) 20px, rgba(250, 112, 154, 0.03) 40px);
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         .awards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+            position: relative;
+            z-index: 1;
         }
 
         .award-item {
@@ -451,30 +721,74 @@
             padding: 1.5rem;
             background: var(--white);
             border-radius: 15px;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .award-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(250, 112, 154, 0.05), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .award-item:hover::before {
+            left: 100%;
         }
 
         .award-item:hover {
-            transform: translateX(10px);
-            box-shadow: var(--shadow-md);
+            transform: translateX(10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(250, 112, 154, 0.15);
         }
 
         .award-icon {
             font-size: 2rem;
             color: #fbbf24;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: drop-shadow(0 2px 10px rgba(251, 191, 36, 0.3));
+        }
+
+        .award-item:hover .award-icon {
+            transform: rotate(15deg) scale(1.2);
+            filter: drop-shadow(0 4px 20px rgba(251, 191, 36, 0.5));
+            animation: glow 1s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 4px 20px rgba(251, 191, 36, 0.5)); }
+            to { filter: drop-shadow(0 8px 30px rgba(251, 191, 36, 0.8)); }
         }
 
         .award-text h4 {
             color: var(--text-primary);
             margin-bottom: 0.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .award-item:hover .award-text h4 {
+            background: var(--gradient-teaching);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .award-text p {
             color: var(--text-secondary);
             font-size: 0.9rem;
+            transition: all 0.3s ease;
         }
 
-        /* Footer */
+        .award-item:hover .award-text p {
+            color: var(--text-primary);
+        }
+
+        /* Enhanced Footer */
         .footer {
             background: var(--dark-bg);
             color: var(--white);
@@ -493,6 +807,12 @@
             width: 100%;
             height: 2px;
             background: var(--gradient-teaching);
+            animation: scanline 3s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
         }
 
         /* Responsive Design */
@@ -502,13 +822,13 @@
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background: rgba(255, 255, 255, 0.95);
-                backdrop-filter: blur(20px);
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px) saturate(180%);
                 flex-direction: column;
                 padding: 2rem;
                 gap: 1.5rem;
-                box-shadow: var(--shadow-lg);
-                transition: transform 0.3s ease;
+                box-shadow: 0 -5px 30px rgba(0,0,0,0.1);
+                transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
                 transform: translateY(0);
             }
 
@@ -535,6 +855,10 @@
             .philosophy-section {
                 padding: 2rem;
             }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
         }
 
         /* Custom Selection */
@@ -543,52 +867,45 @@
             color: var(--text-primary);
         }
 
-        /* Scrollbar */
+        /* Enhanced Scrollbar */
         ::-webkit-scrollbar {
-            width: 10px;
+            width: 12px;
         }
 
         ::-webkit-scrollbar-track {
             background: var(--light-bg);
+            border-radius: 6px;
         }
 
         ::-webkit-scrollbar-thumb {
             background: var(--gradient-teaching);
-            border-radius: 5px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
         }
 
-        /* Animations */
-        @keyframes slideInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gradient-2);
+            box-shadow: 0 0 10px rgba(250, 112, 154, 0.5);
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.3; }
-            50% { transform: scale(1.1); opacity: 0.1; }
-        }
-
+        /* Enhanced Page Load Animation */
         .animate-on-scroll {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
+            transform: translateY(30px) scale(0.95);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .animate-on-scroll.visible {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
         }
+
+        .animate-on-scroll:nth-child(1) { transition-delay: 0.1s; }
+        .animate-on-scroll:nth-child(2) { transition-delay: 0.2s; }
+        .animate-on-scroll:nth-child(3) { transition-delay: 0.3s; }
+        .animate-on-scroll:nth-child(4) { transition-delay: 0.4s; }
+        .animate-on-scroll:nth-child(5) { transition-delay: 0.5s; }
+        .animate-on-scroll:nth-child(6) { transition-delay: 0.6s; }
     </style>
 </head>
 <body>
@@ -603,9 +920,9 @@
             <a href="index.html" class="nav-brand">Dr. Sanan H Khan</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="research.html" class="active">Research</a></li>
-                 <li><a href="Equipment.html">Lab</a></li>
-                <li><a href="teaching.html">Teaching</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="Equipment.html">Lab</a></li>
+                <li><a href="teaching.html" class="active">Teaching</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
             <button class="nav-toggle" id="nav-toggle-button" aria-label="Toggle Menu">
@@ -630,7 +947,7 @@
                 <!-- Teaching Philosophy -->
                 <section class="philosophy-section animate-on-scroll">
                     <p class="philosophy-text">
-                        "For me, teaching is about more than just the curriculum; it’s about helping students build their skills and confidence. I focus on creating a supportive environment where they can learn to take charge of their own education."
+                        "For me, teaching is about more than just the curriculum; it's about helping students build their skills and confidence. I focus on creating a supportive environment where they can learn to take charge of their own education."
                     </p>
                 </section>
 
@@ -763,104 +1080,130 @@
 
     <!-- JavaScript -->
     <script>
-        // Mobile Menu Toggle
-        const navToggle = document.getElementById('nav-toggle-button');
-        const navLinks = document.querySelector('.nav-links');
-        
-        navToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
+            const navToggle = document.getElementById('nav-toggle-button');
+            const navLinks = document.querySelector('.nav-links');
+            
+            navToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
 
-        // Generate floating icons
-        const floatingIconsContainer = document.getElementById('floating-icons');
-        const icons = ['fa-book', 'fa-graduation-cap', 'fa-pencil-ruler', 'fa-lightbulb', 'fa-flask', 'fa-calculator', 'fa-atom', 'fa-cogs'];
-        
-        for (let i = 0; i < 15; i++) {
-            const icon = document.createElement('i');
-            icon.className = `fas ${icons[Math.floor(Math.random() * icons.length)]} floating-icon`;
-            icon.style.left = Math.random() * 100 + 'vw';
-            icon.style.animationDelay = Math.random() * 20 + 's';
-            icon.style.animationDuration = (20 + Math.random() * 10) + 's';
-            floatingIconsContainer.appendChild(icon);
-        }
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                });
+            });
 
-        // Animated Counter
-        function animateCounter(element) {
-            const target = parseInt(element.getAttribute('data-target'));
-            const duration = 2000; // 2 seconds
-            let start = 0;
-            const stepTime = 16; // roughly 60fps
-            const totalSteps = duration / stepTime;
-            const increment = target / totalSteps;
-            let current = 0;
+            // Generate enhanced floating icons
+            const floatingIconsContainer = document.getElementById('floating-icons');
+            const icons = ['fa-book', 'fa-graduation-cap', 'fa-pencil-ruler', 'fa-lightbulb', 'fa-flask', 'fa-calculator', 'fa-atom', 'fa-cogs', 'fa-brain', 'fa-microscope'];
+            
+            for (let i = 0; i < 20; i++) {
+                const icon = document.createElement('i');
+                icon.className = `fas ${icons[Math.floor(Math.random() * icons.length)]} floating-icon`;
+                icon.style.left = Math.random() * 100 + 'vw';
+                icon.style.animationDelay = Math.random() * 25 + 's';
+                icon.style.animationDuration = (25 + Math.random() * 15) + 's';
+                icon.style.fontSize = (1.5 + Math.random() * 1) + 'rem';
+                floatingIconsContainer.appendChild(icon);
+            }
 
-            const updateCounter = () => {
-                current += increment;
-                if (current < target) {
-                    element.textContent = Math.ceil(current);
-                    requestAnimationFrame(updateCounter);
-                } else {
-                    element.textContent = target;
-                }
-            };
-            updateCounter();
-        }
-
-        // Intersection Observer
-        const observerOptions = {
-            threshold: 0.3,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        let statsAnimated = false; // Flag to ensure stats animate only once
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+            // Enhanced Animated Counter
+            function animateCounter(element) {
+                const target = parseInt(element.getAttribute('data-target'));
+                if (isNaN(target)) return;
+                
+                const duration = 2500;
+                const startTime = performance.now();
+                
+                const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4);
+                
+                const updateCounter = (currentTime) => {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const easedProgress = easeOutQuart(progress);
                     
-                    // Trigger counter animation for all stats at once when the container is visible
-                    if (entry.target.classList.contains('stats-container') && !statsAnimated) {
-                        document.querySelectorAll('.stat-number').forEach(counter => {
-                           if (counter.textContent === '0' || counter.textContent === '0%') {
-                                const originalText = counter.textContent;
-                                // Temporarily set to 0 to start animation
-                                counter.textContent = '0'; 
-                                animateCounter(counter);
-                                // Add back the % sign after animation if needed
-                                if(originalText.includes('%')){
-                                    setTimeout(() => {
-                                        counter.textContent += '%';
-                                    }, 2000);
-                                }
-                           }
-                        });
-                        statsAnimated = true; // Set flag to true
+                    const current = Math.floor(easedProgress * target);
+                    const hasPercent = element.getAttribute('data-target').includes('%');
+                    element.textContent = current + (hasPercent && progress === 1 ? '%' : '');
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCounter);
                     }
-                    // No need to unobserve, just let it stay visible
+                };
+                
+                requestAnimationFrame(updateCounter);
+            }
+
+            // Enhanced Intersection Observer
+            const observerOptions = {
+                threshold: 0.3,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            let statsAnimated = false;
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                            
+                            // Handle stats animation
+                            if (entry.target.classList.contains('stats-container') && !statsAnimated) {
+                                document.querySelectorAll('.stat-number').forEach((counter, index) => {
+                                    setTimeout(() => {
+                                        if (counter.textContent === '0' || counter.textContent === '0%') {
+                                            animateCounter(counter);
+                                        }
+                                    }, index * 200); // Stagger the animations
+                                });
+                                statsAnimated = true;
+                            }
+                        }, 100);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all animated elements
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Observe the stats container
+            const statsContainer = document.querySelector('.stats-container');
+            if (statsContainer) {
+                observer.observe(statsContainer);
+            }
+
+            // Enhanced Header scroll effect
+            let lastScroll = 0;
+            window.addEventListener('scroll', () => {
+                const header = document.querySelector('.header');
+                const currentScroll = window.pageYOffset;
+                
+                if (currentScroll > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+                
+                lastScroll = currentScroll;
+            });
+
+            // Add parallax effect to hero section
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const hero = document.querySelector('.teaching-hero');
+                const heroTitle = document.querySelector('.hero-title');
+                
+                if (hero && heroTitle) {
+                    hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+                    heroTitle.style.transform = `translateY(${scrolled * -0.2}px)`;
                 }
             });
-        }, observerOptions);
-
-        // Observe all animated elements
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
-        });
-        
-        // Observe the stats container as a whole
-        const statsContainer = document.querySelector('.stats-container');
-        if (statsContainer) {
-            observer.observe(statsContainer);
-        }
-
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('.header');
-            if (window.pageYOffset > 50) {
-                header.style.boxShadow = '0 2px 30px rgba(0,0,0,0.15)';
-            } else {
-                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
-            }
         });
     </script>
 </body>
