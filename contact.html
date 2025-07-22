@@ -24,18 +24,24 @@
             --primary-color: #2563eb;
             --secondary-color: #7c3aed;
             --accent-color: #06b6d4;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
             --dark-bg: #0f172a;
             --light-bg: #f8fafc;
             --text-primary: #1e293b;
             --text-secondary: #64748b;
             --white: #ffffff;
             --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            /* Teaching Theme Gradient */
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
             --gradient-teaching: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            --gradient-contact: linear-gradient(135deg, #667eea 0%, #06b6d4 100%);
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
             --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
             --shadow-lg: 0 10px 20px rgba(0,0,0,0.15);
             --shadow-xl: 0 20px 40px rgba(0,0,0,0.2);
+            --shadow-2xl: 0 25px 50px rgba(0,0,0,0.25);
+            --shadow-inner: inset 0 2px 4px 0 rgba(0,0,0,0.06);
         }
 
         body {
@@ -46,27 +52,50 @@
             overflow-x: hidden;
         }
 
-        /* Animated Background Pattern - Teaching Theme */
+        /* Enhanced Animated Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(124, 58, 237, 0.03) 0%, transparent 50%);
+            z-index: -2;
+            animation: backgroundShift 20s ease-in-out infinite;
+        }
+
+        @keyframes backgroundShift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(-10px, -10px) scale(1.01); }
+            50% { transform: translate(10px, -10px) scale(1.02); }
+            75% { transform: translate(-10px, 10px) scale(1.01); }
+        }
+
+        /* Enhanced Animated Pattern */
         .animated-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -2;
-            opacity: 0.03;
+            z-index: -3;
+            opacity: 0.02;
             background-image: 
-                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(250, 112, 154, 0.1) 35px, rgba(250, 112, 154, 0.1) 70px),
-                repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(254, 225, 64, 0.1) 35px, rgba(254, 225, 64, 0.1) 70px);
-            animation: backgroundShift 60s linear infinite;
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(102, 126, 234, 0.1) 35px, rgba(102, 126, 234, 0.1) 70px),
+                repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(6, 182, 212, 0.1) 35px, rgba(6, 182, 212, 0.1) 70px);
+            animation: patternShift 60s linear infinite;
         }
 
-        @keyframes backgroundShift {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(70px, 70px); }
+        @keyframes patternShift {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(70px, 70px) rotate(1deg); }
         }
 
-        /* Floating Icons - Teaching Theme */
+        /* Enhanced Floating Icons */
         .floating-icons {
             position: fixed;
             width: 100%;
@@ -78,15 +107,38 @@
         .floating-icon {
             position: absolute;
             font-size: 2rem;
-            color: rgba(250, 112, 154, 0.1);
-            animation: float-icon 20s infinite linear;
+            color: rgba(102, 126, 234, 0.15);
+            animation: float-icon 25s infinite cubic-bezier(0.4, 0, 0.2, 1);
+            filter: blur(0.5px);
+            text-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+        }
+
+        .floating-icon:nth-child(even) {
+            color: rgba(6, 182, 212, 0.15);
+            animation-duration: 30s;
+            animation-direction: reverse;
+        }
+
+        .floating-icon:nth-child(3n) {
+            color: rgba(124, 58, 237, 0.15);
+            animation-duration: 35s;
         }
 
         @keyframes float-icon {
-            from { transform: translateY(110vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.3; }
-            90% { opacity: 0.3; }
-            to { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+            from {
+                transform: translateY(110vh) translateX(0) rotate(0deg) scale(0.8);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.4;
+            }
+            90% {
+                opacity: 0.4;
+            }
+            to {
+                transform: translateY(-10vh) translateX(50px) rotate(360deg) scale(1.2);
+                opacity: 0;
+            }
         }
 
         .container {
@@ -95,17 +147,22 @@
             padding: 0 20px;
         }
 
-        /* Header Styles */
+        /* Enhanced Header Styles */
         .header {
             background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
             box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.15);
         }
 
         .navbar {
@@ -123,6 +180,13 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .nav-brand:hover {
+            transform: translateY(-2px) scale(1.05);
+            filter: drop-shadow(0 4px 20px rgba(99, 102, 241, 0.3));
         }
 
         .nav-links {
@@ -137,24 +201,31 @@
             color: var(--text-primary);
             font-weight: 500;
             position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             padding: 0.5rem 0;
-            transition: color 0.3s ease;
         }
 
-        .nav-links a::after {
+        .nav-links a::before {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
+            bottom: -5px;
+            left: 50%;
             width: 0;
-            height: 2px;
-            background: var(--gradient-1);
-            transition: width 0.3s ease;
+            height: 3px;
+            background: var(--gradient-contact);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(-50%);
+            border-radius: 2px;
         }
 
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
+        .nav-links a:hover::before,
+        .nav-links a.active::before {
             width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+            transform: translateY(-2px);
         }
 
         .nav-toggle {
@@ -164,25 +235,87 @@
             font-size: 1.5rem;
             color: var(--text-primary);
             cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-toggle:hover {
+            transform: rotate(90deg);
         }
         
-        /* Hero Section - Teaching Theme */
+        /* Enhanced Hero Section */
         .contact-hero {
             margin-top: 80px;
             padding: 6rem 0 4rem;
-            background: linear-gradient(135deg, rgba(250, 112, 154, 0.1) 0%, rgba(254, 225, 64, 0.1) 100%);
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(6, 182, 212, 0.08) 100%);
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-hero::before,
+        .contact-hero::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            animation: pulse 10s ease-in-out infinite;
+            filter: blur(40px);
+        }
+
+        .contact-hero::before {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%);
+            top: -300px;
+            right: -300px;
+        }
+
+        .contact-hero::after {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.2) 0%, transparent 70%);
+            bottom: -200px;
+            left: -200px;
+            animation-delay: 5s;
+        }
+
+        @keyframes pulse {
+            0%, 100% { 
+                transform: scale(0.8) rotate(0deg); 
+                opacity: 0.2; 
+            }
+            50% { 
+                transform: scale(1.2) rotate(180deg); 
+                opacity: 0.1; 
+            }
+        }
+
+        .hero-title {
+            position: relative;
+            z-index: 1;
         }
 
         .hero-title h1 {
             font-family: 'Playfair Display', serif;
             font-size: 4rem;
             font-weight: 900;
-            background: var(--gradient-teaching);
+            background: var(--gradient-contact);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 1rem;
+            animation: slideInDown 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            filter: drop-shadow(0 4px 20px rgba(102, 126, 234, 0.2));
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
 
         .hero-subtitle {
@@ -190,6 +323,18 @@
             color: var(--text-secondary);
             max-width: 600px;
             margin: 0 auto;
+            animation: fadeInUp 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.3s both;
+        }
+
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0);
+            }
         }
         
         /* Main Content Wrapper */
@@ -205,6 +350,18 @@
             text-align: center;
             margin-bottom: 3rem;
             position: relative;
+            animation: fadeInScale 0.8s ease-out;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .section-title::after {
@@ -215,11 +372,17 @@
             transform: translateX(-50%);
             width: 80px;
             height: 5px;
-            background: var(--gradient-teaching);
+            background: var(--gradient-contact);
             border-radius: 3px;
+            animation: expandWidth 0.8s ease-out 0.3s both;
         }
 
-        /* Contact Grid - Styled like Course Cards */
+        @keyframes expandWidth {
+            from { width: 0; }
+            to { width: 80px; }
+        }
+
+        /* Enhanced Contact Grid */
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -231,11 +394,13 @@
             background: var(--white);
             border-radius: 25px;
             overflow: hidden;
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             display: flex;
             flex-direction: column;
+            transform-style: preserve-3d;
+            cursor: pointer;
         }
 
         .contact-card::before {
@@ -245,42 +410,99 @@
             left: 0;
             right: 0;
             height: 5px;
-            background: var(--gradient-teaching);
+            background: var(--gradient-contact);
             transform: scaleX(0);
             transform-origin: left;
-            transition: transform 0.4s ease;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .contact-card:hover::before {
             transform: scaleX(1);
         }
 
+        .contact-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(6, 182, 212, 0.05));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .contact-card:hover::after {
+            opacity: 1;
+        }
+
         .contact-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-xl);
+            transform: translateY(-15px) rotateX(5deg) scale(1.02);
+            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.2);
         }
 
         .contact-header {
             padding: 2.5rem 2rem 2rem;
             text-align: center;
-            background: linear-gradient(135deg, rgba(250, 112, 154, 0.05) 0%, rgba(254, 225, 64, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(6, 182, 212, 0.05) 100%);
+            position: relative;
+            overflow: hidden;
         }
 
         .contact-icon {
             font-size: 2rem;
-            width: 60px;
-            height: 60px;
-            line-height: 60px;
-            border-radius: 20px;
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            border-radius: 25px;
             margin: 0 auto 1.5rem;
-            background: var(--gradient-teaching);
+            background: var(--gradient-contact);
             color: var(--white);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .contact-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+        }
+
+        .contact-card:hover .contact-icon {
+            transform: rotate(15deg) scale(1.15);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .contact-card:hover .contact-icon::before {
+            animation: shimmer 0.5s ease;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
         }
 
         .contact-title {
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover .contact-title {
+            background: var(--gradient-contact);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .contact-body {
@@ -294,6 +516,11 @@
             font-size: 1rem;
             line-height: 1.7;
             margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover .contact-body p {
+            color: var(--text-primary);
         }
 
         .contact-body a {
@@ -301,23 +528,73 @@
             text-decoration: none;
             font-weight: 600;
             word-break: break-word;
+            position: relative;
+            transition: all 0.3s ease;
+            display: inline-block;
+            padding: 2px 0;
+        }
+
+        .contact-body a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient-contact);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
         }
 
         .contact-body a:hover {
-            text-decoration: underline;
+            color: var(--accent-color);
         }
 
-        /* YouTube Section - Styled like Awards Section */
+        .contact-body a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* Enhanced YouTube Section */
         .youtube-section {
-            background: linear-gradient(135deg, rgba(250, 112, 154, 0.05) 0%, rgba(254, 225, 64, 0.05) 100%);
-            padding: 3rem;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(6, 182, 212, 0.05) 100%);
+            padding: 4rem;
             border-radius: 30px;
             margin: 4rem 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transform-style: preserve-3d;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .youtube-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-radial-gradient(circle at center, transparent 0, transparent 20px, rgba(255, 0, 0, 0.03) 20px, rgba(255, 0, 0, 0.03) 40px);
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .youtube-section:hover {
+            transform: translateY(-5px) rotateX(2deg);
+            box-shadow: 0 20px 50px rgba(255, 0, 0, 0.1);
         }
 
         .youtube-section .section-title {
             font-size: 2.5rem;
+            position: relative;
+            z-index: 1;
         }
 
         .youtube-section p {
@@ -325,6 +602,13 @@
             margin-top: -1rem;
             margin-bottom: 2rem;
             font-size: 1.1rem;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .youtube-section:hover p {
+            color: var(--text-primary);
         }
 
         .youtube-btn {
@@ -336,20 +620,96 @@
             text-decoration: none;
             font-weight: 600;
             font-size: 1.1rem;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+        }
+
+        .youtube-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: #cc0000;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.5s ease;
+            z-index: -1;
+        }
+
+        .youtube-btn:hover::before {
+            width: 300px;
+            height: 300px;
         }
         
         .youtube-btn:hover {
-            background: #cc0000;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.5);
+            color: var(--white);
         }
 
         .youtube-btn .fa-youtube {
             margin-right: 0.75rem;
+            transition: all 0.3s ease;
         }
 
-        /* Footer */
+        .youtube-btn:hover .fa-youtube {
+            transform: rotate(360deg) scale(1.2);
+        }
+
+        /* Social Media Icons */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-contact);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px) scale(1.1);
+            color: var(--white);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .social-link:hover::before {
+            opacity: 1;
+        }
+
+        /* Enhanced Footer */
         .footer {
             background: var(--dark-bg);
             color: var(--white);
@@ -357,6 +717,7 @@
             padding: 3rem 0;
             margin-top: 4rem;
             position: relative;
+            overflow: hidden;
         }
 
         .footer::before {
@@ -366,7 +727,13 @@
             left: 0;
             width: 100%;
             height: 2px;
-            background: var(--gradient-teaching);
+            background: var(--gradient-contact);
+            animation: scanline 3s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
         }
 
         /* Responsive Design */
@@ -376,13 +743,13 @@
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background: rgba(255, 255, 255, 0.95);
-                backdrop-filter: blur(20px);
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px) saturate(180%);
                 flex-direction: column;
                 padding: 2rem;
                 gap: 1.5rem;
-                box-shadow: var(--shadow-lg);
-                transition: transform 0.3s ease;
+                box-shadow: 0 -5px 30px rgba(0,0,0,0.1);
+                transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
                 transform: translateY(0);
             }
 
@@ -397,29 +764,51 @@
             .hero-title h1 { font-size: 2.5rem; }
             .section-title { font-size: 2rem; }
             .contact-grid { grid-template-columns: 1fr; }
+            .youtube-section { padding: 2rem; }
         }
 
         /* Custom Selection */
         ::selection {
-            background: rgba(250, 112, 154, 0.3);
+            background: rgba(102, 126, 234, 0.3);
             color: var(--text-primary);
         }
         
-        /* Scrollbar */
-        ::-webkit-scrollbar { width: 10px; }
-        ::-webkit-scrollbar-track { background: var(--light-bg); }
-        ::-webkit-scrollbar-thumb { background: var(--gradient-teaching); border-radius: 5px; }
+        /* Enhanced Scrollbar */
+        ::-webkit-scrollbar { 
+            width: 12px; 
+        }
+        
+        ::-webkit-scrollbar-track { 
+            background: var(--light-bg); 
+            border-radius: 6px;
+        }
+        
+        ::-webkit-scrollbar-thumb { 
+            background: var(--gradient-contact); 
+            border-radius: 6px; 
+            transition: all 0.3s ease;
+        }
 
-        /* Animations */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gradient-1);
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+        }
+
+        /* Enhanced Page Load Animation */
         .animate-on-scroll {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
+            transform: translateY(30px) scale(0.95);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
+        
         .animate-on-scroll.visible {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
         }
+
+        .animate-on-scroll:nth-child(1) { transition-delay: 0.1s; }
+        .animate-on-scroll:nth-child(2) { transition-delay: 0.2s; }
+        .animate-on-scroll:nth-child(3) { transition-delay: 0.3s; }
     </style>
 </head>
 <body>
@@ -432,10 +821,10 @@
             <a href="index.html" class="nav-brand">Dr. Sanan H Khan</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="research.html" class="active">Research</a></li>
-                 <li><a href="Equipment.html">Lab</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="Equipment.html">Lab</a></li>
                 <li><a href="teaching.html">Teaching</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
             </ul>
             <button class="nav-toggle" id="nav-toggle-button" aria-label="Toggle Menu">
                 <i class="fas fa-bars"></i>
@@ -495,6 +884,18 @@
                     <a href="https://www.youtube.com/@SanaanKhan" target="_blank" class="youtube-btn">
                         <i class="fab fa-youtube"></i>Visit YouTube Channel
                     </a>
+                    
+                    <div class="social-links">
+                        <a href="https://scholar.google.com/citations?user=shZtM0QAAAAJ&hl=en" target="_blank" class="social-link" title="Google Scholar">
+                            <i class="fas fa-graduation-cap"></i>
+                        </a>
+                        <a href="mailto:shkhan@uaeu.ac.ae" class="social-link" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@SanaanKhan" target="_blank" class="social-link" title="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
                 </section>
             </div>
         </div>
@@ -506,54 +907,105 @@
 
     <!-- JavaScript -->
     <script>
-        // Mobile Menu Toggle
-        const navToggle = document.getElementById('nav-toggle-button');
-        const navLinks = document.querySelector('.nav-links');
-        
-        navToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
+            const navToggle = document.getElementById('nav-toggle-button');
+            const navLinks = document.querySelector('.nav-links');
+            
+            navToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
 
-        // Generate floating icons
-        const floatingIconsContainer = document.getElementById('floating-icons');
-        const icons = ['fa-envelope', 'fa-phone', 'fa-map-marker-alt', 'fa-video', 'fa-at', 'fa-comment-dots'];
-        
-        for (let i = 0; i < 15; i++) {
-            const icon = document.createElement('i');
-            icon.className = `fas ${icons[Math.floor(Math.random() * icons.length)]} floating-icon`;
-            icon.style.left = Math.random() * 100 + 'vw';
-            icon.style.animationDelay = Math.random() * 20 + 's';
-            icon.style.animationDuration = (20 + Math.random() * 10) + 's';
-            floatingIconsContainer.appendChild(icon);
-        }
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                });
+            });
 
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+            // Generate enhanced floating icons
+            const floatingIconsContainer = document.getElementById('floating-icons');
+            const icons = ['fa-envelope', 'fa-phone', 'fa-map-marker-alt', 'fa-video', 'fa-at', 'fa-comment-dots', 'fa-share-alt', 'fa-globe', 'fa-link'];
+            
+            for (let i = 0; i < 20; i++) {
+                const icon = document.createElement('i');
+                icon.className = `fas ${icons[Math.floor(Math.random() * icons.length)]} floating-icon`;
+                icon.style.left = Math.random() * 100 + 'vw';
+                icon.style.animationDelay = Math.random() * 25 + 's';
+                icon.style.animationDuration = (25 + Math.random() * 15) + 's';
+                icon.style.fontSize = (1.5 + Math.random() * 1) + 'rem';
+                floatingIconsContainer.appendChild(icon);
+            }
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
+            // Enhanced Intersection Observer for scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, 100);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Enhanced Header scroll effect
+            let lastScroll = 0;
+            window.addEventListener('scroll', () => {
+                const header = document.querySelector('.header');
+                const currentScroll = window.pageYOffset;
+                
+                if (currentScroll > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+                
+                lastScroll = currentScroll;
+            });
+
+            // Add parallax effect to hero section
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const hero = document.querySelector('.contact-hero');
+                const heroTitle = document.querySelector('.hero-title');
+                
+                if (hero && heroTitle) {
+                    hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+                    heroTitle.style.transform = `translateY(${scrolled * -0.2}px)`;
                 }
             });
-        }, observerOptions);
 
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('.header');
-            if (window.pageYOffset > 50) {
-                header.style.boxShadow = '0 2px 30px rgba(0,0,0,0.15)';
-            } else {
-                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
-            }
+            // Add interactive tilt effect to contact cards
+            const cards = document.querySelectorAll('.contact-card');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = (y - centerY) / 10;
+                    const rotateY = (centerX - x) / 10;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = '';
+                });
+            });
         });
     </script>
 </body>
