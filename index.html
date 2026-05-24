@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Sanan H Khan | Academic Profile</title>
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
-    
+
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
     <style>
         * {
             margin: 0;
@@ -54,9 +54,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, #f3f4f6 25%, transparent 25%), 
-                        linear-gradient(-45deg, #f3f4f6 25%, transparent 25%), 
-                        linear-gradient(45deg, transparent 75%, #f3f4f6 75%), 
+            background: linear-gradient(45deg, #f3f4f6 25%, transparent 25%),
+                        linear-gradient(-45deg, #f3f4f6 25%, transparent 25%),
+                        linear-gradient(45deg, transparent 75%, #f3f4f6 75%),
                         linear-gradient(-45deg, transparent 75%, #f3f4f6 75%);
             background-size: 30px 30px;
             background-position: 0 0, 0 15px, 15px -15px, -15px 0px;
@@ -327,7 +327,7 @@
             margin-bottom: 2rem;
             animation: fadeInUp 0.8s ease-out 0.2s both;
         }
-        
+
         .affiliation a {
             color: var(--primary-color);
             text-decoration: none;
@@ -529,12 +529,12 @@
             font-weight: 600;
             font-size: 1.1rem;
         }
-        
+
         .institution a {
             color: inherit;
             text-decoration: none;
         }
-        
+
         .institution a:hover {
             text-decoration: underline;
         }
@@ -679,6 +679,8 @@
             <ul class="nav-links">
     <li><a href="/academic-website/index.html" class="active">Home</a></li>
     <li><a href="/academic-website/research.html">Research</a></li>
+    <li><a href="/academic-website/current-projects.html">Current Projects</a></li>
+    <li><a href="/academic-website/previous-projects.html">Previous Projects</a></li>
     <li><a href="/academic-website/Equipment.html">Lab</a></li>
     <li><a href="/academic-website/teaching.html">Teaching</a></li>
     <li><a href="/academic-website/contact.html">Contact</a></li>
@@ -787,7 +789,7 @@
         // Mobile Menu Toggle
         const navToggle = document.getElementById('nav-toggle-button');
         const navLinks = document.querySelector('.nav-links');
-        
+
         navToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
@@ -802,16 +804,16 @@
         // Header scroll effect
         let lastScroll = 0;
         const header = document.querySelector('.header');
-        
+
         window.addEventListener('scroll', () => {
             const currentScroll = window.pageYOffset;
-            
+
             if (currentScroll <= 0) {
                 header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
             } else {
                 header.style.boxShadow = '0 2px 30px rgba(0,0,0,0.15)';
             }
-            
+
             lastScroll = currentScroll;
         });
 
@@ -839,9 +841,9 @@
             const scrolled = window.pageYOffset;
             const hero = document.querySelector('#home-hero');
             const orbs = document.querySelectorAll('.gradient-orb');
-            
+
             // hero.style.transform = `translateY(${scrolled * 0.3}px)`;
-            
+
             orbs.forEach((orb, index) => {
                 const speed = 0.5 + (index * 0.2);
                 orb.style.transform = `translateY(${scrolled * speed}px)`;
@@ -854,16 +856,16 @@
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
-                
+
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
-                
+
                 const rotateX = (y - centerY) / 20;
                 const rotateY = (centerX - x) / 20;
-                
+
                 card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
             });
-            
+
             card.addEventListener('mouseleave', () => {
                 card.style.transform = '';
             });

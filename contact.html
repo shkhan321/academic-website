@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Sanan H Khan | Contact</title>
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
-    
+
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
     <style>
         * {
             margin: 0;
@@ -60,7 +60,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
+            background:
                 radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.03) 0%, transparent 50%),
                 radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.03) 0%, transparent 50%),
                 radial-gradient(circle at 40% 20%, rgba(6, 182, 212, 0.03) 0%, transparent 50%);
@@ -226,7 +226,7 @@
         .nav-toggle:hover {
             transform: rotate(90deg);
         }
-        
+
         /* Enhanced Hero Section */
         .contact-hero {
             margin-top: 80px;
@@ -265,13 +265,13 @@
         }
 
         @keyframes pulse {
-            0%, 100% { 
-                transform: scale(0.8) rotate(0deg); 
-                opacity: 0.1; 
+            0%, 100% {
+                transform: scale(0.8) rotate(0deg);
+                opacity: 0.1;
             }
-            50% { 
-                transform: scale(1.2) rotate(180deg); 
-                opacity: 0.05; 
+            50% {
+                transform: scale(1.2) rotate(180deg);
+                opacity: 0.05;
             }
         }
 
@@ -313,21 +313,21 @@
         }
 
         @keyframes fadeInUp {
-            from { 
-                opacity: 0; 
+            from {
+                opacity: 0;
                 transform: translateY(30px);
             }
-            to { 
-                opacity: 1; 
+            to {
+                opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         /* Main Content Wrapper */
         .content-wrapper {
             padding: 4rem 0;
         }
-        
+
         .section-title {
             font-family: 'Playfair Display', serif;
             font-size: 3rem;
@@ -631,7 +631,7 @@
             width: 300px;
             height: 300px;
         }
-        
+
         .youtube-btn:hover {
             transform: translateY(-5px) scale(1.05);
             box-shadow: 0 10px 30px rgba(255, 0, 0, 0.5);
@@ -758,20 +758,20 @@
             background: var(--primary-color);
             color: var(--white);
         }
-        
+
         /* Enhanced Scrollbar */
-        ::-webkit-scrollbar { 
-            width: 12px; 
+        ::-webkit-scrollbar {
+            width: 12px;
         }
-        
-        ::-webkit-scrollbar-track { 
-            background: var(--light-bg); 
+
+        ::-webkit-scrollbar-track {
+            background: var(--light-bg);
             border-radius: 6px;
         }
-        
-        ::-webkit-scrollbar-thumb { 
-            background: var(--gradient-1); 
-            border-radius: 6px; 
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-1);
+            border-radius: 6px;
             transition: all 0.3s ease;
         }
 
@@ -786,7 +786,7 @@
             transform: translateY(30px) scale(0.95);
             transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
+
         .animate-on-scroll.visible {
             opacity: 1;
             transform: translateY(0) scale(1);
@@ -807,6 +807,8 @@
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="research.html">Research</a></li>
+                <li><a href="current-projects.html">Current Projects</a></li>
+                <li><a href="previous-projects.html">Previous Projects</a></li>
                 <li><a href="Equipment.html">Lab</a></li>
                 <li><a href="teaching.html">Teaching</a></li>
                 <li><a href="contact.html" class="active">Contact</a></li>
@@ -840,7 +842,7 @@
                             <p><a href="mailto:shkhan@uaeu.ac.ae">shkhan@uaeu.ac.ae</a></p>
                         </div>
                     </div>
-                    
+
                     <div class="contact-card animate-on-scroll">
                         <div class="contact-header">
                             <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
@@ -869,7 +871,7 @@
                     <a href="https://www.youtube.com/@SanaanKhan" target="_blank" class="youtube-btn">
                         <i class="fab fa-youtube"></i>Visit YouTube Channel
                     </a>
-                    
+
                     <div class="social-links">
                         <a href="https://scholar.google.com/citations?user=shZtM0QAAAAJ&hl=en" target="_blank" class="social-link" title="Google Scholar">
                             <i class="fas fa-graduation-cap"></i>
@@ -896,7 +898,7 @@
             // Mobile Menu Toggle
             const navToggle = document.getElementById('nav-toggle-button');
             const navLinks = document.querySelector('.nav-links');
-            
+
             navToggle.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
             });
@@ -949,13 +951,13 @@
             window.addEventListener('scroll', () => {
                 const header = document.querySelector('.header');
                 const currentScroll = window.pageYOffset;
-                
+
                 if (currentScroll > 50) {
                     header.classList.add('scrolled');
                 } else {
                     header.classList.remove('scrolled');
                 }
-                
+
                 lastScroll = currentScroll;
             });
 
@@ -964,7 +966,7 @@
                 const scrolled = window.pageYOffset;
                 const hero = document.querySelector('.contact-hero');
                 const heroTitle = document.querySelector('.hero-title');
-                
+
                 if (hero && heroTitle) {
                     hero.style.transform = `translateY(${scrolled * 0.5}px)`;
                     heroTitle.style.transform = `translateY(${scrolled * -0.2}px)`;
@@ -978,16 +980,16 @@
                     const rect = card.getBoundingClientRect();
                     const x = e.clientX - rect.left;
                     const y = e.clientY - rect.top;
-                    
+
                     const centerX = rect.width / 2;
                     const centerY = rect.height / 2;
-                    
+
                     const rotateX = (y - centerY) / 10;
                     const rotateY = (centerX - x) / 10;
-                    
+
                     card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
                 });
-                
+
                 card.addEventListener('mouseleave', () => {
                     card.style.transform = '';
                 });

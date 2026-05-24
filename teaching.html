@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Sanan H Khan | Teaching</title>
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
-    
+
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
     <style>
         * {
             margin: 0;
@@ -60,7 +60,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
+            background:
                 radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.03) 0%, transparent 50%),
                 radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.03) 0%, transparent 50%),
                 radial-gradient(circle at 40% 20%, rgba(6, 182, 212, 0.03) 0%, transparent 50%);
@@ -264,13 +264,13 @@
         }
 
         @keyframes pulse {
-            0%, 100% { 
-                transform: scale(0.8) rotate(0deg); 
-                opacity: 0.1; 
+            0%, 100% {
+                transform: scale(0.8) rotate(0deg);
+                opacity: 0.1;
             }
-            50% { 
-                transform: scale(1.2) rotate(180deg); 
-                opacity: 0.05; 
+            50% {
+                transform: scale(1.2) rotate(180deg);
+                opacity: 0.05;
             }
         }
 
@@ -311,12 +311,12 @@
         }
 
         @keyframes fadeInUp {
-            from { 
-                opacity: 0; 
+            from {
+                opacity: 0;
                 transform: translateY(30px);
             }
-            to { 
-                opacity: 1; 
+            to {
+                opacity: 1;
                 transform: translateY(0);
             }
         }
@@ -589,7 +589,7 @@
         .course-card:hover .course-description {
             color: var(--text-primary);
         }
-        
+
         /* Enhanced Teaching Stats */
         .stats-container {
             display: grid;
@@ -904,6 +904,8 @@
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="research.html">Research</a></li>
+                <li><a href="current-projects.html">Current Projects</a></li>
+                <li><a href="previous-projects.html">Previous Projects</a></li>
                 <li><a href="Equipment.html">Lab</a></li>
                 <li><a href="teaching.html" class="active">Teaching</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -1067,7 +1069,7 @@
             // Mobile Menu Toggle
             const navToggle = document.getElementById('nav-toggle-button');
             const navLinks = document.querySelector('.nav-links');
-            
+
             navToggle.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
             });
@@ -1098,26 +1100,26 @@
             function animateCounter(element) {
                 const target = parseInt(element.getAttribute('data-target'));
                 if (isNaN(target)) return;
-                
+
                 const duration = 2500;
                 const startTime = performance.now();
-                
+
                 const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4);
-                
+
                 const updateCounter = (currentTime) => {
                     const elapsed = currentTime - startTime;
                     const progress = Math.min(elapsed / duration, 1);
                     const easedProgress = easeOutQuart(progress);
-                    
+
                     const current = Math.floor(easedProgress * target);
                     const hasPercent = element.getAttribute('data-target').includes('%');
                     element.textContent = current + (hasPercent && progress === 1 ? '%' : '');
-                    
+
                     if (progress < 1) {
                         requestAnimationFrame(updateCounter);
                     }
                 };
-                
+
                 requestAnimationFrame(updateCounter);
             }
 
@@ -1134,7 +1136,7 @@
                     if (entry.isIntersecting) {
                         setTimeout(() => {
                             entry.target.classList.add('visible');
-                            
+
                             // Handle stats animation
                             if (entry.target.classList.contains('stats-container') && !statsAnimated) {
                                 document.querySelectorAll('.stat-number').forEach((counter, index) => {
@@ -1155,7 +1157,7 @@
             document.querySelectorAll('.animate-on-scroll').forEach(el => {
                 observer.observe(el);
             });
-            
+
             // Observe the stats container
             const statsContainer = document.querySelector('.stats-container');
             if (statsContainer) {
@@ -1167,13 +1169,13 @@
             window.addEventListener('scroll', () => {
                 const header = document.querySelector('.header');
                 const currentScroll = window.pageYOffset;
-                
+
                 if (currentScroll > 50) {
                     header.classList.add('scrolled');
                 } else {
                     header.classList.remove('scrolled');
                 }
-                
+
                 lastScroll = currentScroll;
             });
 
@@ -1182,7 +1184,7 @@
                 const scrolled = window.pageYOffset;
                 const hero = document.querySelector('.teaching-hero');
                 const heroTitle = document.querySelector('.hero-title');
-                
+
                 if (hero && heroTitle) {
                     hero.style.transform = `translateY(${scrolled * 0.5}px)`;
                     heroTitle.style.transform = `translateY(${scrolled * -0.2}px)`;

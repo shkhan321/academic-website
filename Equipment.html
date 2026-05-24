@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Sanan H Khan | Laboratory Equipments</title>
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
-    
+
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
     <style>
         * {
             margin: 0;
@@ -50,7 +50,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
+            background:
                 radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.03) 0%, transparent 40%),
                 radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.03) 0%, transparent 40%);
             z-index: -2;
@@ -166,7 +166,7 @@
         .content-wrapper {
             padding: 4rem 0;
         }
-        
+
         /* Equipment Grid */
         .equipments-grid {
             display: grid;
@@ -185,7 +185,7 @@
             transition: all 0.3s ease;
             overflow: hidden;
         }
-        
+
         @media (min-width: 768px) {
             .equipment-card {
                 flex-direction: row;
@@ -236,13 +236,13 @@
             color: var(--text-secondary);
             text-align: center;
         }
-        
+
         .equipment-image-placeholder .icon {
             font-size: 3rem;
             margin-bottom: 1rem;
             color: var(--primary-color);
         }
-        
+
         .equipment-image-placeholder p {
             font-weight: 500;
         }
@@ -321,14 +321,14 @@
                 min-width: 100%;
             }
         }
-        
+
         /* Animation */
         .animate-on-load {
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
-        
+
         .animate-on-load.visible {
             opacity: 1;
             transform: translateY(0);
@@ -342,6 +342,8 @@
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="research.html">Research</a></li>
+                <li><a href="current-projects.html">Current Projects</a></li>
+                <li><a href="previous-projects.html">Previous Projects</a></li>
                 <li><a href="Equipment.html" class="active">Lab</a></li>
                 <li><a href="teaching.html">Teaching</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -388,7 +390,7 @@
                             <p>Our lab is equipped with a Dantec 2D Digital Image Correlation (DIC) setup, which is used for precise, full-field strain measurement during mechanical testing. This non-contact optical system enables accurate tracking of deformation patterns on the specimen surface. The DIC system is integrated with a Universal Testing Machine (UTM) manufactured by MTS, with a load capacity of 100 kN, allowing for high-precision mechanical characterization of composite and fiber metal laminate specimens under various loading conditions.</p>
                         </div>
                     </div>
-                    
+
                     <!-- Hand Lay-up method -->
                     <div class="equipment-card animate-on-load">
                         <div class="equipment-image">
@@ -443,7 +445,7 @@
                             <p>Surface cleaning at various stages is a crucial step in the preparation process, and for this purpose, our lab is equipped with an ultrasonic cleaner. A key advantage of this equipment is its ability to handle and thoroughly clean large specimens up to 200 × 200 mm in size, making it highly suitable for cleaning metal plates used in the fabrication of Fiber Metal Laminates (FMLs). The ultrasonic action ensures the effective removal of contaminants from the surface without causing damage.</p>
                         </div>
                     </div>
-                    
+
                     <!-- Bambu X1 3D Printer -->
                     <div class="equipment-card animate-on-load">
                         <div class="equipment-image">
@@ -454,7 +456,7 @@
                             <p>Our lab is equipped with the Bambu Lab X1 Carbon 3D printer, which combines industrial-level performance with user-friendly operation. This advanced printer is ideal for rapid prototyping, functional engineering components, and high-quality multi-material prints. Its speed, precision, and versatility make it suitable for both experienced users and beginners seeking reliable and professional results.</p>
                         </div>
                     </div>
-                    
+
                     <!-- Elegoo Laser Engraver -->
                     <div class="equipment-card animate-on-load">
                         <div class="equipment-image">
@@ -481,7 +483,7 @@
             // Mobile Menu Toggle
             const navToggle = document.getElementById('nav-toggle-button');
             const navLinks = document.querySelector('.nav-links');
-            
+
             navToggle.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
             });
