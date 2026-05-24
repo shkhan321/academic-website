@@ -416,6 +416,9 @@
             left: 0;
             width: 100%;
             height: 100%;
+            display: flex;
+            flex-direction: column;
+            background: var(--white);
             opacity: 0;
             visibility: hidden;
             transform: scale(0.95) rotateX(5deg);
@@ -438,36 +441,40 @@
 
         .slide img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: calc(100% - 76px);
+            object-fit: contain;
+            box-sizing: border-box;
+            padding: 0.75rem 0.75rem 0.25rem;
+            background: var(--white);
             display: block;
             cursor: pointer;
             transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .slide img:hover {
-            transform: scale(1.05);
+            transform: scale(1.02);
         }
 
         .slide-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
+            position: static;
             width: 100%;
-            background: linear-gradient(to top, rgba(15, 23, 42, 0.9), transparent);
-            backdrop-filter: blur(10px) saturate(180%);
-            -webkit-backdrop-filter: blur(10px) saturate(180%);
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--dark-bg);
             color: var(--white);
             text-align: center;
-            padding: 1.5rem;
+            padding: 0.7rem 1.1rem;
             font-weight: 600;
-            font-size: 1.1rem;
-            transform: translateY(100%);
+            font-size: 0.95rem;
+            line-height: 1.35;
+            transform: none;
             transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .slide.active .slide-caption {
-            transform: translateY(0);
+            transform: none;
         }
 
         /* Slideshow Navigation Dots */
@@ -1078,45 +1085,33 @@
                 <section id="current-research" class="content-section">
                     <h2>Current Research</h2>
                     <p class="section-description">
-                        My current research focuses on fiber metal laminates (FMLs) for aerospace structures, with a particular emphasis on impact resistance, fatigue behavior, and progressive damage modeling using fracture energy-based methods. I combine finite element simulations with experimental techniques to investigate the dynamic response of these advanced hybrid materials. In addition, my work explores the machining characteristics of shape memory alloys, fatigue life prediction in composite structures, and aerodynamic optimization of airfoils using AI-based approaches. This interdisciplinary research aims to advance the design of lightweight, durable, and high-performance materials for modern aerospace and mechanical engineering applications.
+                        My current research is centered on original experimental and computational studies in aerospace materials, smart structures, and aerodynamic optimization. The work combines impact and progressive damage modeling of layered composite and fiber-metal structures, flexural failure analysis of asymmetric CFRP laminates, shape-memory-alloy actuation for smart aircraft wings, and CFD/AI-based optimization of UAV airfoils. The figures below are selected from research papers and project-generated results, not review articles.
                     </p>
 
                     <div class="slideshow-container">
                         <div class="slide active">
-                            <img src="image7.png" alt="Finite Element Model of Impact Simulation" class="lightbox-trigger">
-                            <div class="slide-caption">Finite Element Model of a High-Velocity Impact Simulation with Multi-Zone Meshing</div>
+                            <img src="image7.png" alt="Finite element model for high-velocity impact simulation" class="lightbox-trigger">
+                            <div class="slide-caption">Layered aerospace structure impact model: high-velocity projectile simulation with multi-zone meshing.</div>
                         </div>
                         <div class="slide">
-                            <img src="image8.png" alt="Progressive Failure Analysis" class="lightbox-trigger">
-                            <div class="slide-caption">Progressive Failure Analysis Showing Mises Stress Distribution at Different Stages</div>
+                            <img src="image8.png" alt="Progressive failure analysis in layered composite structures" class="lightbox-trigger">
+                            <div class="slide-caption">Progressive failure map showing stress evolution and damage growth in composite/metal laminate systems.</div>
                         </div>
                         <div class="slide">
-                            <img src="image9.png" alt="Dishing and Plug Ejection Simulation" class="lightbox-trigger">
-                            <div class="slide-caption">Simulation of Dishing and Plug Ejection Mechanisms During Impact</div>
+                            <img src="image9.png" alt="Dishing and plug ejection simulation during impact" class="lightbox-trigger">
+                            <div class="slide-caption">Impact mechanics research: dishing, plug formation, and multi-plug ejection under projectile loading.</div>
                         </div>
                         <div class="slide">
-                            <img src="image5.jpg" alt="Deformation Profile Comparison" class="lightbox-trigger">
-                            <div class="slide-caption">Comparison of Experimental and Numerical Deformation Profiles in Bending Tests</div>
+                            <img src="image5.jpg" alt="Experimental and numerical CFRP laminate bending comparison" class="lightbox-trigger">
+                            <div class="slide-caption">Asymmetric CFRP laminate study: experimental and numerical deformation profile under flexural loading.</div>
                         </div>
                         <div class="slide">
-                            <img src="image4.jpg" alt="Damage Progression in Composites" class="lightbox-trigger">
-                            <div class="slide-caption">Predicted Damage Progression and Failure Modes in Various Composite Layups</div>
+                            <img src="image3.jpg" alt="CFRP laminate fabrication workflow" class="lightbox-trigger">
+                            <div class="slide-caption">Original CFRP laminate fabrication workflow used for flexural stiffness and failure-progression experiments.</div>
                         </div>
                         <div class="slide">
-                            <img src="image3.jpg" alt="Manufacturing Process of Composites" class="lightbox-trigger">
-                            <div class="slide-caption">Step-by-Step Manufacturing Process of Carbon Fiber Composite Samples</div>
-                        </div>
-                        <div class="slide">
-                            <img src="image2.jpg" alt="Three-Point Bending Test Setup" class="lightbox-trigger">
-                            <div class="slide-caption">Experimental Setup for Three-Point Bending Test on Composite Laminates</div>
-                        </div>
-                        <div class="slide">
-                            <img src="image1.jpg" alt="Finite Element Model of Bending Test" class="lightbox-trigger">
-                            <div class="slide-caption">Finite Element Model of the Three-Point Bending Test with Boundary Conditions</div>
-                        </div>
-                        <div class="slide">
-                            <img src="image6.jpg" alt="Failure Mode Analysis" class="lightbox-trigger">
-                            <div class="slide-caption">Microscopic Analysis of Failure Modes in Composite Specimens after Bending</div>
+                            <img src="research-uav-airfoil-efficiency.png" alt="Lift-to-drag comparison for NACA airfoils in UAV performance study" class="lightbox-trigger">
+                            <div class="slide-caption">UAV airfoil optimization research: CFD/XFOIL lift-to-drag comparison for NACA 2412, 4415, and 0012 airfoils.</div>
                         </div>
                     </div>
                     <div class="slideshow-dots"></div>
@@ -1228,6 +1223,20 @@
                             </p>
                         </div>
                         <div class="card animate-on-load">
+                            <h3>Khalifa Alkaabi</h3>
+                            <p>
+                                <span class="institution">MSc Candidate</span><br>
+                                <span class="year status-ongoing">Progressing</span>
+                            </p>
+                        </div>
+                        <div class="card animate-on-load">
+                            <h3>Madni Shifa Ulla</h3>
+                            <p>
+                                <span class="institution">PhD Candidate</span><br>
+                                <span class="year status-ongoing">Progressing</span>
+                            </p>
+                        </div>
+                        <div class="card animate-on-load">
                             <h3>Shaima Alhosani</h3>
                             <p>
                                 <span class="institution">MSc Graduate</span><br>
@@ -1246,20 +1255,6 @@
                             <p>
                                 <span class="institution">MSc Graduate</span><br>
                                 <span class="year status-completed">Completed</span>
-                            </p>
-                        </div>
-                        <div class="card animate-on-load">
-                            <h3>Khalifa</h3>
-                            <p>
-                                <span class="institution">MSc Candidate</span><br>
-                                <span class="year status-ongoing">Progressing</span>
-                            </p>
-                        </div>
-                        <div class="card animate-on-load">
-                            <h3>Madni Shifa Ulla</h3>
-                            <p>
-                                <span class="institution">PhD Candidate</span><br>
-                                <span class="year status-ongoing">Progressing</span>
                             </p>
                         </div>
                     </div>
@@ -1297,7 +1292,7 @@
     </main>
 
     <footer class="footer">
-        <p>© 2025 Sanan H Khan. All Rights Reserved.</p>
+        <p>© 2026 Sanan H Khan. All Rights Reserved.</p>
     </footer>
 
     <!-- JavaScript -->
@@ -1488,12 +1483,12 @@
 
                 const resetInterval = () => {
                     clearInterval(slideInterval);
-                    slideInterval = setInterval(showNextSlide, 8000); // 8 seconds
+                    slideInterval = setInterval(showNextSlide, 4000); // 4 seconds
                 };
 
                 // Initialize slideshow
                 showSlide(0);
-                slideInterval = setInterval(showNextSlide, 8000); // 8 seconds
+                slideInterval = setInterval(showNextSlide, 4000); // 4 seconds
 
                 // Pause on hover
                 const slideshowContainer = document.querySelector('.slideshow-container');
