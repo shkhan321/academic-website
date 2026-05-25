@@ -798,6 +798,87 @@
             letter-spacing: 2px;
         }
 
+        .scholar-trends {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .trend-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .trend-card h3 {
+            color: var(--text-primary);
+            font-size: 1.35rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .trend-note {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .bar-chart {
+            display: flex;
+            align-items: flex-end;
+            gap: 0.3rem;
+            min-height: 230px;
+            padding: 1rem 0.25rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            overflow-x: auto;
+        }
+
+        .bar-group {
+            min-width: 23px;
+            height: 210px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 0.45rem;
+        }
+
+        .bar-value {
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            min-height: 1rem;
+        }
+
+        .chart-bar {
+            width: 13px;
+            height: var(--bar-height);
+            min-height: 4px;
+            border-radius: 999px 999px 4px 4px;
+            background: var(--gradient-1);
+            box-shadow: 0 8px 18px rgba(37, 99, 235, 0.18);
+        }
+
+        .chart-bar.citation-bar {
+            background: var(--gradient-2);
+            box-shadow: 0 8px 18px rgba(139, 92, 246, 0.18);
+        }
+
+        .chart-bar.zero {
+            min-height: 2px;
+            background: #cbd5e1;
+            box-shadow: none;
+        }
+
+        .bar-year {
+            color: var(--text-secondary);
+            font-size: 0.72rem;
+            font-weight: 700;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+        }
+
         .google-scholar-link {
             text-align: center;
             font-size: 1.1rem;
@@ -1272,12 +1353,56 @@
                             <p>i10-index</p>
                         </div>
                         <div class="summary-item animate-on-load">
-                            <h3 data-target="985">0</h3>
+                            <h3 data-target="988">0</h3>
                             <p>Citations</p>
                         </div>
                         <div class="summary-item animate-on-load">
                             <h3 data-target="16">0</h3>
                             <p>h-index</p>
+                        </div>
+                    </div>
+                    <div class="scholar-trends animate-on-load">
+                        <div class="trend-card">
+                            <h3>Publications by Year</h3>
+                            <p class="trend-note">Derived from the 48 publications listed on Google Scholar, snapshot checked on May 25, 2026.</p>
+                            <div class="bar-chart" aria-label="Publications by year from Google Scholar">
+                                <div class="bar-group" title="2010: 1 publication"><span class="bar-value">1</span><span class="chart-bar" style="--bar-height: 6.7%;"></span><span class="bar-year">2010</span></div>
+                                <div class="bar-group" title="2011: 0 publications"><span class="bar-value">0</span><span class="chart-bar zero" style="--bar-height: 0%;"></span><span class="bar-year">2011</span></div>
+                                <div class="bar-group" title="2012: 2 publications"><span class="bar-value">2</span><span class="chart-bar" style="--bar-height: 13.3%;"></span><span class="bar-year">2012</span></div>
+                                <div class="bar-group" title="2013: 0 publications"><span class="bar-value">0</span><span class="chart-bar zero" style="--bar-height: 0%;"></span><span class="bar-year">2013</span></div>
+                                <div class="bar-group" title="2014: 1 publication"><span class="bar-value">1</span><span class="chart-bar" style="--bar-height: 6.7%;"></span><span class="bar-year">2014</span></div>
+                                <div class="bar-group" title="2015: 0 publications"><span class="bar-value">0</span><span class="chart-bar zero" style="--bar-height: 0%;"></span><span class="bar-year">2015</span></div>
+                                <div class="bar-group" title="2016: 0 publications"><span class="bar-value">0</span><span class="chart-bar zero" style="--bar-height: 0%;"></span><span class="bar-year">2016</span></div>
+                                <div class="bar-group" title="2017: 2 publications"><span class="bar-value">2</span><span class="chart-bar" style="--bar-height: 13.3%;"></span><span class="bar-year">2017</span></div>
+                                <div class="bar-group" title="2018: 4 publications"><span class="bar-value">4</span><span class="chart-bar" style="--bar-height: 26.7%;"></span><span class="bar-year">2018</span></div>
+                                <div class="bar-group" title="2019: 4 publications"><span class="bar-value">4</span><span class="chart-bar" style="--bar-height: 26.7%;"></span><span class="bar-year">2019</span></div>
+                                <div class="bar-group" title="2020: 1 publication"><span class="bar-value">1</span><span class="chart-bar" style="--bar-height: 6.7%;"></span><span class="bar-year">2020</span></div>
+                                <div class="bar-group" title="2021: 1 publication"><span class="bar-value">1</span><span class="chart-bar" style="--bar-height: 6.7%;"></span><span class="bar-year">2021</span></div>
+                                <div class="bar-group" title="2022: 4 publications"><span class="bar-value">4</span><span class="chart-bar" style="--bar-height: 26.7%;"></span><span class="bar-year">2022</span></div>
+                                <div class="bar-group" title="2023: 3 publications"><span class="bar-value">3</span><span class="chart-bar" style="--bar-height: 20%;"></span><span class="bar-year">2023</span></div>
+                                <div class="bar-group" title="2024: 6 publications"><span class="bar-value">6</span><span class="chart-bar" style="--bar-height: 40%;"></span><span class="bar-year">2024</span></div>
+                                <div class="bar-group" title="2025: 15 publications"><span class="bar-value">15</span><span class="chart-bar" style="--bar-height: 100%;"></span><span class="bar-year">2025</span></div>
+                                <div class="bar-group" title="2026: 4 publications"><span class="bar-value">4</span><span class="chart-bar" style="--bar-height: 26.7%;"></span><span class="bar-year">2026</span></div>
+                            </div>
+                        </div>
+                        <div class="trend-card">
+                            <h3>Citations by Year</h3>
+                            <p class="trend-note">Taken from the yearly citation chart on Google Scholar, snapshot checked on May 25, 2026.</p>
+                            <div class="bar-chart" aria-label="Citations by year from Google Scholar">
+                                <div class="bar-group" title="2014: 7 citations"><span class="bar-value">7</span><span class="chart-bar citation-bar" style="--bar-height: 2.8%;"></span><span class="bar-year">2014</span></div>
+                                <div class="bar-group" title="2015: 2 citations"><span class="bar-value">2</span><span class="chart-bar citation-bar" style="--bar-height: 0.8%;"></span><span class="bar-year">2015</span></div>
+                                <div class="bar-group" title="2016: 5 citations"><span class="bar-value">5</span><span class="chart-bar citation-bar" style="--bar-height: 2%;"></span><span class="bar-year">2016</span></div>
+                                <div class="bar-group" title="2017: 9 citations"><span class="bar-value">9</span><span class="chart-bar citation-bar" style="--bar-height: 3.6%;"></span><span class="bar-year">2017</span></div>
+                                <div class="bar-group" title="2018: 22 citations"><span class="bar-value">22</span><span class="chart-bar citation-bar" style="--bar-height: 8.8%;"></span><span class="bar-year">2018</span></div>
+                                <div class="bar-group" title="2019: 66 citations"><span class="bar-value">66</span><span class="chart-bar citation-bar" style="--bar-height: 26.5%;"></span><span class="bar-year">2019</span></div>
+                                <div class="bar-group" title="2020: 54 citations"><span class="bar-value">54</span><span class="chart-bar citation-bar" style="--bar-height: 21.7%;"></span><span class="bar-year">2020</span></div>
+                                <div class="bar-group" title="2021: 73 citations"><span class="bar-value">73</span><span class="chart-bar citation-bar" style="--bar-height: 29.3%;"></span><span class="bar-year">2021</span></div>
+                                <div class="bar-group" title="2022: 100 citations"><span class="bar-value">100</span><span class="chart-bar citation-bar" style="--bar-height: 40.2%;"></span><span class="bar-year">2022</span></div>
+                                <div class="bar-group" title="2023: 101 citations"><span class="bar-value">101</span><span class="chart-bar citation-bar" style="--bar-height: 40.6%;"></span><span class="bar-year">2023</span></div>
+                                <div class="bar-group" title="2024: 153 citations"><span class="bar-value">153</span><span class="chart-bar citation-bar" style="--bar-height: 61.4%;"></span><span class="bar-year">2024</span></div>
+                                <div class="bar-group" title="2025: 249 citations"><span class="bar-value">249</span><span class="chart-bar citation-bar" style="--bar-height: 100%;"></span><span class="bar-year">2025</span></div>
+                                <div class="bar-group" title="2026: 138 citations"><span class="bar-value">138</span><span class="chart-bar citation-bar" style="--bar-height: 55.4%;"></span><span class="bar-year">2026</span></div>
+                            </div>
                         </div>
                     </div>
                     <div class="google-scholar-link animate-on-load">
