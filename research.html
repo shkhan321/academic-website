@@ -1171,28 +1171,28 @@
 
                     <div class="slideshow-container">
                         <div class="slide active">
+                            <img src="image3.jpg" alt="CFRP laminate fabrication workflow" class="lightbox-trigger">
+                            <div class="slide-caption">CFRP laminate fabrication: lay-up, curing, cutting, and sample preparation.</div>
+                        </div>
+                        <div class="slide">
+                            <img src="image2.jpg" alt="Three-point bending test setup for CFRP laminate specimens" class="lightbox-trigger">
+                            <div class="slide-caption">Physical three-point bending test setup for asymmetric CFRP laminate specimens.</div>
+                        </div>
+                        <div class="slide">
+                            <img src="image1.jpg" alt="Finite element model of the CFRP laminate bending test" class="lightbox-trigger">
+                            <div class="slide-caption">Finite element bending model with ply-level mesh and boundary conditions.</div>
+                        </div>
+                        <div class="slide">
                             <img src="image7.png" alt="Finite element model for high-velocity impact simulation" class="lightbox-trigger">
-                            <div class="slide-caption">Layered aerospace structure impact model: high-velocity projectile simulation with multi-zone meshing.</div>
+                            <div class="slide-caption">High-velocity impact model for layered aerospace structures.</div>
                         </div>
                         <div class="slide">
-                            <img src="image8.png" alt="Progressive failure analysis in layered composite structures" class="lightbox-trigger">
-                            <div class="slide-caption">Progressive failure map showing stress evolution and damage growth in composite/metal laminate systems.</div>
-                        </div>
-                        <div class="slide">
-                            <img src="image9.png" alt="Dishing and plug ejection simulation during impact" class="lightbox-trigger">
-                            <div class="slide-caption">Impact mechanics research: dishing, plug formation, and multi-plug ejection under projectile loading.</div>
+                            <img src="image6.jpg" alt="Post-bending failure observations in CFRP laminate specimens" class="lightbox-trigger">
+                            <div class="slide-caption">Post-test failure observations showing fracture, delamination, and laminate damage paths.</div>
                         </div>
                         <div class="slide">
                             <img src="image5.jpg" alt="Experimental and numerical CFRP laminate bending comparison" class="lightbox-trigger">
-                            <div class="slide-caption">Asymmetric CFRP laminate study: experimental and numerical deformation profile under flexural loading.</div>
-                        </div>
-                        <div class="slide">
-                            <img src="image3.jpg" alt="CFRP laminate fabrication workflow" class="lightbox-trigger">
-                            <div class="slide-caption">Original CFRP laminate fabrication workflow used for flexural stiffness and failure-progression experiments.</div>
-                        </div>
-                        <div class="slide">
-                            <img src="research-uav-airfoil-efficiency.png" alt="Lift-to-drag comparison for NACA airfoils in UAV performance study" class="lightbox-trigger">
-                            <div class="slide-caption">UAV airfoil optimization research: CFD/XFOIL lift-to-drag comparison for NACA 2412, 4415, and 0012 airfoils.</div>
+                            <div class="slide-caption">Experimental and numerical deformation comparison under flexural loading.</div>
                         </div>
                     </div>
                     <div class="slideshow-dots"></div>
@@ -1608,12 +1608,12 @@
 
                 const resetInterval = () => {
                     clearInterval(slideInterval);
-                    slideInterval = setInterval(showNextSlide, 4000); // 4 seconds
+                    slideInterval = setInterval(showNextSlide, 3000); // 3 seconds
                 };
 
                 // Initialize slideshow
                 showSlide(0);
-                slideInterval = setInterval(showNextSlide, 4000); // 4 seconds
+                slideInterval = setInterval(showNextSlide, 3000); // 3 seconds
 
                 // Pause on hover
                 const slideshowContainer = document.querySelector('.slideshow-container');
