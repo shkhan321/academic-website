@@ -665,6 +665,38 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* ===== Research of the Month teaser ===== */
+        .rotm-teaser-card {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            background: var(--white, #fff);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(15,23,42,0.10);
+            border: 1px solid rgba(99,102,241,0.12);
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .rotm-teaser-card:hover { transform: translateY(-6px); box-shadow: 0 18px 36px rgba(15,23,42,0.16); }
+        .rotm-teaser-thumb { width: 100%; height: 200px; object-fit: cover; display: block; }
+        .rotm-teaser-body { padding: 1.75rem 2rem; }
+        .rotm-teaser-badge {
+            display: inline-flex; align-items: center; gap: 0.45rem;
+            background: var(--gradient-1, linear-gradient(135deg,#667eea,#764ba2));
+            color: #fff; font-weight: 700; font-size: 0.72rem;
+            letter-spacing: 0.05em; text-transform: uppercase;
+            padding: 0.35rem 0.85rem; border-radius: 999px; margin-bottom: 0.9rem;
+        }
+        .rotm-teaser-body h3 { font-size: 1.3rem; margin: 0 0 0.6rem; color: var(--text-primary, #1e293b); }
+        .rotm-teaser-body p { color: var(--text-secondary, #64748b); line-height: 1.6; margin: 0 0 0.9rem; }
+        .rotm-teaser-cta { font-weight: 600; color: var(--primary-color, #2563eb); display: inline-flex; align-items: center; gap: 0.4rem; }
+        @media (min-width: 768px) {
+            .rotm-teaser-card { flex-direction: row; align-items: stretch; }
+            .rotm-teaser-thumb { width: 320px; height: auto; min-height: 220px; flex-shrink: 0; }
+        }
     </style>
     <link rel="stylesheet" href="responsive.css">
 </head>
@@ -678,12 +710,12 @@
         <nav class="navbar container">
             <a href="index.html" class="nav-brand">Dr. Sanan H Khan</a>
             <ul class="nav-links">
-    <li><a href="/academic-website/index.html" class="active">Home</a></li>
-    <li><a href="/academic-website/research.html">Research</a></li>
-    <li><a href="/academic-website/projects.html">Projects</a></li>
-    <li><a href="/academic-website/Equipment.html">Lab</a></li>
-    <li><a href="/academic-website/teaching.html">Teaching</a></li>
-    <li><a href="/academic-website/contact.html">Contact</a></li>
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="Equipment.html">Lab</a></li>
+    <li><a href="teaching.html">Teaching</a></li>
+    <li><a href="contact.html">Contact</a></li>
 </ul>
             <button class="nav-toggle" id="nav-toggle-button" aria-label="Toggle Menu">
                 <i class="fas fa-bars"></i>
@@ -733,6 +765,23 @@
                     <p>
                         Dr. Sanan H. Khan is an Assistant Professor in the Department of Mechanical and Aerospace Engineering at United Arab Emirates University. He earned his Ph.D. in Solid Mechanics and Design from the Indian Institute of Technology Kanpur (IITK) in 2018. Prior to joining UAEU, he served as a postdoctoral researcher at IIT Delhi and as an Assistant Professor at Aligarh Muslim University. Dr. Khan's research interests include computational and experimental mechanics, focusing on impact dynamics, composite materials, and finite element methods for structural analysis. He has published extensively in high-impact international journals and is an active participant in global academic conferences.
                     </p>
+                </section>
+
+                <!-- ============================================================= -->
+                <!-- RESEARCH OF THE MONTH teaser (links to research.html section). -->
+                <!-- UPDATE MONTHLY together with the research.html highlight.      -->
+                <!-- ============================================================= -->
+                <section id="research-of-the-month-teaser" class="content-section fade-in-element">
+                    <h2>Research of the Month</h2>
+                    <a href="research.html#research-of-the-month" class="rotm-teaser-card">
+                        <img src="image5.jpg" alt="Asymmetric CFRP laminate under three-point bending: experiment vs. simulation" class="rotm-teaser-thumb" loading="lazy">
+                        <div class="rotm-teaser-body">
+                            <span class="rotm-teaser-badge"><i class="fas fa-star"></i> June 2026</span>
+                            <h3>Stacking-sequence effects in asymmetric CFRP laminates</h3>
+                            <p>Pairing three-point bending experiments with ply-level finite-element models to show how lay-up choices steer the flexural stiffness, damage progression, and energy absorption of carbon-fibre laminates.</p>
+                            <span class="rotm-teaser-cta">Explore this month's highlight <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
                 </section>
 
                 <section id="experience" class="content-section">
