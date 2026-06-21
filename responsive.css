@@ -544,3 +544,91 @@ body {
 .rotm-body {
     max-width: 70ch;
 }
+
+/* ============================================================
+   9. On-page quick navigation — "Jump to" links at the top of
+      long pages so visitors can reach a section without scrolling
+      to the bottom. Shared across Research, Teaching, Projects,
+      and Equipment.
+   ============================================================ */
+.section-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0 2.25rem;
+    padding: 0.65rem 0.8rem;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+}
+.section-nav-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #64748b;
+    margin-right: 0.15rem;
+}
+.section-nav a {
+    display: inline-block;
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    background: #f1f5f9;
+    border: 1px solid transparent;
+    color: #1d4ed8 !important;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.section-nav a:hover,
+.section-nav a:focus-visible {
+    background: #1d4ed8;
+    color: #ffffff !important;
+    border-color: #1d4ed8;
+}
+
+/* Sub-section groups (e.g. PhD / MSc students on the Research page). */
+.students-group + .students-group {
+    margin-top: 2rem;
+}
+.students-group-title {
+    font-size: 1.25rem;
+    margin: 0 0 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid #e5e7eb;
+    color: #13294b !important;
+}
+
+/* Offset anchor targets so headings aren't hidden under the fixed header. */
+section[id],
+.students-group[id],
+.equipment-card[id] {
+    scroll-margin-top: 90px;
+}
+
+/* Smooth in-page jumps (disabled automatically for users who have
+   prefers-reduced-motion set, via the media query earlier in this file). */
+html {
+    scroll-behavior: smooth;
+}
+
+/* On phones, keep the quick-nav as one swipeable row, not a tall stack. */
+@media (max-width: 768px) {
+    .section-nav {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        gap: 0.4rem;
+    }
+    .section-nav-label {
+        display: none;
+    }
+    .section-nav a {
+        flex: 0 0 auto;
+    }
+}
