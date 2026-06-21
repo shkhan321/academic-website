@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shkhan321.github.io/academic-website/sitemap.xml
