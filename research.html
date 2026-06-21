@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Sanan H Khan | Research</title>
+    <meta name="description" content="Research by Dr. Sanan H Khan: aerospace composites, impact and damage mechanics, smart structures, and CFD/AI optimization, with publications and a monthly research highlight.">
+    <meta name="author" content="Sanan H Khan">
+    <link rel="canonical" href="https://shkhan321.github.io/academic-website/research.html">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <!-- Open Graph / social sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Dr. Sanan H Khan">
+    <meta property="og:title" content="Dr. Sanan H Khan | Research">
+    <meta property="og:description" content="Research by Dr. Sanan H Khan: aerospace composites, impact and damage mechanics, smart structures, and CFD/AI optimization, with publications and a monthly research highlight.">
+    <meta property="og:url" content="https://shkhan321.github.io/academic-website/research.html">
+    <meta property="og:image" content="https://shkhan321.github.io/academic-website/Sanan11.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Dr. Sanan H Khan | Research">
+    <meta name="twitter:description" content="Research by Dr. Sanan H Khan: aerospace composites, impact and damage mechanics, smart structures, and CFD/AI optimization, with publications and a monthly research highlight.">
+    <meta name="twitter:image" content="https://shkhan321.github.io/academic-website/Sanan11.jpg">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,6 +28,7 @@
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+    <link rel="stylesheet" href="theme.css">
     <style>
         * {
             margin: 0;
@@ -20,29 +36,6 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --primary-color: #2563eb;
-            --secondary-color: #7c3aed;
-            --accent-color: #06b6d4;
-            --success-color: #10b981;
-            --warning-color: #f59e0b;
-            --dark-bg: #0f172a;
-            --light-bg: #f8fafc;
-            --text-primary: #1e293b;
-            --text-secondary: #64748b;
-            --white: #ffffff;
-            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --gradient-success: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
-            --gradient-warning: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
-            --shadow-lg: 0 10px 20px rgba(0,0,0,0.15);
-            --shadow-xl: 0 20px 40px rgba(0,0,0,0.2);
-            --shadow-2xl: 0 25px 50px rgba(0,0,0,0.25);
-            --shadow-inner: inset 0 2px 4px 0 rgba(0,0,0,0.06);
-        }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -1117,6 +1110,45 @@
         .animate-on-load:nth-child(5) { transition-delay: 0.5s; }
         .animate-on-load:nth-child(6) { transition-delay: 0.6s; }
 
+        /* ===== Research of the Month ===== */
+        .rotm-section { margin-bottom: 1rem; }
+        .rotm-card {
+            display: flex;
+            flex-direction: column;
+            background: var(--white, #fff);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg, 0 10px 20px rgba(0,0,0,0.15));
+            border: 1px solid rgba(99,102,241,0.12);
+            position: relative;
+        }
+        .rotm-card::before {
+            content: '';
+            position: absolute; left: 0; top: 0; bottom: 0;
+            width: 6px;
+            background: var(--gradient-1, linear-gradient(135deg,#667eea,#764ba2));
+        }
+        .rotm-media { flex: 1; min-height: 240px; }
+        .rotm-media img { width: 100%; height: 100%; object-fit: cover; cursor: zoom-in; display: block; }
+        .rotm-body { flex: 1.2; padding: 2.5rem; }
+        .rotm-badge {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: var(--gradient-1, linear-gradient(135deg,#667eea,#764ba2));
+            color: #fff; font-weight: 700; font-size: 0.8rem;
+            letter-spacing: 0.04em; text-transform: uppercase;
+            padding: 0.45rem 1rem; border-radius: 999px; margin-bottom: 1.1rem;
+        }
+        .rotm-title { font-size: 1.8rem; line-height: 1.25; margin: 0 0 1rem; color: var(--text-primary, #1e293b); }
+        .rotm-text { color: var(--text-secondary, #64748b); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem; }
+        .rotm-link {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            font-weight: 600; color: var(--primary-color, #2563eb);
+            text-decoration: none; transition: gap 0.25s ease, color 0.25s ease;
+        }
+        .rotm-link:hover { gap: 0.85rem; color: var(--secondary-color, #7c3aed); }
+        @media (min-width: 768px) {
+            .rotm-card { flex-direction: row; align-items: stretch; }
+        }
     </style>
     <link rel="stylesheet" href="responsive.css">
 </head>
@@ -1128,13 +1160,13 @@
     <div id="myLightbox" class="lightbox">
         <span class="lightbox-close">&times;</span>
         <div class="lightbox-content">
-            <img id="lightboxImg">
+            <img id="lightboxImg" alt="Enlarged research figure">
         </div>
     </div>
 
     <header class="header">
         <nav class="navbar container">
-            <a href="#" class="nav-brand">Dr. Sanan H Khan</a>
+            <a href="index.html" class="nav-brand">Dr. Sanan H Khan</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="research.html" class="active">Research</a></li>
@@ -1162,6 +1194,27 @@
 
         <div class="content-wrapper">
             <div class="container">
+
+                <!-- ============================================================= -->
+                <!-- RESEARCH OF THE MONTH                                         -->
+                <!-- UPDATE MONTHLY: change the badge date, image (src/alt),       -->
+                <!-- title, summary text, and the "Read the paper" link.           -->
+                <!-- ============================================================= -->
+                <section id="research-of-the-month" class="content-section rotm-section">
+                    <div class="rotm-card animate-on-load">
+                        <div class="rotm-media">
+                            <img src="image5.jpg" alt="Experimental and numerical deformation comparison of an asymmetric CFRP laminate under flexural loading" class="lightbox-trigger" loading="lazy">
+                        </div>
+                        <div class="rotm-body">
+                            <span class="rotm-badge"><i class="fas fa-star"></i> Research of the Month &middot; June 2026</span>
+                            <h2 class="rotm-title">Stacking-sequence effects in asymmetric CFRP laminates</h2>
+                            <p class="rotm-text">
+                                How should a carbon-fibre laminate be stacked so that it bends predictably and fails gracefully? This month's highlight pairs physical three-point bending tests with ply-level finite-element models to reveal how the stacking sequence of asymmetric CFRP laminates governs their flexural stiffness, the progression of damage, and the energy absorbed before failure &mdash; insight that feeds directly into lighter, tougher aerospace structures.
+                            </p>
+                            <a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=shZtM0QAAAAJ&amp;pagesize=100&amp;sortby=pubdate&amp;citation_for_view=shZtM0QAAAAJ:HoB7MX3m0LUC" target="_blank" rel="noopener noreferrer" class="rotm-link">Read the paper <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </section>
 
                 <!-- CURRENT RESEARCH SECTION WITH SLIDESHOW -->
                 <section id="current-research" class="content-section">
@@ -1195,6 +1248,10 @@
                             <img src="image5.jpg" alt="Experimental and numerical CFRP laminate bending comparison" class="lightbox-trigger">
                             <div class="slide-caption">Experimental and numerical deformation comparison under flexural loading.</div>
                         </div>
+                        <div class="slide">
+                            <img src="research-uav-airfoil-efficiency.jpg" alt="Aerodynamic efficiency (CL/CD vs angle of attack) of candidate UAV airfoils from CFD and XFOIL" class="lightbox-trigger" loading="lazy">
+                            <div class="slide-caption">CFD and XFOIL lift-to-drag (CL/CD) comparison of candidate UAV airfoils across Reynolds numbers.</div>
+                        </div>
                     </div>
                     <div class="slideshow-dots"></div>
                 </section>
@@ -1226,6 +1283,14 @@
                                 <a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=shZtM0QAAAAJ&amp;pagesize=100&amp;sortby=pubdate&amp;citation_for_view=shZtM0QAAAAJ:xtRiw3GOFMkC" target="_blank" rel="noopener noreferrer">Addressing durability and recyclability challenges in Type IV hydrogen pressure vessels through interface monitoring and thermoplastic matrix design</a>
                             </h3>
                             <p class="pub-details"><em>International Journal of Hydrogen Energy</em>, Volume 239, 155422, 2026.</p>
+                        </div>
+
+                        <div class="publication-item animate-on-load">
+                            <p class="pub-authors">Husain, A., Mourad, A. H. I., & Khan, S. H.</p>
+                            <h3 class="pub-title">
+                                <a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=shZtM0QAAAAJ&amp;pagesize=100&amp;sortby=pubdate&amp;citation_for_view=shZtM0QAAAAJ:KxtntwgDAa4C" target="_blank" rel="noopener noreferrer">Advanced manufacturing of fiber metal laminates: A review of fabrication strategies, interfacial control, and future outlook</a>
+                            </h3>
+                            <p class="pub-details"><em>Science Progress</em>, Volume 109(2), 2026.</p>
                         </div>
 
                         <div class="publication-item animate-on-load">
@@ -1282,6 +1347,38 @@
                                 <a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=shZtM0QAAAAJ&amp;pagesize=100&amp;sortby=pubdate&amp;citation_for_view=shZtM0QAAAAJ:g5m5HwL7SMYC" target="_blank" rel="noopener noreferrer">Evaluating the Mechanical Properties and Process Capability Analysis of Acrylonitrile Butadiene Styrene Components Produced by Fused Deposition Modeling Technology</a>
                             </h3>
                             <p class="pub-details"><em>Journal of Materials Engineering and Performance</em>, Volume 34(24), 30334&ndash;30350, 2025.</p>
+                        </div>
+
+                        <div class="publication-item animate-on-load">
+                            <p class="pub-authors">Abualbandora, T. A., Alshneeqat, M. G., Mourad, A. H. I., Hassan, A. A., & Khan, S. H.</p>
+                            <h3 class="pub-title">
+                                <a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=shZtM0QAAAAJ&amp;pagesize=100&amp;sortby=pubdate&amp;citation_for_view=shZtM0QAAAAJ:EUQCXRtRnyEC" target="_blank" rel="noopener noreferrer">Structural Design and Failure analysis of a polymeric pressure vessel with Non-Uniform Wall Thickness</a>
+                            </h3>
+                            <p class="pub-details"><em>Research Square</em> (preprint), 2025.</p>
+                        </div>
+
+                        <div class="publication-item animate-on-load">
+                            <p class="pub-authors">Husain, A., Khan, S. H., & Mourad, A. H. I.</p>
+                            <h3 class="pub-title">
+                                <a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=shZtM0QAAAAJ&amp;pagesize=100&amp;sortby=pubdate&amp;citation_for_view=shZtM0QAAAAJ:HoB7MX3m0LUC" target="_blank" rel="noopener noreferrer">Stacking sequence effects on flexural stiffness, failure progression, and energy absorption in asymmetric CFRP laminates</a>
+                            </h3>
+                            <p class="pub-details"><em>Results in Engineering</em>, Volume 27, 2025.</p>
+                        </div>
+
+                        <div class="publication-item animate-on-load">
+                            <p class="pub-authors">Husain, A., Al Farsi, L., Alshamsi, M., & Khan, S. H.</p>
+                            <h3 class="pub-title">
+                                <a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=shZtM0QAAAAJ&amp;pagesize=100&amp;sortby=pubdate&amp;citation_for_view=shZtM0QAAAAJ:cFHS6HbyZ2cC" target="_blank" rel="noopener noreferrer">Designing and testing shape memory alloy actuators for smart aircraft wings</a>
+                            </h3>
+                            <p class="pub-details"><em>Transportation Engineering</em>, 100374, 2025.</p>
+                        </div>
+
+                        <div class="publication-item animate-on-load">
+                            <p class="pub-authors">Arif, U., Khan, I. A., Hasan, F., Husain, A., & Khan, S. H.</p>
+                            <h3 class="pub-title">
+                                <a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=shZtM0QAAAAJ&amp;pagesize=100&amp;sortby=pubdate&amp;citation_for_view=shZtM0QAAAAJ:bFI3QPDXJZMC" target="_blank" rel="noopener noreferrer">Effects of EDM parameters on residual stress and microhardness in Al-10% SiC<sub>micro</sub>-SiC<sub>nano</sub> hybrid composites: A Simulation and Experimental study</a>
+                            </h3>
+                            <p class="pub-details"><em>Results in Engineering</em>, Volume 26, 2025.</p>
                         </div>
 
                     </div>
@@ -1354,7 +1451,7 @@
                             <p>i10-index</p>
                         </div>
                         <div class="summary-item animate-on-load">
-                            <h3 data-target="1027">0</h3>
+                            <h3 data-target="1033">0</h3>
                             <p>Citations</p>
                         </div>
                         <div class="summary-item animate-on-load">
@@ -1365,7 +1462,7 @@
                     <div class="scholar-trends animate-on-load">
                         <div class="trend-card">
                             <h3>Publications by Year</h3>
-                            <p class="trend-note">Derived from the 51 publications listed on Google Scholar, snapshot checked on June 16, 2026.</p>
+                            <p class="trend-note">Derived from the 51 publications listed on Google Scholar, snapshot checked on June 21, 2026.</p>
                             <div class="bar-chart" aria-label="Publications by year from Google Scholar">
                                 <div class="bar-group" title="2010: 1 publication"><span class="bar-value">1</span><span class="chart-bar" style="--bar-height: 6.7%;"></span><span class="bar-year">2010</span></div>
                                 <div class="bar-group" title="2011: 0 publications"><span class="bar-value">0</span><span class="chart-bar zero" style="--bar-height: 0%;"></span><span class="bar-year">2011</span></div>
