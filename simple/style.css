@@ -1,0 +1,100 @@
+/* Simple, classic academic homepage theme.
+   Plain cream background, serif type, minimal colour. No animations. */
+
+:root {
+    --ink:   #1c1b18;
+    --muted: #565248;
+    --accent:#6b1d1d;   /* classic maroon for headings/rules */
+    --link:  #0b3d91;   /* classic academic blue */
+    --rule:  #d9d3c2;
+    --bg:    #f4f1e8;   /* simple soft cream background */
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 17px/1.65 Georgia, "Times New Roman", Times, serif;
+}
+
+.wrap { max-width: 820px; margin: 0 auto; padding: 0 22px; }
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ---- Header / identity block ---- */
+header.site { padding: 36px 0 0; }
+
+.id { display: flex; gap: 26px; align-items: flex-start; flex-wrap: wrap; }
+
+.id img {
+    width: 150px; height: auto;
+    border: 1px solid #cdc6b3;
+    background: #fff; padding: 4px; border-radius: 3px;
+}
+
+.id h1 { margin: 0 0 6px; font-size: 31px; font-weight: 700; letter-spacing: .2px; }
+
+.id .role { margin: 0; color: var(--muted); line-height: 1.5; }
+
+.id .contact { margin: 12px 0 0; font-size: 15px; color: var(--muted); line-height: 1.7; }
+
+/* ---- Navigation bar ---- */
+nav.bar {
+    margin: 24px 0 0;
+    border-top: 2px solid var(--accent);
+    border-bottom: 1px solid var(--rule);
+    padding: 9px 0;
+}
+nav.bar a {
+    margin-right: 20px;
+    font: 600 14px/1 Arial, Helvetica, sans-serif;
+    letter-spacing: .3px;
+    color: var(--ink);
+    text-transform: uppercase;
+}
+nav.bar a:hover { color: var(--accent); text-decoration: none; }
+
+/* ---- Sections ---- */
+section { padding: 28px 0 2px; }
+
+h2 {
+    font-size: 21px; margin: 0 0 .6rem;
+    color: var(--accent);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 6px;
+}
+
+p { margin: .55rem 0; }
+
+ul { margin: .45rem 0; padding-left: 1.3rem; }
+li { margin: .32rem 0; }
+
+.lede { font-size: 15px; color: var(--muted); }
+
+/* Publication entries: hanging indent, like a reference list */
+.pub { margin: .6rem 0; padding-left: 1.5rem; text-indent: -1.5rem; }
+.pub em { color: #3a372f; }
+
+/* Two-column course list */
+.courses { columns: 2; column-gap: 2rem; margin: .5rem 0; }
+.courses li { break-inside: avoid; }
+
+footer {
+    margin: 34px 0 56px;
+    border-top: 1px solid var(--rule);
+    padding-top: 14px;
+    color: var(--muted); font-size: 14px;
+}
+
+@media (max-width: 600px) {
+    body { font-size: 16px; }
+    .id img { width: 120px; }
+    .id h1 { font-size: 26px; }
+    .courses { columns: 1; }
+    nav.bar a { margin-right: 14px; }
+}
