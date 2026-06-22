@@ -632,3 +632,23 @@ html {
         flex: 0 0 auto;
     }
 }
+
+/* 10. Consistent academic-profile links in the footer (dark bg -> light links). */
+.footer-links { display:flex; flex-wrap:wrap; justify-content:center; gap:0.4rem 1.5rem; margin:0 0 0.75rem; }
+.footer-links a { color:#cbd5e1 !important; text-decoration:none; font-weight:600; font-size:0.95rem; }
+.footer-links a:hover, .footer-links a:focus-visible { color:#ffffff !important; text-decoration:underline; }
+
+/* 11. Simple bulleted lists in content sections. */
+.collab-list { margin: 1rem 0 0.6rem 1.3rem; }
+.collab-list li { list-style: disc; margin-bottom: 0.5rem; color: #374151; line-height: 1.55; }
+
+/* 12. Lab "contact for use" note. */
+.lab-note { background:#eff6ff; border-left:4px solid #1d4ed8; border-radius:8px; padding:0.9rem 1.1rem; margin:0 0 1.75rem; color:#1e3a8a; }
+.lab-note a { color:#1d4ed8; font-weight:600; }
+
+/* 13. Homepage email + research keywords; guard headings against clipping. */
+.hero-email { font-size: 1.05rem; margin: 0.25rem 0 0.6rem; }
+.hero-email a { color: #1d4ed8 !important; font-weight: 600; text-decoration: none; }
+.hero-email a:hover { text-decoration: underline; }
+.hero-keywords { font-size: 0.95rem; color: #475569; margin: 0 0 1.4rem; line-height: 1.55; max-width: 62ch; }
+.hero-text h1, .page-title h1, .hero-title h1 { line-height: 1.16; padding-bottom: 0.08em; overflow: visible; }
