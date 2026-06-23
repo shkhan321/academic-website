@@ -17,7 +17,7 @@ header.site { display:flex; gap:24px; align-items:center;
               padding:26px 0 18px; border-bottom:3px solid var(--accent); }
 header.site img.me { width:118px; height:auto; flex:0 0 auto; border:1px solid #cdc6b3; background:#fff; padding:4px; border-radius:3px; }
 header.site > div { flex:1 1 auto; min-width:0; }
-header.site img.uaeu { width:190px; height:auto; flex:0 0 auto; }
+header.site img.uaeu { width:250px; max-width:100%; height:auto; flex:0 0 auto; }
 header.site h1 { margin:0 0 4px; font-size:30px; }
 header.site .role { margin:0; color:var(--muted); line-height:1.5; }
 header.site .phd { margin:7px 0 0; font-weight:bold; color:var(--accent); }
