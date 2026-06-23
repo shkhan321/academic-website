@@ -1,85 +1,96 @@
-/* Simple, classic faculty-page theme: top header + left sidebar nav,
-   separate pages, plain cream background, serif type, no animations. */
+/* UAEU-branded academic site theme: university red + grey + white, clean sans-serif.
+   Structure/layout unchanged from the previous theme — colours, type, and accents only. */
 
 :root {
-    --ink:#1c1b18; --muted:#565248; --accent:#6b1d1d;
-    --link:#0b3d91; --rule:#d9d3c2; --bg:#f4f1e8; --side:#ece5d4;
+    --ink:#222629; --muted:#5a6068;
+    --red:#c8102e; --red-dark:#9e0c24;
+    --link:#b01228; --rule:#e3e6e9;
+    --bg:#ffffff; --side:#fbecee; --band:#f4f6f8;
 }
+
 * { box-sizing: border-box; }
-body { margin:0; background:var(--bg); color:var(--ink);
-       font:17px/1.65 Georgia,"Times New Roman",Times,serif; }
-a { color:var(--link); text-decoration:none; }
-a:hover { text-decoration:underline; }
-.wrap { max-width:980px; margin:0 auto; padding:0 20px; }
+html { -webkit-text-size-adjust: 100%; }
 
-/* top header band */
-header.site { display:flex; gap:24px; align-items:center;
-              padding:26px 0 18px; border-bottom:3px solid var(--accent); }
-header.site img.me { width:118px; height:auto; flex:0 0 auto; border:1px solid #cdc6b3; background:#fff; padding:4px; border-radius:3px; }
-header.site > div { flex:1 1 auto; min-width:0; }
-header.site img.uaeu { width:190px; height:auto; flex:0 0 auto; }
-header.site h1 { margin:0 0 4px; font-size:30px; }
-header.site .role { margin:0; color:var(--muted); line-height:1.5; }
-header.site .phd { margin:7px 0 0; font-weight:bold; color:var(--accent); }
-
-/* body: sidebar + main */
-.body { display:flex; gap:30px; align-items:flex-start; }
-nav.side { flex:0 0 188px; padding:20px 0; }
-nav.side a { display:block; padding:7px 12px; color:var(--ink);
-             font:600 15px/1.25 Arial,Helvetica,sans-serif;
-             border-left:3px solid transparent; }
-nav.side a:hover { background:var(--side); text-decoration:none; }
-nav.side a.active { border-left-color:var(--accent); color:var(--accent); background:var(--side); }
-nav.side .ext { margin-top:14px; padding-top:12px; border-top:1px solid var(--rule); }
-nav.side .ext a { font:normal 14px/1.3 Georgia,serif; color:var(--link);
-                  border-left:none; padding:4px 12px; }
-main.content { flex:1 1 auto; padding:20px 0 40px; min-width:0; }
-
-h2 { font-size:21px; color:var(--accent); border-bottom:1px solid var(--rule);
-     padding-bottom:6px; margin:1.4rem 0 .6rem; }
-h2:first-child { margin-top:.2rem; }
-p { margin:.55rem 0; }
-ul { margin:.45rem 0; padding-left:1.3rem; } li { margin:.32rem 0; }
-.lede { font-size:15px; color:var(--muted); }
-.pub { margin:.6rem 0; padding-left:1.5rem; text-indent:-1.5rem; }
-.pub em { color:#3a372f; }
-.courses { columns:2; column-gap:2rem; } .courses li { break-inside:avoid; }
-footer { border-top:1px solid var(--rule); padding:14px 0 50px; color:var(--muted); font-size:14px; }
-
-@media (max-width:720px) {
-    body { font-size:16px; }
-    header.site { flex-direction:column; text-align:center; }
-    .body { flex-direction:column; gap:0; }
-    nav.side { flex-basis:auto; display:flex; flex-wrap:wrap; gap:4px;
-               border-bottom:1px solid var(--rule); padding:10px 0; }
-    nav.side a { border-left:none; border-bottom:3px solid transparent; }
-    nav.side a.active { border-left:none; border-bottom-color:var(--accent); }
-    nav.side .ext { display:flex; gap:12px; margin:0; border:none; padding:6px 0; }
-    .courses { columns:1; }
+body {
+    margin: 0;
+    border-top: 4px solid var(--red);          /* UAEU red brand stripe */
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.6 "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
-/* equipment photo grid (Lab page) */
-.equip-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:1rem 1.1rem; margin:1.1rem 0 1.5rem; }
-.equip-item { margin:0; }
-.equip-item img { display:block; width:100%; height:135px; object-fit:cover; border:1px solid #cdc6b3; background:#fff; border-radius:3px; }
-.equip-item img.contain { object-fit:contain; padding:8px; }
-.equip-item figcaption { margin-top:.35rem; font-size:13.5px; line-height:1.3; color:var(--ink); }
-@media (max-width:480px) { .equip-grid { grid-template-columns:repeat(2,1fr); } .equip-item img { height:110px; } }
+.wrap { max-width: 980px; margin: 0 auto; padding: 0 20px; }
 
-/* research projects table (Home page) */
-.ptable { width:100%; border-collapse:collapse; margin:.6rem 0 1rem; font-size:15px; }
-.ptable th, .ptable td { border:1px solid var(--rule); padding:7px 10px; text-align:left; vertical-align:top; }
-.ptable thead th { background:var(--side); color:var(--accent); }
-.ptable tbody tr:nth-child(even) { background:#faf8f1; }
-.ptable .st-ongoing { color:#0b6b2e; font-weight:bold; white-space:nowrap; }
-.ptable .st-done { color:var(--muted); white-space:nowrap; }
-@media (max-width:600px) { .ptable { font-size:13px; } .ptable th, .ptable td { padding:5px 6px; } }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
 
-.pubyear { font-size:18px; color:var(--accent); font-weight:bold; margin:1.4rem 0 .3rem; border-bottom:1px dotted var(--rule); padding-bottom:3px; }
+/* ---- Header ---- */
+header.site { display: flex; gap: 24px; align-items: center; padding: 24px 0 18px; border-bottom: 3px solid var(--red); }
+header.site img.me { width: 118px; height: auto; flex: 0 0 auto; border: 1px solid #dcdfe2; background: #fff; padding: 4px; border-radius: 3px; }
+header.site > div { flex: 1 1 auto; min-width: 0; }
+header.site h1 { margin: 0 0 5px; font-size: 29px; font-weight: 700; color: #1a1d20; }
+header.site .role { margin: 0; color: var(--muted); line-height: 1.5; }
+header.site .phd { margin: 7px 0 0; font-weight: 700; color: var(--red); }
+header.site img.uaeu { width: 190px; height: auto; flex: 0 0 auto; }
 
-/* PhD recruitment callout (Home page) */
-.callout { background:#fbf2e9; border:1px solid #e6cbb2; border-left:5px solid var(--accent);
-           border-radius:6px; padding:1rem 1.2rem 1.05rem; margin:1.3rem 0 1.6rem; }
-.callout h2 { margin:0 0 .5rem; border:none; padding:0; }
-.callout p { margin:.5rem 0; }
-.callout p:last-child { margin-bottom:0; }
+/* ---- Body + sidebar nav ---- */
+.body { display: flex; gap: 30px; align-items: flex-start; }
+nav.side { flex: 0 0 190px; padding: 20px 0; }
+nav.side a { display: block; padding: 8px 12px; color: var(--ink); font-weight: 600; font-size: 15px; border-left: 3px solid transparent; }
+nav.side a:hover { background: var(--band); text-decoration: none; }
+nav.side a.active { border-left-color: var(--red); color: var(--red); background: var(--side); }
+nav.side .ext { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--rule); }
+nav.side .ext a { font-weight: 400; font-size: 14px; color: var(--link); border-left: none; padding: 5px 12px; }
+main.content { flex: 1 1 auto; padding: 20px 0 40px; min-width: 0; }
+
+/* ---- Content ---- */
+h2 { font-size: 21px; color: var(--red-dark); margin: 1.5rem 0 .6rem; padding-bottom: 6px; border-bottom: 2px solid var(--rule); }
+h2:first-child { margin-top: .2rem; }
+p { margin: .55rem 0; }
+ul { margin: .45rem 0; padding-left: 1.25rem; } li { margin: .32rem 0; }
+.lede { font-size: 14.5px; color: var(--muted); }
+
+/* Publications */
+.pubyear { font-size: 18px; color: var(--red); font-weight: 700; margin: 1.4rem 0 .3rem; border-bottom: 1px solid var(--rule); padding-bottom: 3px; }
+.pub { margin: .6rem 0; padding-left: 1.5rem; text-indent: -1.5rem; }
+.pub em { color: #3a3f44; font-style: italic; }
+
+/* Teaching */
+.courses { columns: 2; column-gap: 2rem; } .courses li { break-inside: avoid; }
+
+/* Equipment photo grid */
+.equip-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 1rem 1.1rem; margin: 1.1rem 0 1.5rem; }
+.equip-item { margin: 0; }
+.equip-item img { display: block; width: 100%; height: 135px; object-fit: cover; border: 1px solid #dcdfe2; background: #fff; border-radius: 3px; }
+.equip-item img.contain { object-fit: contain; padding: 8px; }
+.equip-item figcaption { margin-top: .35rem; font-size: 13.5px; line-height: 1.3; color: var(--ink); }
+
+/* Research projects table */
+.ptable { width: 100%; border-collapse: collapse; margin: .6rem 0 1rem; font-size: 14.5px; }
+.ptable th, .ptable td { border: 1px solid var(--rule); padding: 8px 10px; text-align: left; vertical-align: top; }
+.ptable thead th { background: var(--red); color: #fff; border-color: var(--red); }
+.ptable tbody tr:nth-child(even) { background: var(--band); }
+.ptable .st-ongoing { color: #0b6b2e; font-weight: 700; white-space: nowrap; }
+.ptable .st-done { color: var(--muted); white-space: nowrap; }
+
+/* PhD recruitment callout */
+.callout { background: var(--side); border: 1px solid #efc9cf; border-left: 5px solid var(--red); border-radius: 6px; padding: 1rem 1.2rem 1.05rem; margin: 1.3rem 0 1.6rem; }
+.callout h2 { margin: 0 0 .5rem; border: none; padding: 0; color: var(--red-dark); }
+.callout p { margin: .5rem 0; }
+.callout p:last-child { margin-bottom: 0; }
+
+/* Footer */
+footer { border-top: 3px solid var(--red); padding: 14px 0 50px; color: var(--muted); font-size: 13.5px; margin-top: 10px; }
+
+/* ---- Responsive ---- */
+@media (max-width: 720px) {
+    header.site { flex-direction: column; text-align: center; }
+    .body { flex-direction: column; gap: 0; }
+    nav.side { flex-basis: auto; display: flex; flex-wrap: wrap; gap: 4px; border-bottom: 1px solid var(--rule); padding: 10px 0; }
+    nav.side a { border-left: none; border-bottom: 3px solid transparent; }
+    nav.side a.active { border-left: none; border-bottom-color: var(--red); }
+    nav.side .ext { display: flex; gap: 12px; margin: 0; border: none; padding: 6px 0; }
+    .courses { columns: 1; }
+}
+@media (max-width: 600px) { .ptable { font-size: 13px; } .ptable th, .ptable td { padding: 6px 7px; } }
+@media (max-width: 480px) { .equip-grid { grid-template-columns: repeat(2, 1fr); } .equip-item img { height: 110px; } }
