@@ -72,3 +72,5 @@ footer { border-top:1px solid var(--rule); padding:14px 0 50px; color:var(--mute
 .ptable .st-ongoing { color:#0b6b2e; font-weight:bold; white-space:nowrap; }
 .ptable .st-done { color:var(--muted); white-space:nowrap; }
 @media (max-width:600px) { .ptable { font-size:13px; } .ptable th, .ptable td { padding:5px 6px; } }
+
+.pubyear { font-size:18px; color:var(--accent); font-weight:bold; margin:1.4rem 0 .3rem; border-bottom:1px dotted var(--rule); padding-bottom:3px; }
