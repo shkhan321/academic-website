@@ -20,6 +20,7 @@ header.site > div { flex:1 1 auto; min-width:0; }
 header.site img.uaeu { width:250px; max-width:100%; height:auto; flex:0 0 auto; }
 header.site h1 { margin:0 0 4px; font-size:30px; }
 header.site .role { margin:0; color:var(--muted); line-height:1.5; }
+header.site .edu { margin:1px 0 6px; font-style:italic; font-size:14px; color:var(--muted); }
 header.site .phd { margin:7px 0 0; font-weight:bold; color:var(--accent); }
 
 /* body: sidebar + main */
