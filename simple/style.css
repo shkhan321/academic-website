@@ -56,3 +56,19 @@ footer { border-top:1px solid var(--rule); padding:14px 0 50px; color:var(--mute
     nav.side .ext { display:flex; gap:12px; margin:0; border:none; padding:6px 0; }
     .courses { columns:1; }
 }
+
+/* stacked equipment photos (Lab page) */
+.equip { margin:1.6rem 0 2rem; }
+.equip img { display:block; width:100%; max-width:520px; height:auto;
+             border:1px solid #cdc6b3; background:#fff; padding:5px; border-radius:3px; }
+.equip h3 { margin:.7rem 0 .15rem; font-size:18px; color:var(--ink); }
+.equip p { margin:.15rem 0; color:var(--muted); max-width:660px; }
+
+/* research projects table (Home page) */
+.ptable { width:100%; border-collapse:collapse; margin:.6rem 0 1rem; font-size:15px; }
+.ptable th, .ptable td { border:1px solid var(--rule); padding:7px 10px; text-align:left; vertical-align:top; }
+.ptable thead th { background:var(--side); color:var(--accent); }
+.ptable tbody tr:nth-child(even) { background:#faf8f1; }
+.ptable .st-ongoing { color:#0b6b2e; font-weight:bold; white-space:nowrap; }
+.ptable .st-done { color:var(--muted); white-space:nowrap; }
+@media (max-width:600px) { .ptable { font-size:13px; } .ptable th, .ptable td { padding:5px 6px; } }
