@@ -50,7 +50,7 @@ footer { border-top:1px solid var(--rule); padding:14px 0 50px; color:var(--mute
 @media (max-width:720px) {
     body { font-size:16px; }
     header.site { flex-direction:column; text-align:center; }
-    .body { flex-direction:column; gap:0; }
+    .body { flex-direction:column; align-items:stretch; gap:0; }
     nav.side { flex-basis:auto; display:flex; flex-wrap:wrap; gap:4px;
                border-bottom:1px solid var(--rule); padding:10px 0; }
     nav.side a { border-left:none; border-bottom:3px solid transparent; }
@@ -64,12 +64,13 @@ footer { border-top:1px solid var(--rule); padding:14px 0 50px; color:var(--mute
 .equip-item { margin:0; }
 .equip-item img { display:block; width:100%; height:135px; object-fit:cover; border:1px solid #cdc6b3; background:#fff; border-radius:3px; }
 .equip-item img.contain { object-fit:contain; padding:8px; }
+.equip-item img.upper { object-position:center 26%; }
 .equip-item figcaption { margin-top:.35rem; font-size:13.5px; line-height:1.3; color:var(--ink); }
 @media (max-width:480px) { .equip-grid { grid-template-columns:repeat(2,1fr); } .equip-item img { height:110px; } }
 
 .twrap { overflow-x:auto; -webkit-overflow-scrolling:touch; }
 
-/* research projects table (Home page) */
+/* research projects table (Research page) */
 .ptable { width:100%; border-collapse:collapse; margin:.6rem 0 1rem; font-size:15px; }
 .ptable th, .ptable td { border:1px solid var(--rule); padding:7px 10px; text-align:left; vertical-align:top; }
 .ptable thead th { background:var(--side); color:var(--accent); }
@@ -78,7 +79,9 @@ footer { border-top:1px solid var(--rule); padding:14px 0 50px; color:var(--mute
 .ptable .st-done { color:var(--muted); white-space:nowrap; }
 @media (max-width:600px) { .ptable { font-size:13px; } .ptable th, .ptable td { padding:5px 6px; } }
 
-.pubyear { font-size:18px; color:var(--accent); font-weight:bold; margin:1.4rem 0 .3rem; border-bottom:1px dotted var(--rule); padding-bottom:3px; }
+.pubyear { font-size:18px; color:var(--accent); font-weight:bold; margin:1.4rem 0 .3rem; border-bottom:1px dotted var(--rule); padding-bottom:3px; scroll-margin-top:12px; }
+.pubjump { font-size:14px; color:var(--muted); line-height:1.9; margin:.3rem 0 .2rem; }
+.pubjump a { white-space:nowrap; }
 
 /* PhD recruitment callout (Home page) */
 .callout { background:#fbf2e9; border:1px solid #e6cbb2; border-left:5px solid var(--accent);
